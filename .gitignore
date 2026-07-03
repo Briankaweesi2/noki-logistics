@@ -1,0 +1,4 @@
+.DS_Store
+_stock-backup/
+*.zip
+node_modules/
