@@ -1,0 +1,27 @@
+name: Deploy to WordPress
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Deployer for Git
+        run: |
+          # Give GitHub a moment to generate the fresh zip for this push.
+          sleep 10
+          curl -s -o response.json -w "%{http_code}" \
+            --max-time 90 \
+            "${{ secrets.DFG_THEME_DEPLOY_URL }}" > http_code.txt
+          HTTP_CODE=$(cat http_code.txt)
+          echo "HTTP status: $HTTP_CODE"
+          echo "----- response -----"
+          cat response.json || true
+          echo ""
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "Deployment failed with HTTP $HTTP_CODE"
+            exit 1
+          fi

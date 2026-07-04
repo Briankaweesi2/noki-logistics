@@ -92,7 +92,7 @@ $socials = [
 		</div>
 	</div>
 </footer>
-<!-- noki-deploy-check: 2.4.2 -->
+
 <?php wp_footer(); ?>
 </body>
 </html>
