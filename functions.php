@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.4.4' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.5.0' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.4.4', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.5.0', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'nonce'   => wp_create_nonce( 'noki_nonce' ),
@@ -748,6 +748,44 @@ function noki_schema_ld() {
 		];
 	}
 
+	// --- JobPosting (single job pages) → eligible for the Google Jobs box ---
+	if ( is_singular( 'noki_job' ) ) {
+		$jid      = get_the_ID();
+		$closing  = get_post_meta( $jid, '_job_closing', true );
+		$loc      = get_post_meta( $jid, '_job_location', true );
+		$type_raw = strtoupper( str_replace( [ ' ', '-' ], '_', trim( (string) get_post_meta( $jid, '_job_type', true ) ) ) );
+		$emp_map  = [ 'FULL_TIME' => 'FULL_TIME', 'FULLTIME' => 'FULL_TIME', 'PART_TIME' => 'PART_TIME', 'PARTTIME' => 'PART_TIME', 'CONTRACT' => 'CONTRACTOR', 'CONTRACTOR' => 'CONTRACTOR', 'INTERN' => 'INTERN', 'INTERNSHIP' => 'INTERN', 'TEMPORARY' => 'TEMPORARY' ];
+		$job = [
+			'@type'          => 'JobPosting',
+			'title'          => get_the_title(),
+			'description'    => wp_kses_post( apply_filters( 'the_content', get_the_content() ) ),
+			'datePosted'     => get_the_date( 'Y-m-d' ),
+			'hiringOrganization' => [
+				'@type' => 'Organization',
+				'name'  => get_bloginfo( 'name' ),
+				'sameAs' => $home,
+				'logo'  => $logo,
+			],
+			'jobLocation'    => [
+				'@type'   => 'Place',
+				'address' => [
+					'@type'           => 'PostalAddress',
+					'streetAddress'   => $loc ?: 'Plot No. 53/55 Semawata Road, Ntinda',
+					'addressLocality' => 'Kampala',
+					'addressCountry'  => 'UG',
+				],
+			],
+			'directApply'    => true,
+		];
+		if ( isset( $emp_map[ $type_raw ] ) ) {
+			$job['employmentType'] = $emp_map[ $type_raw ];
+		}
+		if ( $closing ) {
+			$job['validThrough'] = date( 'Y-m-d\T23:59', strtotime( $closing ) );
+		}
+		$graph[] = $job;
+	}
+
 	// --- FAQPage (FAQ + Pricing pages, from ACF or template defaults) ---
 	if ( is_page( [ 'faq' ] ) || is_page( [ 'pricing' ] ) ) {
 		$faq_rows = function_exists( 'noki_rows' ) ? noki_rows( is_page( 'pricing' ) ? 'pricing_faqs' : 'faq_items' ) : [];
@@ -975,6 +1013,14 @@ add_action( 'template_redirect', function () {
 	if ( is_post_type_archive( 'noki_job' ) ) {
 		wp_safe_redirect( home_url( '/join-us/' ), 302 );
 		exit;
+	}
+	// Expired single job → redirect to Careers instead of showing a stale/closed page.
+	if ( is_singular( 'noki_job' ) ) {
+		$closing = get_post_meta( get_queried_object_id(), '_job_closing', true );
+		if ( $closing && strtotime( $closing ) < strtotime( date( 'Y-m-d' ) ) ) {
+			wp_safe_redirect( home_url( '/join-us/' ), 302 );
+			exit;
+		}
 	}
 } );
 
