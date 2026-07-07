@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.5.3
+Version: 2.5.4
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -828,4 +828,10 @@ html{overflow-x:hidden}
   .primary-nav .mega-link span{display:block;line-height:1.35}
   /* Top-level items stay bold and tappable */
   .primary-nav>ul>li>a{font-weight:600}
+}
+
+/* v2.5.4 — no dark dimming behind the mobile menu */
+@media (max-width:768px){
+  .nav-overlay,
+  .nav-overlay.open{background:transparent!important;backdrop-filter:none!important}
 }
