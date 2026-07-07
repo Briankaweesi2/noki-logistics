@@ -31,29 +31,14 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     overlay && overlay.addEventListener('click', closeMenu);
-    // Close the panel only when a real (leaf) link is tapped — not a submenu toggle.
+    // On mobile every menu item (including sub-links) is a direct link — tapping any closes the panel.
     nav.querySelectorAll('a').forEach((a) => {
       a.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-          const li = a.parentElement;
-          if (!li.querySelector('.mega, .sub-menu')) closeMenu();
-        }
+        if (window.innerWidth <= 768) closeMenu();
       });
     });
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   }
-
-  /* ─── Mobile: tap parent to expand/collapse its mega/sub menu ─── */
-  document.querySelectorAll('.primary-nav .has-mega > a, .primary-nav .menu-item-has-children > a').forEach((a) => {
-    a.addEventListener('click', (e) => {
-      if (window.innerWidth > 768) return;
-      const li = a.parentElement;
-      if (li.querySelector('.mega, .sub-menu')) {
-        e.preventDefault();
-        li.classList.toggle('mobile-open');
-      }
-    });
-  });
 
   /* ─── Hero slider ─── */
   (function () {
