@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.5.0' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.5.1' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.5.0', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.5.1', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'nonce'   => wp_create_nonce( 'noki_nonce' ),
@@ -1047,3 +1047,21 @@ function noki_service_short_label( $service ) {
 	$words = preg_split( '/\s+/', trim( $title ) );
 	return count( $words ) > 3 ? implode( ' ', array_slice( $words, 0, 3 ) ) : $title;
 }
+
+/* ===========================
+   GOOGLE ANALYTICS 4 (site-wide)
+=========================== */
+function noki_google_analytics() {
+	$id = 'G-8JD5BE9FSL';
+	?>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $id ); ?>"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', '<?php echo esc_js( $id ); ?>');
+	</script>
+	<?php
+}
+add_action( 'wp_head', 'noki_google_analytics', 1 );
