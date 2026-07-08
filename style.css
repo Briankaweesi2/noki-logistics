@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.5.4
+Version: 2.5.5
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -834,4 +834,15 @@ html{overflow-x:hidden}
 @media (max-width:768px){
   .nav-overlay,
   .nav-overlay.open{background:transparent!important;backdrop-filter:none!important}
+}
+
+/* ============================================================
+   25. MOBILE MENU STACKING FIX v2.5.5
+   The nav panel is inside the sticky header (z-index:900), so it is
+   trapped in that stacking layer. The overlay (root-level) must sit
+   BELOW the header, or it paints over the menu and swallows every tap.
+============================================================ */
+@media (max-width:768px){
+  .site-header{z-index:1000}            /* header + its menu panel above everything */
+  .nav-overlay,.nav-overlay.open{z-index:990} /* just under the header/panel, above page */
 }
