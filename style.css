@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.5.6
+Version: 2.5.7
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -818,10 +818,12 @@ html{overflow-x:hidden}
   .primary-nav .mobile-open>.sub-menu{display:block!important}
   /* Drop the promo block; keep a caret that rotates when open */
   .primary-nav .mega-feature{display:none!important}
+  /* Whole row is tappable — the link fills the full width of the strip */
+  .primary-nav>ul>li>a{display:flex;width:100%;box-sizing:border-box}
   .primary-nav .has-mega>a,
-  .primary-nav .menu-item-has-children>a{display:flex;justify-content:space-between;align-items:center;font-weight:600}
+  .primary-nav .menu-item-has-children>a{display:flex;width:100%;justify-content:space-between;align-items:center;font-weight:600}
   .primary-nav .has-mega>a::after,
-  .primary-nav .menu-item-has-children>a::after{display:inline-block;opacity:.7}
+  .primary-nav .menu-item-has-children>a::after{display:inline-block;opacity:.7;margin-left:auto}
   .primary-nav .mobile-open>a::after{transform:rotate(180deg)}
   /* Section labels + links inside the mega */
   .primary-nav .mega-col{margin-bottom:.2rem}
