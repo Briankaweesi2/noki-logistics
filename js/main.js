@@ -31,10 +31,18 @@
       document.body.style.overflow = open ? 'hidden' : '';
     });
     overlay && overlay.addEventListener('click', closeMenu);
-    // On mobile every menu item (including sub-links) is a direct link — tapping any closes the panel.
+    // Mobile: tapping a parent (Who We Are / Services) expands its submenu; tapping a real link closes the panel.
     nav.querySelectorAll('a').forEach((a) => {
-      a.addEventListener('click', () => {
-        if (window.innerWidth <= 768) closeMenu();
+      a.addEventListener('click', (e) => {
+        if (window.innerWidth > 768) return;
+        const li = a.parentElement;
+        const hasChildren = li && li.querySelector(':scope > .mega, :scope > .sub-menu');
+        if (hasChildren) {
+          e.preventDefault();            // don't navigate — just expand/collapse
+          li.classList.toggle('mobile-open');
+        } else {
+          closeMenu();                   // real link — let it navigate, then close
+        }
       });
     });
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });

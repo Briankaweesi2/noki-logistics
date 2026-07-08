@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.5.5
+Version: 2.5.6
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -808,26 +808,28 @@ html{overflow-x:hidden}
 }
 
 /* ============================================================
-   24. MOBILE MENU v2.5.3 — always-expanded, all direct links
+   24. MOBILE MENU v2.5.6 — tap "Who We Are" / "Services" to expand
 ============================================================ */
 @media (max-width:768px){
-  /* Show every sub-menu / mega inline — no tap-to-expand */
+  /* Collapsed by default; open only when the parent is tapped (.mobile-open) */
   .primary-nav .mega,
-  .primary-nav .sub-menu{display:block!important;position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:none;width:auto;padding:.1rem 0 .5rem .8rem}
-  /* Drop the promotional block + carets (not needed on mobile) */
+  .primary-nav .sub-menu{display:none!important;position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:none;width:auto;padding:.1rem 0 .6rem .8rem}
+  .primary-nav .mobile-open>.mega,
+  .primary-nav .mobile-open>.sub-menu{display:block!important}
+  /* Drop the promo block; keep a caret that rotates when open */
   .primary-nav .mega-feature{display:none!important}
+  .primary-nav .has-mega>a,
+  .primary-nav .menu-item-has-children>a{display:flex;justify-content:space-between;align-items:center;font-weight:600}
   .primary-nav .has-mega>a::after,
-  .primary-nav .menu-item-has-children>a::after{display:none!important}
-  /* Section labels inside the mega */
+  .primary-nav .menu-item-has-children>a::after{display:inline-block;opacity:.7}
+  .primary-nav .mobile-open>a::after{transform:rotate(180deg)}
+  /* Section labels + links inside the mega */
   .primary-nav .mega-col{margin-bottom:.2rem}
-  .primary-nav .mega-col h5{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:.7rem 0 .1rem}
-  /* Sub-links as clean, full-width tappable rows */
-  .primary-nav .mega-link{display:flex!important;width:100%;padding:.6rem .3rem;color:var(--ink-2);font-size:.98rem}
+  .primary-nav .mega-col h5{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:.6rem 0 .1rem}
+  .primary-nav .mega-link{display:flex!important;width:100%;padding:.55rem .3rem;color:var(--ink-2);font-size:.98rem}
   .primary-nav .mega-link i{display:none}
   .primary-nav .mega-link strong{font-weight:600;display:block}
   .primary-nav .mega-link span{display:block;line-height:1.35}
-  /* Top-level items stay bold and tappable */
-  .primary-nav>ul>li>a{font-weight:600}
 }
 
 /* v2.5.4 — no dark dimming behind the mobile menu */
