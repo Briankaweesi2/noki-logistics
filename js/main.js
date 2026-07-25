@@ -133,30 +133,44 @@
     counters.forEach((c) => { c.textContent = c.dataset.target + (c.dataset.suffix || ''); });
   }
 
-  /* ─── Generic AJAX form helper (contact / quote) ─── */
-  function wireAjaxForm(form, action, defaultBtnLabel) {
-    if (!form) return;
-    form.addEventListener('submit', async (e) => {
+  /* ─── Quote/contact form — submits straight to Formspree ─── */
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgqobzw';
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    const defaultBtnLabel = 'Get My Free Quote';
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = form.querySelector('[type="submit"]');
-      const msg = form.querySelector('.form-msg') || document.getElementById(form.dataset.msg || '');
+      const btn = contactForm.querySelector('[type="submit"]');
+      const msg = contactForm.querySelector('.form-msg');
       const orig = btn ? btn.innerHTML : '';
       if (btn) { btn.disabled = true; btn.innerHTML = 'Sending…'; }
-      const data = new FormData(form);
-      data.append('action', action);
-      data.append('nonce', nokiData.nonce);
+
+      const fields = Object.fromEntries(new FormData(contactForm).entries());
+
       try {
-        const res = await fetch(nokiData.ajaxurl, { method: 'POST', body: data });
-        const json = await res.json();
-        if (msg) {
-          msg.className = 'form-msg show ' + (json.success ? 'success' : 'error');
-          msg.textContent = json.data.message;
-        }
-        if (json.success) {
-          form.reset();
-          if (json.data && json.data.whatsapp) {
-            window.open(json.data.whatsapp, '_blank', 'noopener');
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(contactForm),
+        });
+
+        if (res.ok) {
+          if (msg) {
+            msg.className = 'form-msg show success';
+            msg.textContent = 'Thank you! Your request has been sent — opening WhatsApp so you can send it to us there too.';
           }
+          contactForm.reset();
+
+          // Build the WhatsApp deep-link client-side from the submitted fields.
+          const lines = ['New quote request', `Name: ${fields.name || ''}`, `Phone: ${fields.phone || ''}`, `Service: ${fields.subject || ''}`];
+          if (fields.origin) lines.push(`Origin: ${fields.origin}`);
+          if (fields.destination) lines.push(`Destination: ${fields.destination}`);
+          if (fields.cargo) lines.push(`Cargo: ${fields.cargo}`);
+          lines.push(`Message: ${fields.message || ''}`);
+          const waUrl = `https://wa.me/${nokiData.whatsapp}?text=${encodeURIComponent(lines.join('\n'))}`;
+          window.open(waUrl, '_blank', 'noopener');
+        } else {
+          if (msg) { msg.className = 'form-msg show error'; msg.textContent = 'Sorry, something went wrong. Please call or WhatsApp us instead.'; }
         }
       } catch {
         if (msg) { msg.className = 'form-msg show error'; msg.textContent = 'Network error. Please try again or call us.'; }
@@ -165,7 +179,6 @@
       }
     });
   }
-  wireAjaxForm(document.getElementById('contact-form'), 'noki_contact', 'Get My Free Quote');
 
   /* ─── AJAX Newsletter ─── */
   const newsletterForm = document.getElementById('newsletter-form');

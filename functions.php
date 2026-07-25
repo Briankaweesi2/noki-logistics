@@ -28,12 +28,13 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.5.8' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.5.9' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.5.8', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.5.9', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-		'nonce'   => wp_create_nonce( 'noki_nonce' ),
+		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
+		'nonce'    => wp_create_nonce( 'noki_nonce' ),
+		'whatsapp' => preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+256772540483' ) ),
 	] );
 }
 add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
@@ -217,82 +218,6 @@ function noki_save_meta( $post_id ) {
 	}
 }
 add_action( 'save_post', 'noki_save_meta' );
-
-/* ===========================
-   CONTACT FORM AJAX HANDLER
-=========================== */
-function noki_handle_contact() {
-	check_ajax_referer( 'noki_nonce', 'nonce' );
-
-	$name    = sanitize_text_field( $_POST['name'] ?? '' );
-	$email   = sanitize_email( $_POST['email'] ?? '' );
-	$phone   = sanitize_text_field( $_POST['phone'] ?? '' );
-	$subject = sanitize_text_field( $_POST['subject'] ?? '' );
-	$message = sanitize_textarea_field( $_POST['message'] ?? '' );
-	// Optional shipment/quote fields.
-	$origin  = sanitize_text_field( $_POST['origin'] ?? '' );
-	$dest    = sanitize_text_field( $_POST['destination'] ?? '' );
-	$cargo   = sanitize_text_field( $_POST['cargo'] ?? '' );
-
-	if ( ! $name || ! $email || ! $message ) {
-		wp_send_json_error( [ 'message' => 'Please fill in all required fields.' ] );
-	}
-
-	if ( ! is_email( $email ) ) {
-		wp_send_json_error( [ 'message' => 'Please enter a valid email address.' ] );
-	}
-
-	// Send to the business inbox (and the WordPress admin email as a backup).
-	$to      = get_theme_mod( 'noki_email', 'info@nokilogistics.com' );
-	$admin   = get_option( 'admin_email' );
-	$headers = [ 'Content-Type: text/html; charset=UTF-8', "Reply-To: {$name} <{$email}>" ];
-	if ( $admin && $admin !== $to ) {
-		$headers[] = 'Cc: ' . $admin;
-	}
-	$ship    = '';
-	if ( $origin || $dest || $cargo ) {
-		$ship = '<p><strong>Origin:</strong> ' . esc_html( $origin ) . '</p>'
-			. '<p><strong>Destination:</strong> ' . esc_html( $dest ) . '</p>'
-			. '<p><strong>Cargo (weight / volume / type):</strong> ' . esc_html( $cargo ) . '</p>';
-	}
-	$body    = "<h3>New Quote / Contact Request</h3>
-		<p><strong>Name:</strong> {$name}</p>
-		<p><strong>Email:</strong> {$email}</p>
-		<p><strong>Phone:</strong> {$phone}</p>
-		<p><strong>Service:</strong> {$subject}</p>"
-		. $ship .
-		"<p><strong>Message:</strong></p>
-		<p>" . nl2br( $message ) . '</p>';
-
-	$sent = wp_mail( $to, "Quote request: {$subject}", $body, $headers );
-
-	// Build a WhatsApp message so the visitor can also send the same details to Noki.
-	$wa_text = "New quote request%0A"
-		. "Name: {$name}%0A"
-		. "Phone: {$phone}%0A"
-		. "Service: {$subject}%0A"
-		. ( $origin ? "Origin: {$origin}%0A" : '' )
-		. ( $dest ? "Destination: {$dest}%0A" : '' )
-		. ( $cargo ? "Cargo: {$cargo}%0A" : '' )
-		. "Message: {$message}";
-	$wa_num = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+256772540483' ) );
-	$wa_url = 'https://wa.me/' . $wa_num . '?text=' . rawurlencode( html_entity_decode( str_replace( '%0A', "\n", $wa_text ) ) );
-
-	if ( $sent ) {
-		wp_send_json_success( [
-			'message'  => 'Thank you! Your request has been sent — opening WhatsApp so you can send it to us there too.',
-			'whatsapp' => $wa_url,
-		] );
-	} else {
-		// Email failed (common on shared hosts without SMTP) — still let them reach us on WhatsApp.
-		wp_send_json_success( [
-			'message'  => 'Opening WhatsApp so you can send your request to us directly.',
-			'whatsapp' => $wa_url,
-		] );
-	}
-}
-add_action( 'wp_ajax_noki_contact', 'noki_handle_contact' );
-add_action( 'wp_ajax_nopriv_noki_contact', 'noki_handle_contact' );
 
 /* ===========================
    NEWSLETTER AJAX HANDLER
