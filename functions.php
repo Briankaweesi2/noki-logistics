@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.6.1' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.6.2' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.6.1', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.6.2', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -637,7 +637,7 @@ function noki_schema_ld() {
 			'addressLocality' => 'Kampala',
 			'addressCountry'  => 'UG',
 		],
-		'geo'         => [ '@type' => 'GeoCoordinates', 'latitude' => 0.3583, 'longitude' => 32.6144 ],
+		'geo'         => [ '@type' => 'GeoCoordinates', 'latitude' => 0.3519972, 'longitude' => 32.6134366 ],
 		'areaServed'  => [ 'Uganda', 'Kenya', 'Tanzania', 'Rwanda', 'DRC', 'South Sudan', 'East Africa' ],
 		'openingHoursSpecification' => [ [
 			'@type'     => 'OpeningHoursSpecification',

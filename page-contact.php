@@ -104,7 +104,7 @@ $tel      = preg_replace( '/\s+/', '', $phone );
 			<div data-aos="fade-left">
 				<div class="map-embed">
 					<iframe
-						src="https://www.google.com/maps?q=Ntinda,Kampala,Uganda&output=embed"
+						src="https://www.google.com/maps?q=Noki+Logistics+Limited,+Semawata+Road,+Ntinda,+Kampala&output=embed"
 						loading="lazy" referrerpolicy="no-referrer-when-downgrade"
 						title="Noki Logistics location map"></iframe>
 				</div>
