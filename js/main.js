@@ -140,6 +140,10 @@
     const defaultBtnLabel = 'Get My Free Quote';
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
       const btn = contactForm.querySelector('[type="submit"]');
       const msg = contactForm.querySelector('.form-msg');
       const orig = btn ? btn.innerHTML : '';

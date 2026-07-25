@@ -61,8 +61,8 @@ $tel      = preg_replace( '/\s+/', '', $phone );
 					</div>
 					<div class="form-row">
 						<div class="form-field">
-							<label for="contact-phone">Phone number</label>
-							<input type="tel" id="contact-phone" name="phone" placeholder="+256 7XX XXX XXX">
+							<label for="contact-phone">Phone number *</label>
+							<input type="tel" id="contact-phone" name="phone" placeholder="+256 7XX XXX XXX" required>
 						</div>
 						<div class="form-field">
 							<label for="quote-type">Service needed</label>
