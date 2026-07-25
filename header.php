@@ -10,7 +10,7 @@
 <?php wp_body_open(); ?>
 
 <?php
-$phone     = get_theme_mod( 'noki_phone', '+256 772 540 483' );
+$phone     = get_theme_mod( 'noki_phone', '+256 200 946 366' );
 $whatsapp  = get_theme_mod( 'noki_whatsapp', '+256772540483' );
 $email     = get_theme_mod( 'noki_email', 'info@nokilogistics.com' );
 $hours     = get_theme_mod( 'noki_hours', 'Mon – Sat: 8:00am – 6:30pm' );

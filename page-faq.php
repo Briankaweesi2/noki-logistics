@@ -3,7 +3,7 @@
 Template Name: FAQ
 */
 get_header();
-$phone    = get_theme_mod( 'noki_phone', '+256 772 540 483' );
+$phone    = get_theme_mod( 'noki_phone', '+256 200 946 366' );
 $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+256772540483' ) );
 ?>
 

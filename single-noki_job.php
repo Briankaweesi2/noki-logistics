@@ -1,5 +1,5 @@
 <?php get_header(); the_post();
-$phone    = get_theme_mod( 'noki_phone', '+256 772 540 483' );
+$phone    = get_theme_mod( 'noki_phone', '+256 200 946 366' );
 $tel      = preg_replace( '/\s+/', '', $phone );
 $id       = get_the_ID();
 $loc      = get_post_meta( $id, '_job_location', true );
