@@ -157,7 +157,7 @@
         if (res.ok) {
           if (msg) {
             msg.className = 'form-msg show success';
-            msg.textContent = 'Thank you! Your request has been sent — opening WhatsApp so you can send it to us there too.';
+            msg.textContent = "Thank you! We've received your request and will get back to you shortly. We've also opened WhatsApp if you'd like a faster reply.";
           }
           contactForm.reset();
 
