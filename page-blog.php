@@ -33,7 +33,7 @@ $blog_query = new WP_Query( [
 							<?php if ( has_post_thumbnail() ) : ?>
 								<?php the_post_thumbnail( 'noki-blog', [ 'alt' => get_the_title(), 'loading' => 'lazy' ] ); ?>
 							<?php else : ?>
-								<div class="ph"><i class="fas fa-newspaper"></i></div>
+								<img src="<?php echo esc_url( noki_blog_fallback_img( get_the_ID() ) ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" loading="lazy">
 							<?php endif; ?>
 						</a>
 						<div class="blog-body">
