@@ -78,8 +78,8 @@ $hero_defaults = [
 	[
 		'img'   => $tpl . '/images/fleet-front-team.webp?v=2.7.2',
 		'badge' => 'Our growing road fleet',
-		'title' => 'More capacity to <span class="grad">move East Africa</span>',
-		'lead'  => 'Real Noki Logistics trucks and teams ready to move commercial cargo across Uganda and the region.',
+		'title' => 'Capacity to <span class="grad">Move East Africa</span>',
+		'lead'  => 'Noki Logistics has the fleet, people and regional experience to move commercial cargo reliably across Uganda and East Africa.',
 		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
 		'cta2'  => [ 'Road Transport', home_url( '/services' ) ],
 	],
