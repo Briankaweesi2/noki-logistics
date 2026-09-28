@@ -72,6 +72,14 @@ $hero_defaults = [
 		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
 		'cta2'  => [ 'Contact Us', home_url( '/contact' ) ],
 	],
+	[
+		'img'   => $tpl . '/images/fleet-front-team.webp',
+		'badge' => 'Our growing road fleet',
+		'title' => 'More capacity to <span class="grad">move East Africa</span>',
+		'lead'  => 'Real Noki Logistics trucks and teams ready to move commercial cargo across Uganda and the region.',
+		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
+		'cta2'  => [ 'Road Transport', home_url( '/services' ) ],
+	],
 ];
 // Merge ACF-entered content over the defaults (defaults used when a field is empty).
 $hero_slides = [];
@@ -186,61 +194,6 @@ $intro_metrics = [
 					</div>
 				</a>
 			<?php endforeach; ?>
-		</div>
-	</div>
-</section>
-
-<!-- ============ REAL NOKI FLEET ============ -->
-<?php
-$fleet_slides = [
-	[
-		'img'   => $tpl . '/images/fleet-front-team.webp',
-		'alt'   => 'Noki Logistics fleet trucks with professional drivers in Uganda',
-		'badge' => 'Real Noki fleet',
-		'title' => 'Built to move your cargo across the region',
-		'text'  => 'Our expanding road fleet supports dependable transport for commercial cargo in Uganda and across East Africa.',
-	],
-	[
-		'img'   => $tpl . '/images/fleet-lineup.webp',
-		'alt'   => 'Noki Logistics trucks lined up at a logistics facility in Uganda',
-		'badge' => 'Fleet expansion',
-		'title' => 'More capacity. More control. Better delivery.',
-		'text'  => 'Dedicated vehicles, experienced teams and practical route planning help us keep your supply chain moving.',
-	],
-];
-?>
-<section class="section fleet-section bg-soft">
-	<div class="container">
-		<div class="solutions-head fleet-head">
-			<div class="section-head" style="margin-bottom:0" data-aos="fade-up">
-				<span class="kicker">Our fleet</span>
-				<h2>Meet the trucks behind the movement</h2>
-				<p>Real Noki Logistics vehicles and teams serving businesses from Uganda into regional markets.</p>
-			</div>
-			<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-dark" data-aos="fade-up">Move With Noki <i class="fas fa-arrow-right"></i></a>
-		</div>
-
-		<div class="fleet-slider" id="fleet-slider" aria-label="Noki Logistics fleet gallery" data-aos="fade-up">
-			<div class="fleet-slides">
-				<?php foreach ( $fleet_slides as $i => $slide ) : ?>
-					<article class="fleet-slide<?php echo 0 === $i ? ' active' : ''; ?>">
-						<img src="<?php echo esc_url( $slide['img'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="<?php echo 0 === $i ? 'eager' : 'lazy'; ?>">
-						<div class="fleet-overlay"></div>
-						<div class="fleet-copy">
-							<span class="fleet-badge"><?php echo esc_html( $slide['badge'] ); ?></span>
-							<h3><?php echo esc_html( $slide['title'] ); ?></h3>
-							<p><?php echo esc_html( $slide['text'] ); ?></p>
-						</div>
-					</article>
-				<?php endforeach; ?>
-			</div>
-			<button class="fleet-arrow prev" id="fleet-prev" aria-label="Previous fleet photo"><i class="fas fa-chevron-left"></i></button>
-			<button class="fleet-arrow next" id="fleet-next" aria-label="Next fleet photo"><i class="fas fa-chevron-right"></i></button>
-			<div class="fleet-dots" id="fleet-dots">
-				<?php foreach ( $fleet_slides as $i => $slide ) : ?>
-					<button class="fleet-dot<?php echo 0 === $i ? ' active' : ''; ?>" data-slide="<?php echo esc_attr( $i ); ?>" aria-label="View fleet photo <?php echo esc_attr( $i + 1 ); ?>"></button>
-				<?php endforeach; ?>
-			</div>
 		</div>
 	</div>
 </section>
