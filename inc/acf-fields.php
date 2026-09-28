@@ -38,10 +38,10 @@ function noki_register_acf_fields() {
 		return [ 'key' => 'field_noki_msg_' . sanitize_title( $label ), 'label' => $label, 'type' => 'message', 'message' => $text ];
 	};
 
-	/* ---- HERO SLIDER (3 slides) ---- */
+	/* ---- HERO SLIDER (4 slides) ---- */
 	$fields[] = $tab( 'Hero Slider' );
-	$fields[] = $msg( 'About the hero', 'The homepage top banner rotates through these 3 slides. Leave a slide\'s image empty to use the built-in photo. Each heading shows the "highlight" words in the brand colour.' );
-	foreach ( [ 1, 2, 3 ] as $i ) {
+	$fields[] = $msg( 'About the hero', 'The homepage top banner rotates through these 4 slides. Leave a slide\'s image empty to use the built-in photo. Each heading shows the "highlight" words in the brand colour.' );
+	foreach ( [ 1, 2, 3, 4 ] as $i ) {
 		$fields[] = $msg( "Slide {$i}", "<strong>Slide {$i}</strong>" );
 		$fields[] = $text( "hero{$i}_badge", "Slide {$i} — Badge (small pill text)" );
 		$fields[] = $text( "hero{$i}_heading", "Slide {$i} — Heading" );
