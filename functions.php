@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.3' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.4' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.3', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.4', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.7.3';
+	$version = '2.7.4';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -308,6 +308,78 @@ function noki_get_news( $limit = 4 ) {
 		'order'          => 'DESC',
 	] );
 }
+
+/**
+ * Homepage LinkedIn feed.
+ *
+ * Automatic mode uses LinkedIn's organization Posts API when these constants
+ * are defined in wp-config.php:
+ * NOKI_LINKEDIN_ACCESS_TOKEN, NOKI_LINKEDIN_ORGANIZATION_ID,
+ * NOKI_LINKEDIN_VERSION (YYYYMM).
+ *
+ * If credentials are not configured or the API is unavailable, the homepage
+ * falls back to the manually featured LinkedIn posts configured on the Home page.
+ */
+function noki_get_linkedin_posts( $limit = 3 ) {
+	$limit = max( 1, min( 6, absint( $limit ) ) );
+	$cache_key = 'noki_linkedin_posts_v1';
+
+	$cached = get_transient( $cache_key );
+	if ( is_array( $cached ) && ! empty( $cached ) ) {
+		return array_slice( $cached, 0, $limit );
+	}
+
+	$posts = [];
+	if (
+		defined( 'NOKI_LINKEDIN_ACCESS_TOKEN' ) && NOKI_LINKEDIN_ACCESS_TOKEN &&
+		defined( 'NOKI_LINKEDIN_ORGANIZATION_ID' ) && NOKI_LINKEDIN_ORGANIZATION_ID &&
+		defined( 'NOKI_LINKEDIN_VERSION' ) && NOKI_LINKEDIN_VERSION
+	) {
+		$author = 'urn:li:organization:' . preg_replace( '/[^0-9]/', '', (string) NOKI_LINKEDIN_ORGANIZATION_ID );
+		$url = add_query_arg( [
+			'author'  => $author,
+			'q'       => 'author',
+			'count'   => $limit,
+			'sortBy'  => 'LAST_MODIFIED',
+		], 'https://api.linkedin.com/rest/posts' );
+
+		$response = wp_remote_get( $url, [
+			'timeout' => 15,
+			'headers' => [
+				'Authorization'              => 'Bearer ' . NOKI_LINKEDIN_ACCESS_TOKEN,
+				'LinkedIn-Version'           => NOKI_LINKEDIN_VERSION,
+				'X-Restli-Protocol-Version'  => '2.0.0',
+				'Accept'                     => 'application/json',
+			],
+		] );
+
+		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
+			$data = json_decode( wp_remote_retrieve_body( $response ), true );
+			foreach ( (array) ( $data['elements'] ?? [] ) as $item ) {
+				$text = trim( wp_strip_all_tags( (string) ( $item['commentary'] ?? '' ) ) );
+				if ( '' === $text ) {
+					continue;
+				}
+				$published = ! empty( $item['publishedAt'] ) ? (int) floor( (int) $item['publishedAt'] / 1000 ) : 0;
+				$posts[] = [
+					'text'  => $text,
+					'url'   => 'https://www.linkedin.com/company/nokilogistics',
+					'date'  => $published ? wp_date( get_option( 'date_format' ), $published ) : '',
+					'image' => '',
+					'auto'  => true,
+				];
+			}
+		}
+	}
+
+	if ( ! empty( $posts ) ) {
+		set_transient( $cache_key, $posts, 3 * HOUR_IN_SECONDS );
+		return array_slice( $posts, 0, $limit );
+	}
+
+	return [];
+}
+
 
 /* First News Type term name for a news item (e.g. "News" / "Event"). */
 function noki_news_type( $post_id ) {
