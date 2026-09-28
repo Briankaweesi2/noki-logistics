@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.6.3
+Version: 2.7.0
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -849,4 +849,75 @@ html{overflow-x:hidden}
 @media (max-width:768px){
   .site-header{z-index:1000}            /* header + its menu panel above everything */
   .nav-overlay,.nav-overlay.open{z-index:990} /* just under the header/panel, above page */
+}
+
+
+/* ============================================================
+   2026 FLEET SLIDER
+============================================================ */
+.fleet-section{overflow:hidden}
+.fleet-head{align-items:flex-end;margin-bottom:clamp(2rem,4vw,3rem)}
+.fleet-head .section-head p{max-width:650px}
+.fleet-slider{
+  position:relative;overflow:hidden;border-radius:var(--radius-lg);
+  background:var(--navy);box-shadow:var(--shadow-lg);min-height:420px;
+}
+.fleet-slides{position:relative;min-height:clamp(420px,52vw,650px)}
+.fleet-slide{
+  position:absolute;inset:0;opacity:0;visibility:hidden;
+  transition:opacity .65s var(--ease),visibility .65s var(--ease);
+}
+.fleet-slide.active{opacity:1;visibility:visible}
+.fleet-slide img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:center}
+.fleet-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(19,17,15,.82) 0%,rgba(19,17,15,.42) 45%,rgba(19,17,15,.08) 75%);
+}
+.fleet-copy{
+  position:absolute;left:clamp(1.4rem,5vw,4rem);bottom:clamp(2.2rem,6vw,4.6rem);
+  z-index:2;color:#fff;max-width:620px;padding-right:1rem
+}
+.fleet-copy h3{color:#fff;font-size:clamp(1.8rem,4vw,3.1rem);margin:.8rem 0 .8rem;max-width:590px}
+.fleet-copy p{font-size:clamp(1rem,1.7vw,1.18rem);color:rgba(255,255,255,.86);max-width:560px}
+.fleet-badge{
+  display:inline-flex;align-items:center;padding:.5rem .85rem;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);
+  color:#fff;font-family:var(--font-head);font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase
+}
+.fleet-arrow{
+  position:absolute;z-index:4;top:50%;transform:translateY(-50%);
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.92);color:var(--ink);box-shadow:var(--shadow-sm);
+  transition:all .25s var(--ease)
+}
+.fleet-arrow:hover{background:var(--primary);color:#fff}
+.fleet-arrow.prev{left:1rem}.fleet-arrow.next{right:1rem}
+.fleet-dots{
+  position:absolute;z-index:4;left:50%;bottom:1.2rem;transform:translateX(-50%);
+  display:flex;gap:.5rem;padding:.45rem .6rem;border-radius:50px;background:rgba(19,17,15,.35);backdrop-filter:blur(8px)
+}
+.fleet-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);transition:all .25s var(--ease)}
+.fleet-dot.active{width:28px;border-radius:10px;background:#fff}
+
+.navigation.pagination{display:flex;justify-content:center;margin-top:clamp(2rem,5vw,4rem)}
+.navigation.pagination .nav-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem}
+.navigation.pagination .page-numbers{
+  min-width:44px;height:44px;padding:0 .85rem;border-radius:var(--radius-pill);
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--line);background:#fff;color:var(--ink);
+  font-family:var(--font-head);font-size:.9rem;font-weight:600;transition:all .25s var(--ease)
+}
+.navigation.pagination .page-numbers:hover,
+.navigation.pagination .page-numbers.current{background:var(--primary);border-color:var(--primary);color:#fff}
+.blog-empty-state{text-align:center;padding:4rem 1.5rem;background:var(--bg-soft);border-radius:var(--radius-lg)}
+.blog-empty-state i{font-size:2.4rem;color:var(--primary);margin-bottom:1rem}
+
+@media (max-width:768px){
+  .fleet-head{align-items:flex-start}
+  .fleet-slider,.fleet-slides{min-height:500px}
+  .fleet-overlay{background:linear-gradient(0deg,rgba(19,17,15,.92) 0%,rgba(19,17,15,.52) 55%,rgba(19,17,15,.08) 100%)}
+  .fleet-copy{left:1.25rem;right:1.25rem;bottom:3.4rem;padding:0}
+  .fleet-copy h3{font-size:1.9rem}
+  .fleet-arrow{width:42px;height:42px;top:1rem;transform:none}
+  .fleet-arrow.prev{left:auto;right:4.2rem}.fleet-arrow.next{right:1rem}
 }

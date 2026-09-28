@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.6.3' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.0' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.6.3', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.0', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -46,6 +46,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    hard-coded text as a fallback, so nothing breaks if ACF is inactive/empty.
 =========================== */
 require_once get_template_directory() . '/inc/acf-fields.php';
+require_once get_template_directory() . '/inc/seo-blog-seed.php';
 
 /**
  * Return an ACF field value, falling back to a default when ACF is
@@ -277,6 +278,31 @@ function noki_get_news( $limit = 4 ) {
 function noki_news_type( $post_id ) {
 	$terms = get_the_terms( $post_id, 'news_type' );
 	return ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'News';
+}
+
+/**
+ * Context-aware fallback artwork for blog cards when a post has no featured image.
+ * Keeps SEO guides visual without requiring duplicate Media Library uploads.
+ */
+function noki_blog_fallback_img( $post_id ) {
+	$slug = get_post_field( 'post_name', $post_id );
+	$base = get_template_directory_uri() . '/images/';
+	$map = [
+		'warehous' => 'fleet-lineup.webp',
+		'road-'    => 'fleet-front-team.webp',
+		'heavy-'   => 'fleet-front-team.webp',
+		'cross-'   => 'fleet-front-team.webp',
+		'china'    => 'service-sea.jpg',
+		'dubai'    => 'service-air.jpg',
+		'customs'  => 'service-customs.jpg',
+		'freight'  => 'hero-freight.jpg',
+	];
+	foreach ( $map as $keyword => $file ) {
+		if ( false !== strpos( $slug, $keyword ) ) {
+			return $base . $file;
+		}
+	}
+	return $base . 'fleet-front-team.webp';
 }
 
 function noki_star_rating( $rating ) {
@@ -778,16 +804,16 @@ function noki_service_img( $post, $size = 'noki-card' ) {
 	$map  = [
 		'fa-plane'     => 'service-air.jpg',
 		'fa-ship'      => 'service-sea.jpg',
-		'fa-truck'     => 'service-road.jpg',
+		'fa-truck'     => 'fleet-front-team.webp',
 		'fa-box-open'  => 'service-customs.jpg',
-		'fa-warehouse' => 'service-warehouse.jpg',
+		'fa-warehouse' => 'fleet-lineup.webp',
 		'fa-bolt'      => 'service-express.jpg',
 	];
 	if ( isset( $map[ $icon ] ) ) {
 		return $base . $map[ $icon ];
 	}
 	// Fallback by slug keyword.
-	foreach ( [ 'air' => 'service-air.jpg', 'sea' => 'service-sea.jpg', 'road' => 'service-road.jpg', 'customs' => 'service-customs.jpg', 'warehous' => 'service-warehouse.jpg', 'express' => 'service-express.jpg' ] as $kw => $file ) {
+	foreach ( [ 'air' => 'service-air.jpg', 'sea' => 'service-sea.jpg', 'road' => 'fleet-front-team.webp', 'customs' => 'service-customs.jpg', 'warehous' => 'fleet-lineup.webp', 'express' => 'service-express.jpg' ] as $kw => $file ) {
 		if ( false !== strpos( $slug, $kw ) ) {
 			return $base . $file;
 		}
