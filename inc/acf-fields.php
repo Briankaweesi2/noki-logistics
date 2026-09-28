@@ -95,6 +95,18 @@ function noki_register_acf_fields() {
 		$fields[] = $text( "value{$i}_icon", "Value {$i} — Icon (Font Awesome class)" );
 	}
 
+
+	/* ---- LINKEDIN FEATURED POSTS ---- */
+	$fields[] = $tab( 'LinkedIn' );
+	$fields[] = $msg( 'LinkedIn feed', 'The site can auto-fetch company posts when LinkedIn API credentials are configured. These 3 featured posts are used as a fallback and can also be used to pin important updates.' );
+	foreach ( [ 1, 2, 3 ] as $i ) {
+		$fields[] = $msg( "LinkedIn Post {$i}", "<strong>Featured LinkedIn post {$i}</strong>" );
+		$fields[] = $area( "linkedin{$i}_text", "Post {$i} — Text / excerpt" );
+		$fields[] = $text( "linkedin{$i}_date", "Post {$i} — Date" );
+		$fields[] = $img( "linkedin{$i}_image", "Post {$i} — Image" );
+		$fields[] = $text( "linkedin{$i}_url", "Post {$i} — LinkedIn URL" );
+	}
+
 	/* ---- FINAL CTA ---- */
 	$fields[] = $tab( 'Call to action' );
 	$fields[] = $text( 'cta_heading', 'Heading' );
