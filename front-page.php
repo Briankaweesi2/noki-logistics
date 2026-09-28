@@ -37,7 +37,7 @@ if ( $services ) {
 		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp' ],
 		[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-customs.jpg' ],
 		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-lineup.webp' ],
-		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-express.jpg' ],
+		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp' ],
 	];
 }
 
