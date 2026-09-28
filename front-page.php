@@ -34,9 +34,9 @@ if ( $services ) {
 	$service_cards = [
 		[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-air.jpg' ],
 		[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-sea.jpg' ],
-		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-road.jpg' ],
+		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp' ],
 		[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-customs.jpg' ],
-		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-warehouse.jpg' ],
+		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-lineup.webp' ],
 		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-express.jpg' ],
 	];
 }
@@ -190,6 +190,61 @@ $intro_metrics = [
 	</div>
 </section>
 
+<!-- ============ REAL NOKI FLEET ============ -->
+<?php
+$fleet_slides = [
+	[
+		'img'   => $tpl . '/images/fleet-front-team.webp',
+		'alt'   => 'Noki Logistics fleet trucks with professional drivers in Uganda',
+		'badge' => 'Real Noki fleet',
+		'title' => 'Built to move your cargo across the region',
+		'text'  => 'Our expanding road fleet supports dependable transport for commercial cargo in Uganda and across East Africa.',
+	],
+	[
+		'img'   => $tpl . '/images/fleet-lineup.webp',
+		'alt'   => 'Noki Logistics trucks lined up at a logistics facility in Uganda',
+		'badge' => 'Fleet expansion',
+		'title' => 'More capacity. More control. Better delivery.',
+		'text'  => 'Dedicated vehicles, experienced teams and practical route planning help us keep your supply chain moving.',
+	],
+];
+?>
+<section class="section fleet-section bg-soft">
+	<div class="container">
+		<div class="solutions-head fleet-head">
+			<div class="section-head" style="margin-bottom:0" data-aos="fade-up">
+				<span class="kicker">Our fleet</span>
+				<h2>Meet the trucks behind the movement</h2>
+				<p>Real Noki Logistics vehicles and teams serving businesses from Uganda into regional markets.</p>
+			</div>
+			<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-dark" data-aos="fade-up">Move With Noki <i class="fas fa-arrow-right"></i></a>
+		</div>
+
+		<div class="fleet-slider" id="fleet-slider" aria-label="Noki Logistics fleet gallery" data-aos="fade-up">
+			<div class="fleet-slides">
+				<?php foreach ( $fleet_slides as $i => $slide ) : ?>
+					<article class="fleet-slide<?php echo 0 === $i ? ' active' : ''; ?>">
+						<img src="<?php echo esc_url( $slide['img'] ); ?>" alt="<?php echo esc_attr( $slide['alt'] ); ?>" loading="<?php echo 0 === $i ? 'eager' : 'lazy'; ?>">
+						<div class="fleet-overlay"></div>
+						<div class="fleet-copy">
+							<span class="fleet-badge"><?php echo esc_html( $slide['badge'] ); ?></span>
+							<h3><?php echo esc_html( $slide['title'] ); ?></h3>
+							<p><?php echo esc_html( $slide['text'] ); ?></p>
+						</div>
+					</article>
+				<?php endforeach; ?>
+			</div>
+			<button class="fleet-arrow prev" id="fleet-prev" aria-label="Previous fleet photo"><i class="fas fa-chevron-left"></i></button>
+			<button class="fleet-arrow next" id="fleet-next" aria-label="Next fleet photo"><i class="fas fa-chevron-right"></i></button>
+			<div class="fleet-dots" id="fleet-dots">
+				<?php foreach ( $fleet_slides as $i => $slide ) : ?>
+					<button class="fleet-dot<?php echo 0 === $i ? ' active' : ''; ?>" data-slide="<?php echo esc_attr( $i ); ?>" aria-label="View fleet photo <?php echo esc_attr( $i + 1 ); ?>"></button>
+				<?php endforeach; ?>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- ============ STATS BAND ============ -->
 <section class="section-sm">
 	<div class="container">
@@ -325,7 +380,7 @@ $rest = array_slice( $news_items, 1, 3 );
 <section class="section bg-soft">
 	<div class="container">
 		<?php
-		$about_img_default = file_exists( get_template_directory() . '/images/about-team.jpg' ) ? $tpl . '/images/about-team.jpg' : '';
+		$about_img_default = file_exists( get_template_directory() . '/images/fleet-lineup.webp' ) ? $tpl . '/images/fleet-lineup.webp' : ( file_exists( get_template_directory() . '/images/about-team.jpg' ) ? $tpl . '/images/about-team.jpg' : '' );
 		$about_img = noki_field( 'about_image', $about_img_default );
 		$about_checks = [
 			[ noki_field( 'about_check1_title', 'Door-to-door coordination' ), noki_field( 'about_check1_text', 'One point of contact for the entire journey.' ) ],
