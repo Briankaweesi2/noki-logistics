@@ -13,9 +13,12 @@ jobs:
         run: |
           # Give GitHub a moment to generate the fresh zip for this push.
           sleep 10
+          DEPLOY_URL="${{ secrets.DFG_THEME_DEPLOY_URL }}&cache_bust=${GITHUB_SHA}"
           curl -s -o response.json -w "%{http_code}" \
             --max-time 90 \
-            "${{ secrets.DFG_THEME_DEPLOY_URL }}" > http_code.txt
+            -H "Cache-Control: no-cache, no-store, must-revalidate" \
+            -H "Pragma: no-cache" \
+            "$DEPLOY_URL" > http_code.txt
           HTTP_CODE=$(cat http_code.txt)
           echo "HTTP status: $HTTP_CODE"
           echo "----- response -----"
