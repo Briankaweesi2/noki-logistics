@@ -280,6 +280,31 @@ function noki_news_type( $post_id ) {
 	return ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'News';
 }
 
+/**
+ * Context-aware fallback artwork for blog cards when a post has no featured image.
+ * Keeps SEO guides visual without requiring duplicate Media Library uploads.
+ */
+function noki_blog_fallback_img( $post_id ) {
+	$slug = get_post_field( 'post_name', $post_id );
+	$base = get_template_directory_uri() . '/images/';
+	$map = [
+		'warehous' => 'fleet-lineup.webp',
+		'road-'    => 'fleet-front-team.webp',
+		'heavy-'   => 'fleet-front-team.webp',
+		'cross-'   => 'fleet-front-team.webp',
+		'china'    => 'service-sea.jpg',
+		'dubai'    => 'service-air.jpg',
+		'customs'  => 'service-customs.jpg',
+		'freight'  => 'hero-freight.jpg',
+	];
+	foreach ( $map as $keyword => $file ) {
+		if ( false !== strpos( $slug, $keyword ) ) {
+			return $base . $file;
+		}
+	}
+	return $base . 'fleet-front-team.webp';
+}
+
 function noki_star_rating( $rating ) {
 	$rating = (int) $rating;
 	$html   = '<div class="testimonial-stars">';
