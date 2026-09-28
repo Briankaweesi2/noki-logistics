@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.1' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.2' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.1', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.2', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -38,6 +38,41 @@ function noki_enqueue() {
 	] );
 }
 add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
+
+/* ===========================
+   DEPLOYMENT CACHE BUST
+   Runs once per theme version after a Git deploy so page/object caches
+   do not keep serving an older homepage after the theme has updated.
+=========================== */
+function noki_deployment_cache_bust() {
+	$version = '2.7.2';
+	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
+		return;
+	}
+
+	// WordPress/object cache.
+	if ( function_exists( 'wp_cache_flush' ) ) {
+		wp_cache_flush();
+	}
+
+	// Common page-cache plugins — call only when present.
+	if ( function_exists( 'rocket_clean_domain' ) ) {
+		rocket_clean_domain();
+	}
+	if ( function_exists( 'w3tc_flush_all' ) ) {
+		w3tc_flush_all();
+	}
+	if ( function_exists( 'wp_cache_clear_cache' ) ) {
+		wp_cache_clear_cache();
+	}
+
+	// LiteSpeed Cache listens to this action when active.
+	do_action( 'litespeed_purge_all' );
+
+	update_option( 'noki_deployed_theme_version', $version, false );
+}
+add_action( 'init', 'noki_deployment_cache_bust', 99 );
+
 
 /* ===========================
    ACF FIELDS (editable content)

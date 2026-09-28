@@ -5,6 +5,9 @@
  */
 get_header();
 
+// Noki theme build 2.7.2 — fleet/homepage refresh.
+echo "<!-- Noki theme build 2.7.2 -->\n";
+
 $phone    = get_theme_mod( 'noki_phone', '+256 200 946 366' );
 $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+256772540483' ) );
 $tpl      = get_template_directory_uri();
@@ -34,10 +37,10 @@ if ( $services ) {
 	$service_cards = [
 		[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-air.jpg' ],
 		[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-sea.jpg' ],
-		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp' ],
+		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
 		[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-customs.jpg' ],
-		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-lineup.webp' ],
-		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp' ],
+		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-lineup.webp?v=2.7.2' ],
+		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
 	];
 }
 
@@ -73,7 +76,7 @@ $hero_defaults = [
 		'cta2'  => [ 'Contact Us', home_url( '/contact' ) ],
 	],
 	[
-		'img'   => $tpl . '/images/fleet-front-team.webp',
+		'img'   => $tpl . '/images/fleet-front-team.webp?v=2.7.2',
 		'badge' => 'Our growing road fleet',
 		'title' => 'More capacity to <span class="grad">move East Africa</span>',
 		'lead'  => 'Real Noki Logistics trucks and teams ready to move commercial cargo across Uganda and the region.',
