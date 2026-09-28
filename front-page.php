@@ -380,7 +380,7 @@ $rest = array_slice( $news_items, 1, 3 );
 <section class="section bg-soft">
 	<div class="container">
 		<?php
-		$about_img_default = file_exists( get_template_directory() . '/images/fleet-lineup.webp' ) ? $tpl . '/images/fleet-lineup.webp' : ( file_exists( get_template_directory() . '/images/about-team.jpg' ) ? $tpl . '/images/about-team.jpg' : '' );
+		$about_img_default = file_exists( get_template_directory() . '/images/about-team.jpg' ) ? $tpl . '/images/about-team.jpg' : '';
 		$about_img = noki_field( 'about_image', $about_img_default );
 		$about_checks = [
 			[ noki_field( 'about_check1_title', 'Door-to-door coordination' ), noki_field( 'about_check1_text', 'One point of contact for the entire journey.' ) ],
