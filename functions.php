@@ -779,16 +779,16 @@ function noki_service_img( $post, $size = 'noki-card' ) {
 	$map  = [
 		'fa-plane'     => 'service-air.jpg',
 		'fa-ship'      => 'service-sea.jpg',
-		'fa-truck'     => 'service-road.jpg',
+		'fa-truck'     => 'fleet-front-team.webp',
 		'fa-box-open'  => 'service-customs.jpg',
-		'fa-warehouse' => 'service-warehouse.jpg',
+		'fa-warehouse' => 'fleet-lineup.webp',
 		'fa-bolt'      => 'service-express.jpg',
 	];
 	if ( isset( $map[ $icon ] ) ) {
 		return $base . $map[ $icon ];
 	}
 	// Fallback by slug keyword.
-	foreach ( [ 'air' => 'service-air.jpg', 'sea' => 'service-sea.jpg', 'road' => 'service-road.jpg', 'customs' => 'service-customs.jpg', 'warehous' => 'service-warehouse.jpg', 'express' => 'service-express.jpg' ] as $kw => $file ) {
+	foreach ( [ 'air' => 'service-air.jpg', 'sea' => 'service-sea.jpg', 'road' => 'fleet-front-team.webp', 'customs' => 'service-customs.jpg', 'warehous' => 'fleet-lineup.webp', 'express' => 'service-express.jpg' ] as $kw => $file ) {
 		if ( false !== strpos( $slug, $kw ) ) {
 			return $base . $file;
 		}
