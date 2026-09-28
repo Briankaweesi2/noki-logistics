@@ -22,6 +22,12 @@ get_header(); ?>
 					</article>
 				<?php endwhile; ?>
 			</div>
+
+			<?php the_posts_pagination( [
+				'mid_size'  => 2,
+				'prev_text' => '<i class="fas fa-arrow-left"></i> Previous',
+				'next_text' => 'Next <i class="fas fa-arrow-right"></i>',
+			] ); ?>
 		<?php else : ?>
 			<p style="text-align:center;color:var(--muted);">Nothing here yet.</p>
 		<?php endif; ?>
