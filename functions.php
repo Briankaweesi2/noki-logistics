@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.2' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.3' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.2', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.3', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.7.2';
+	$version = '2.7.3';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -828,40 +828,38 @@ function noki_whatsapp_link( $message = '' ) {
    theme photo based on the service's Font Awesome icon (or slug).
 =========================== */
 function noki_service_img( $post, $size = 'noki-card' ) {
+	// Use the WordPress Featured Image first so the team can replace
+	// service photography directly from wp-admin without editing code.
+	$url = get_the_post_thumbnail_url( $post, $size );
+	if ( $url ) {
+		return $url;
+	}
+
 	$id   = is_object( $post ) ? $post->ID : $post;
 	$icon = get_post_meta( $id, '_service_icon', true );
 	$slug = get_post_field( 'post_name', $id );
 	$base = get_template_directory_uri() . '/images/';
 
-	// Force current Noki photography for key road-based services.
-	// This intentionally overrides any older stock Featured Image still saved in WordPress.
-	if ( false !== strpos( $slug, 'road' ) || 'fa-truck' === $icon ) {
-		return $base . 'fleet-front-team.webp';
-	}
-	if ( false !== strpos( $slug, 'warehous' ) || 'fa-warehouse' === $icon ) {
-		return $base . 'fleet-lineup.webp';
-	}
-	if ( false !== strpos( $slug, 'express' ) || 'fa-bolt' === $icon ) {
-		return $base . 'fleet-front-team.webp';
-	}
-
-	$url = get_the_post_thumbnail_url( $post, $size );
-	if ( $url ) {
-		return $url;
-	}
-	$map  = [
+	$map = [
 		'fa-plane'     => 'service-air.jpg',
 		'fa-ship'      => 'service-sea.jpg',
 		'fa-truck'     => 'fleet-front-team.webp',
 		'fa-box-open'  => 'service-customs.jpg',
 		'fa-warehouse' => 'fleet-lineup.webp',
-		'fa-bolt'      => 'service-express.jpg',
+		'fa-bolt'      => 'fleet-front-team.webp',
 	];
 	if ( isset( $map[ $icon ] ) ) {
 		return $base . $map[ $icon ];
 	}
-	// Fallback by slug keyword.
-	foreach ( [ 'air' => 'service-air.jpg', 'sea' => 'service-sea.jpg', 'road' => 'fleet-front-team.webp', 'customs' => 'service-customs.jpg', 'warehous' => 'fleet-lineup.webp', 'express' => 'service-express.jpg' ] as $kw => $file ) {
+
+	foreach ( [
+		'air'      => 'service-air.jpg',
+		'sea'      => 'service-sea.jpg',
+		'road'     => 'fleet-front-team.webp',
+		'customs'  => 'service-customs.jpg',
+		'warehous' => 'fleet-lineup.webp',
+		'express'  => 'fleet-front-team.webp',
+	] as $kw => $file ) {
 		if ( false !== strpos( $slug, $kw ) ) {
 			return $base . $file;
 		}
