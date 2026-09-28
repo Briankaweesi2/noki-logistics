@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.4' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.5' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.4', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.5', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.7.4';
+	$version = '2.7.5';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -320,12 +320,12 @@ function noki_get_news( $limit = 4 ) {
  * If credentials are not configured or the API is unavailable, the homepage
  * falls back to the manually featured LinkedIn posts configured on the Home page.
  */
-function noki_get_linkedin_posts( $limit = 3 ) {
+function noki_get_linkedin_posts( $limit = 3, $force_refresh = false ) {
 	$limit = max( 1, min( 6, absint( $limit ) ) );
 	$cache_key = 'noki_linkedin_posts_v1';
 
 	$cached = get_transient( $cache_key );
-	if ( is_array( $cached ) && ! empty( $cached ) ) {
+	if ( ! $force_refresh && is_array( $cached ) && ! empty( $cached ) ) {
 		return array_slice( $cached, 0, $limit );
 	}
 
@@ -373,7 +373,7 @@ function noki_get_linkedin_posts( $limit = 3 ) {
 	}
 
 	if ( ! empty( $posts ) ) {
-		set_transient( $cache_key, $posts, 3 * HOUR_IN_SECONDS );
+		set_transient( $cache_key, $posts, DAY_IN_SECONDS );
 		return array_slice( $posts, 0, $limit );
 	}
 
@@ -1134,3 +1134,22 @@ function noki_google_analytics() {
 	<?php
 }
 add_action( 'wp_head', 'noki_google_analytics', 1 );
+
+
+/**
+ * Refresh the LinkedIn feed once per day.
+ * This is ready now; once LinkedIn API credentials are added, the cron
+ * will fetch and cache the latest organization posts automatically.
+ */
+function noki_schedule_linkedin_refresh() {
+	if ( ! wp_next_scheduled( 'noki_linkedin_daily_refresh' ) ) {
+		wp_schedule_event( time() + HOUR_IN_SECONDS, 'daily', 'noki_linkedin_daily_refresh' );
+	}
+}
+add_action( 'init', 'noki_schedule_linkedin_refresh' );
+
+function noki_run_linkedin_daily_refresh() {
+	delete_transient( 'noki_linkedin_posts_v1' );
+	noki_get_linkedin_posts( 3, true );
+}
+add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
