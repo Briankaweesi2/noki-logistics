@@ -371,6 +371,76 @@ $rest = array_slice( $news_items, 1, 3 );
 	</div>
 </section>
 
+<!-- ============ LINKEDIN ============ -->
+<?php
+$linkedin_posts = noki_get_linkedin_posts( 3 );
+if ( empty( $linkedin_posts ) ) {
+	$linkedin_posts = [];
+	for ( $li = 1; $li <= 3; $li++ ) {
+		$li_text = trim( (string) noki_field( "linkedin{$li}_text", '' ) );
+		$li_url  = trim( (string) noki_field( "linkedin{$li}_url", '' ) );
+		$li_date = trim( (string) noki_field( "linkedin{$li}_date", '' ) );
+		$li_img  = trim( (string) noki_field( "linkedin{$li}_image", '' ) );
+		if ( '' !== $li_text || '' !== $li_url || '' !== $li_img ) {
+			$linkedin_posts[] = [
+				'text'  => $li_text,
+				'url'   => $li_url ?: 'https://www.linkedin.com/company/nokilogistics',
+				'date'  => $li_date,
+				'image' => $li_img,
+				'auto'  => false,
+			];
+		}
+	}
+}
+?>
+<section class="section linkedin-section bg-soft">
+	<div class="container">
+		<div class="solutions-head">
+			<div class="section-head" style="margin-bottom:0" data-aos="fade-up">
+				<span class="kicker">Latest updates</span>
+				<h2>From Noki Logistics on LinkedIn</h2>
+				<p>Fleet updates, regional operations, company news and insights from our team.</p>
+			</div>
+			<a href="https://www.linkedin.com/company/nokilogistics" target="_blank" rel="noopener" class="btn btn-dark" data-aos="fade-up">
+				<i class="fab fa-linkedin-in"></i> Follow on LinkedIn
+			</a>
+		</div>
+
+		<?php if ( $linkedin_posts ) : ?>
+			<div class="linkedin-grid">
+				<?php foreach ( array_slice( $linkedin_posts, 0, 3 ) as $li_post ) : ?>
+					<article class="linkedin-card" data-aos="fade-up">
+						<?php if ( ! empty( $li_post['image'] ) ) : ?>
+							<a href="<?php echo esc_url( $li_post['url'] ); ?>" target="_blank" rel="noopener" class="linkedin-thumb">
+								<img src="<?php echo esc_url( $li_post['image'] ); ?>" alt="Noki Logistics LinkedIn update" loading="lazy">
+							</a>
+						<?php endif; ?>
+						<div class="linkedin-card-body">
+							<div class="linkedin-brand">
+								<span class="linkedin-icon"><i class="fab fa-linkedin-in"></i></span>
+								<div><strong>Noki Logistics</strong><span><?php echo esc_html( $li_post['date'] ?: 'LinkedIn' ); ?></span></div>
+							</div>
+							<?php if ( ! empty( $li_post['text'] ) ) : ?>
+								<p><?php echo esc_html( wp_trim_words( $li_post['text'], 30 ) ); ?></p>
+							<?php endif; ?>
+							<a class="link-arrow" href="<?php echo esc_url( $li_post['url'] ); ?>" target="_blank" rel="noopener">View on LinkedIn <i class="fas fa-arrow-right"></i></a>
+						</div>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		<?php else : ?>
+			<div class="linkedin-empty" data-aos="fade-up">
+				<i class="fab fa-linkedin-in"></i>
+				<div>
+					<h3>Follow Noki Logistics on LinkedIn</h3>
+					<p>See our latest fleet updates, regional operations and company news.</p>
+				</div>
+				<a href="https://www.linkedin.com/company/nokilogistics" target="_blank" rel="noopener" class="btn btn-primary">View LinkedIn</a>
+			</div>
+		<?php endif; ?>
+	</div>
+</section>
+
 <!-- ============ TESTIMONIALS ============ -->
 <section class="section">
 	<div class="container">
