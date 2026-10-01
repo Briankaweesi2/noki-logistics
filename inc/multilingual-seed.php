@@ -205,3 +205,36 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+/**
+ * Remove three accidental duplicate English SEO seed posts created before
+ * the multilingual rollout. Guarded by exact title/content matches so no
+ * legitimate editorial content is touched.
+ */
+function noki_cleanup_duplicate_seed_posts() {
+	if ( get_option( 'noki_duplicate_seed_cleanup_v1' ) ) return;
+
+	$pairs = [
+		9048 => 9047,
+		9049 => 9047,
+		9051 => 9052,
+	];
+
+	foreach ( $pairs as $duplicate_id => $canonical_id ) {
+		$dup = get_post( $duplicate_id );
+		$canonical = get_post( $canonical_id );
+		if ( ! $dup || ! $canonical ) continue;
+
+		if (
+			'post' === $dup->post_type &&
+			$dup->post_title === $canonical->post_title &&
+			trim( (string) $dup->post_content ) === trim( (string) $canonical->post_content )
+		) {
+			wp_trash_post( $duplicate_id );
+		}
+	}
+
+	update_option( 'noki_duplicate_seed_cleanup_v1', 1, false );
+}
+add_action( 'init', 'noki_cleanup_duplicate_seed_posts', 45 );
