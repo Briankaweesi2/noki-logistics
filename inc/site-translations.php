@@ -109,9 +109,32 @@ function noki_translate_fixed_html( $html ) {
 	if ( is_admin() || ! function_exists( 'pll_current_language' ) ) return $html;
 	$lang = pll_current_language( 'slug' );
 	if ( ! $lang || 'en' === $lang ) return $html;
+
 	$all = noki_ui_translations();
-	if ( empty( $all[ $lang ] ) ) return $html;
-	return strtr( $html, $all[ $lang ] );
+	if ( empty( $all[ $lang ] ) || ! is_string( $html ) || '' === $html ) return $html;
+
+	/*
+	 * IMPORTANT: translate visible text only.
+	 * Running strtr() over the complete HTML can alter stylesheet/script URLs,
+	 * class names and attributes (for example words such as "about" or
+	 * "contact"), which makes translated pages render as unstyled/plain text.
+	 * Script/style blocks and all HTML tags are preserved byte-for-byte.
+	 */
+	$parts = preg_split(
+		'~(<script\\b[^>]*>.*?</script>|<style\\b[^>]*>.*?</style>|<noscript\\b[^>]*>.*?</noscript>|<[^>]+>)~is',
+		$html,
+		-1,
+		PREG_SPLIT_DELIM_CAPTURE
+	);
+
+	if ( false === $parts ) return $html;
+
+	foreach ( $parts as $i => $part ) {
+		if ( '' === $part || '<' === $part[0] ) continue;
+		$parts[ $i ] = strtr( $part, $all[ $lang ] );
+	}
+
+	return implode( '', $parts );
 }
 
 function noki_start_translation_buffer() {
