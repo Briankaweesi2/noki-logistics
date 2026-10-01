@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.8.2' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.8.3' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.8.2', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.8.3', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.8.2';
+	$version = '2.8.3';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1165,6 +1165,19 @@ function noki_load_textdomain() {
 	load_theme_textdomain( 'noki-logistics', get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'noki_load_textdomain', 5 );
+
+function noki_polylang_post_types( $post_types, $is_settings ) {
+	$post_types['noki_service'] = 'noki_service';
+	$post_types['noki_news']    = 'noki_news';
+	return $post_types;
+}
+add_filter( 'pll_get_post_types', 'noki_polylang_post_types', 10, 2 );
+
+function noki_polylang_taxonomies( $taxonomies, $is_settings ) {
+	$taxonomies['news_type'] = 'news_type';
+	return $taxonomies;
+}
+add_filter( 'pll_get_taxonomies', 'noki_polylang_taxonomies', 10, 2 );
 
 function noki_supported_languages() {
 	return [
