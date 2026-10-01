@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.5' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.6' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.5', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.6', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.9.5';
+	$version = '2.9.6';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1166,7 +1166,7 @@ add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
    Flush rewrite rules once after multilingual pages/languages change.
 =========================== */
 function noki_multilingual_rewrite_refresh() {
-	$version = '2.9.5';
+	$version = '2.9.6';
 	if ( get_option( 'noki_multilingual_rewrite_version' ) === $version ) {
 		return;
 	}
@@ -1321,6 +1321,63 @@ function noki_detect_preferred_language() {
 
 	return 'en';
 }
+
+/**
+ * Clean language home URLs.
+ * Serve the translated Home page directly at /fr, /zh, /de, /es and /pl
+ * instead of exposing translated page slugs such as /fr/accueil/.
+ */
+function noki_short_language_home_request( $query_vars ) {
+	if ( is_admin() || empty( $_SERVER['REQUEST_URI'] ) || ! function_exists( 'pll_get_post' ) ) {
+		return $query_vars;
+	}
+
+	$path = trim( (string) parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ), '/' );
+	$map  = [ 'zh', 'fr', 'de', 'es', 'pl' ];
+
+	if ( in_array( $path, $map, true ) ) {
+		$translated_home = pll_get_post( 27, $path );
+		if ( $translated_home ) {
+			return [ 'page_id' => (int) $translated_home ];
+		}
+	}
+
+	return $query_vars;
+}
+add_filter( 'request', 'noki_short_language_home_request', 1 );
+
+function noki_disable_canonical_on_short_language_home( $redirect_url, $requested_url ) {
+	if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+		return $redirect_url;
+	}
+	$path = trim( (string) parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ), '/' );
+	if ( in_array( $path, [ 'zh', 'fr', 'de', 'es', 'pl' ], true ) ) {
+		return false;
+	}
+	return $redirect_url;
+}
+add_filter( 'redirect_canonical', 'noki_disable_canonical_on_short_language_home', 10, 2 );
+
+function noki_redirect_long_language_home_urls() {
+	if ( is_admin() || ! is_page() || ! function_exists( 'pll_get_post' ) ) {
+		return;
+	}
+
+	$lang = noki_current_language_slug();
+	if ( ! in_array( $lang, [ 'zh', 'fr', 'de', 'es', 'pl' ], true ) ) {
+		return;
+	}
+
+	$translated_home = pll_get_post( 27, $lang );
+	if ( $translated_home && get_queried_object_id() === (int) $translated_home ) {
+		$path = trim( (string) parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '' ), PHP_URL_PATH ), '/' );
+		if ( $path !== $lang ) {
+			wp_safe_redirect( home_url( '/' . $lang ), 301 );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'noki_redirect_long_language_home_urls', 1 );
 
 function noki_maybe_redirect_language() {
 	if (
