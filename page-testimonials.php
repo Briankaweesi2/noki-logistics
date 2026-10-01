@@ -64,6 +64,20 @@ $testimonials = noki_get_testimonials( -1 );
 	</div>
 </section>
 
+
+<section class="section bg-soft">
+	<div class="container">
+		<div class="cta-band review-cta" data-aos="zoom">
+			<span class="kicker center" style="color:rgba(255,255,255,.85)">Share your experience</span>
+			<h2>Had a good experience with Noki Logistics?</h2>
+			<p>Your Google review helps more businesses find a logistics partner they can trust.</p>
+			<div class="cta-actions">
+				<a href="https://search.google.com/local/writereview?placeid=ChIJYVmEkmW7fRcRcdJJS06LcGw" target="_blank" rel="noopener" class="btn btn-white btn-lg"><i class="fab fa-google"></i> Leave a Google Review</a>
+			</div>
+		</div>
+	</div>
+</section>
+
 <section class="section">
 	<div class="container">
 		<div class="cta-band" data-aos="zoom">
