@@ -280,3 +280,19 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/google-test', [
+		'methods' => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function ( WP_REST_Request $request ) {
+			if ( empty( $GLOBALS['skylang_plugin'] ) ) return new WP_Error( 'no_skylang', 'SkyLang unavailable.' );
+			$ref = new ReflectionMethod( $GLOBALS['skylang_plugin'], 'call_google_translate_api_batch' );
+			$ref->setAccessible( true );
+			$batch = [ [ 'id' => 1, 'text' => (string) ( $request->get_param( 'text' ) ?: 'Get a free quote today.' ) ] ];
+			$result = $ref->invoke( $GLOBALS['skylang_plugin'], $batch, 'en', (string) ( $request->get_param( 'lang' ) ?: 'fr' ) );
+			return rest_ensure_response( $result );
+		},
+	] );
+} );
