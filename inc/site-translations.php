@@ -220,7 +220,25 @@ function noki_translate_fixed_html( $html ) {
 	if ( ! $lang || 'en' === $lang ) return $html;
 
 	$all = noki_ui_translations();
-	if ( empty( $all[ $lang ] ) || ! is_string( $html ) || '' === $html ) return $html;
+	if ( empty( $map ) || ! is_string( $html ) || '' === $html ) return $html;
+
+	/*
+	 * WordPress escapes apostrophes, ampersands and quotes in many visible
+	 * strings (for example can't becomes can&#039;t). Build escaped aliases for
+	 * every translation key so the same translation also matches the final
+	 * rendered HTML.
+	 */
+	$map = $all[ $lang ];
+	foreach ( $map as $from => $to ) {
+		$escaped_from = esc_html( $from );
+		if ( $escaped_from !== $from && ! isset( $map[ $escaped_from ] ) ) {
+			$map[ $escaped_from ] = esc_html( $to );
+		}
+		$attr_from = esc_attr( $from );
+		if ( $attr_from !== $from && ! isset( $map[ $attr_from ] ) ) {
+			$map[ $attr_from ] = esc_attr( $to );
+		}
+	}
 
 	/*
 	 * IMPORTANT: translate visible text only.
@@ -247,7 +265,7 @@ function noki_translate_fixed_html( $html ) {
 				$parts[ $i ] = preg_replace_callback(
 					'~\\b(placeholder|aria-label|title|alt)\\s*=\\s*(["\\\'])(.*?)\\2~is',
 					function ( $m ) use ( $all, $lang ) {
-						$value = strtr( $m[3], $all[ $lang ] );
+						$value = strtr( $m[3], $map );
 						return $m[1] . '=' . $m[2] . $value . $m[2];
 					},
 					$part
@@ -256,7 +274,7 @@ function noki_translate_fixed_html( $html ) {
 			continue;
 		}
 
-		$parts[ $i ] = strtr( $part, $all[ $lang ] );
+		$parts[ $i ] = strtr( $part, $map );
 	}
 
 	return implode( '', $parts );
