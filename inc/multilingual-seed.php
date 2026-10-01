@@ -363,6 +363,7 @@ add_action( 'rest_api_init', function () {
 			$ref->setAccessible( true );
 			$auto = get_option( 'noki_ui_auto_translations', [] );
 			if ( ! is_array( $auto ) ) $auto = [];
+			if ( $request->get_param( 'reset' ) ) $auto[ $lang ] = [];
 			if ( empty( $auto[ $lang ] ) || ! is_array( $auto[ $lang ] ) ) $auto[ $lang ] = [];
 			foreach ( array_chunk( $slice, 20, true ) as $chunk ) {
 				$batch = [];
