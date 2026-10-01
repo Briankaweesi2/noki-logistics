@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.4' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.5' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.4', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.5', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.9.4';
+	$version = '2.9.5';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1159,6 +1159,38 @@ function noki_run_linkedin_daily_refresh() {
 }
 add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
 
+
+
+/* ===========================
+   MULTILINGUAL ROUTE REFRESH
+   Flush rewrite rules once after multilingual pages/languages change.
+=========================== */
+function noki_multilingual_rewrite_refresh() {
+	$version = '2.9.5';
+	if ( get_option( 'noki_multilingual_rewrite_version' ) === $version ) {
+		return;
+	}
+	flush_rewrite_rules( false );
+	update_option( 'noki_multilingual_rewrite_version', $version, false );
+}
+add_action( 'init', 'noki_multilingual_rewrite_refresh', 100 );
+
+/**
+ * Return the translated permalink for a known English page.
+ * Falls back to the English permalink when Polylang has no translation.
+ */
+function noki_page_url( $english_page_id ) {
+	$page_id = (int) $english_page_id;
+	if ( function_exists( 'pll_get_post' ) ) {
+		$lang = noki_current_language_slug();
+		$translated = pll_get_post( $page_id, $lang );
+		if ( $translated ) {
+			$page_id = (int) $translated;
+		}
+	}
+	$url = get_permalink( $page_id );
+	return $url ?: home_url( '/' );
+}
 
 /* ===========================
    MULTILINGUAL SUPPORT
