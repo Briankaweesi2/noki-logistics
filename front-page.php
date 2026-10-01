@@ -35,12 +35,12 @@ if ( $services ) {
 	}
 } else {
 	$service_cards = [
-		[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-air.jpg' ],
-		[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-sea.jpg' ],
-		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
-		[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => home_url( '/services' ), 'img' => $tpl . '/images/service-customs.jpg' ],
-		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-lineup.webp?v=2.7.2' ],
-		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
+		[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/service-air.jpg' ],
+		[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/service-sea.jpg' ],
+		[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan.', 'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
+		[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/service-customs.jpg' ],
+		[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/fleet-lineup.webp?v=2.7.2' ],
+		[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => noki_lang_path_url( 'services' ), 'img' => $tpl . '/images/fleet-front-team.webp?v=2.7.2' ],
 	];
 }
 
@@ -56,32 +56,32 @@ $hero_defaults = [
 		'badge' => 'Trusted freight partner across East Africa',
 		'title' => 'Moving your cargo <span class="grad">further, faster</span> &amp; safer',
 		'lead'  => 'From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on.',
-		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
-		'cta2'  => [ 'Explore Services', home_url( '/services' ) ],
+		'cta1'  => [ 'Get a Free Quote', noki_page_url( 10 ) ],
+		'cta2'  => [ 'Explore Services', noki_lang_path_url( 'services' ) ],
 	],
 	[
 		'img'   => $tpl . '/images/hero-2.jpg',
 		'badge' => 'Global reach, local expertise',
 		'title' => 'Air, sea &amp; road freight, <span class="grad">handled end to end</span>',
 		'lead'  => 'One trusted partner for your entire supply chain — across East Africa and beyond.',
-		'cta1'  => [ 'Our Services', home_url( '/services' ) ],
-		'cta2'  => [ 'Get a Quote', home_url( '/contact' ) ],
+		'cta1'  => [ 'Our Services', noki_lang_path_url( 'services' ) ],
+		'cta2'  => [ 'Get a Quote', noki_page_url( 10 ) ],
 	],
 	[
 		'img'   => $tpl . '/images/hero-3.jpg',
 		'badge' => 'Cross-border specialists',
 		'title' => 'Reliable delivery across <span class="grad">East Africa</span>',
 		'lead'  => 'Kenya, Tanzania, Rwanda, DRC and South Sudan — on time, every time.',
-		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
-		'cta2'  => [ 'Contact Us', home_url( '/contact' ) ],
+		'cta1'  => [ 'Get a Free Quote', noki_page_url( 10 ) ],
+		'cta2'  => [ 'Contact Us', noki_page_url( 10 ) ],
 	],
 	[
 		'img'   => $tpl . '/images/fleet-front-team.webp?v=2.7.2',
 		'badge' => 'Our growing road fleet',
 		'title' => 'Capacity to <span class="grad">Move East Africa</span>',
 		'lead'  => 'Noki Logistics has the fleet, people and regional experience to move commercial cargo reliably across Uganda and East Africa.',
-		'cta1'  => [ 'Get a Free Quote', home_url( '/contact' ) ],
-		'cta2'  => [ 'Road Transport', home_url( '/services' ) ],
+		'cta1'  => [ 'Get a Free Quote', noki_page_url( 10 ) ],
+		'cta2'  => [ 'Road Transport', noki_lang_path_url( 'services' ) ],
 	],
 ];
 // Merge ACF-entered content over the defaults (defaults used when a field is empty).
@@ -178,7 +178,7 @@ $intro_metrics = [
 				<span class="kicker">What we offer</span>
 				<h2>How we can help you move</h2>
 			</div>
-			<a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="btn btn-dark" data-aos="fade-up">All Services <i class="fas fa-arrow-right"></i></a>
+			<a href="<?php echo esc_url( noki_lang_path_url( 'services' ) ); ?>" class="btn btn-dark" data-aos="fade-up">All Services <i class="fas fa-arrow-right"></i></a>
 		</div>
 
 		<div class="solutions-grid">
@@ -256,7 +256,7 @@ $intro_metrics = [
 <!-- ============ SPECIAL HIGHLIGHTS (News & Events) ============ -->
 <?php
 $news_posts = noki_get_news( 4 );
-$news_url   = get_post_type_archive_link( 'noki_news' ) ?: home_url( '/news' );
+$news_url   = get_post_type_archive_link( 'noki_news' ) ?: noki_lang_path_url( 'news' );
 $news_items = [];
 if ( $news_posts ) {
 	foreach ( $news_posts as $np ) {
@@ -344,7 +344,7 @@ $rest = array_slice( $news_items, 1, 3 );
 			[ noki_field( 'about_check3_title', 'Transparent pricing' ),       noki_field( 'about_check3_text', 'Clear quotes upfront — what we say is what you pay.' ) ],
 		];
 		$about_btn = noki_field( 'about_btn', null );
-		$about_btn_url  = ( is_array( $about_btn ) && ! empty( $about_btn['url'] ) ) ? $about_btn['url'] : home_url( '/about' );
+		$about_btn_url  = ( is_array( $about_btn ) && ! empty( $about_btn['url'] ) ) ? $about_btn['url'] : noki_page_url( 9 );
 		$about_btn_text = ( is_array( $about_btn ) && ! empty( $about_btn['title'] ) ) ? $about_btn['title'] : 'More About Us';
 		?>
 		<div class="split">
@@ -549,7 +549,7 @@ if ( empty( $linkedin_posts ) ) {
 				<span class="kicker">Insights</span>
 				<h2>From our logistics blog</h2>
 			</div>
-			<a href="<?php echo esc_url( home_url( '/blog' ) ); ?>" class="btn btn-dark" data-aos="fade-up">All Articles <i class="fas fa-arrow-right"></i></a>
+			<a href="<?php echo esc_url( noki_page_url( 26 ) ); ?>" class="btn btn-dark" data-aos="fade-up">All Articles <i class="fas fa-arrow-right"></i></a>
 		</div>
 		<div class="blog-grid">
 			<?php foreach ( $recent as $post ) : setup_postdata( $post ); ?>
@@ -577,7 +577,7 @@ if ( empty( $linkedin_posts ) ) {
 <!-- ============ CTA ============ -->
 <?php
 $cta_b1 = noki_field( 'cta_btn1', null );
-$cta_b1_url  = ( is_array( $cta_b1 ) && ! empty( $cta_b1['url'] ) ) ? $cta_b1['url'] : home_url( '/contact' );
+$cta_b1_url  = ( is_array( $cta_b1 ) && ! empty( $cta_b1['url'] ) ) ? $cta_b1['url'] : noki_page_url( 10 );
 $cta_b1_text = ( is_array( $cta_b1 ) && ! empty( $cta_b1['title'] ) ) ? $cta_b1['title'] : 'Get a Free Quote';
 $cta_b2 = noki_field( 'cta_btn2', null );
 $has_b2 = is_array( $cta_b2 ) && ! empty( $cta_b2['url'] );
