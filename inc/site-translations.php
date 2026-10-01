@@ -220,7 +220,7 @@ function noki_translate_fixed_html( $html ) {
 	if ( ! $lang || 'en' === $lang ) return $html;
 
 	$all = noki_ui_translations();
-	if ( empty( $map ) || ! is_string( $html ) || '' === $html ) return $html;
+	if ( empty( $all[ $lang ] ) || ! is_string( $html ) || '' === $html ) return $html;
 
 	/*
 	 * WordPress escapes apostrophes, ampersands and quotes in many visible
@@ -264,7 +264,7 @@ function noki_translate_fixed_html( $html ) {
 			if ( ! preg_match( '~^<(?:script|style|noscript)\\b~i', $part ) ) {
 				$parts[ $i ] = preg_replace_callback(
 					'~\\b(placeholder|aria-label|title|alt)\\s*=\\s*(["\\\'])(.*?)\\2~is',
-					function ( $m ) use ( $all, $lang ) {
+					function ( $m ) use ( $map ) {
 						$value = strtr( $m[3], $map );
 						return $m[1] . '=' . $m[2] . $value . $m[2];
 					},
