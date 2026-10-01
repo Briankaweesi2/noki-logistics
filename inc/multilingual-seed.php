@@ -371,9 +371,9 @@ add_action( 'rest_api_init', function () {
 				if ( is_wp_error( $result ) ) return $result;
 				foreach ( (array) $result as $row ) {
 					$id = isset( $row['id'] ) ? (int) $row['id'] : -1;
-					if ( $id >= 0 && isset( $list[ $id ] ) && isset( $row['translatedText'] ) ) {
+					if ( $id >= 0 && isset( $slice[ $id ] ) && isset( $row['translatedText'] ) ) {
 						$translated = trim( html_entity_decode( (string) $row['translatedText'], ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
-						if ( $translated && $translated !== $list[ $id ] ) $auto[ $lang ][ $list[ $id ] ] = $translated;
+						if ( $translated && $translated !== $slice[ $id ] ) $auto[ $lang ][ $slice[ $id ] ] = $translated;
 					}
 				}
 			}
