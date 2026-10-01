@@ -96,6 +96,9 @@ function noki_ui_translations() {
 	];
 	$extras = [
 		'zh' => [
+			'Moving your cargo '=>'让您的货物运得','further, faster'=>'更远、更快',' &amp; safer'=>'且更安全','&amp; safer'=>'且更安全',' & safer'=>'且更安全','& safer'=>'且更安全',
+			'Air, sea &amp; road freight, '=>'空运、海运和公路运输，','Air, sea & road freight, '=>'空运、海运和公路运输，','handled end to end'=>'端到端全程处理',
+			'Reliable delivery across '=>'可靠配送覆盖','East Africa'=>'东非','Capacity to '=>'具备能力','Move East Africa'=>'运输整个东非',
 			'Shipments Delivered'=>'已交付货运','Years of Experience'=>'行业经验年数','On-Time Delivery'=>'准时交付率','Customer Support'=>'客户支持',
 			'Featured highlights'=>'精选亮点','Previous slide'=>'上一张','Next slide'=>'下一张','More About Us'=>'更多关于我们','Learn More'=>'了解更多',
 			'Connecting Uganda to the world'=>'连接乌干达与世界','Local expertise'=>'本地专业经验','The Noki Logistics team'=>'Noki Logistics 团队',
@@ -116,7 +119,7 @@ function noki_ui_translations() {
 			'Reliability'=>'可靠性','Innovation'=>'创新','Sustainability'=>'可持续发展','Customer-first'=>'客户至上','Follow on LinkedIn'=>'在 LinkedIn 关注','View LinkedIn'=>'查看 LinkedIn','Logistics'=>'物流'
 		],
 		'fr' => [
-			'Shipments Delivered'=>'Expéditions livrées','Years of Experience'=>"Années d'expérience",'On-Time Delivery'=>'Livraisons à l’heure','Customer Support'=>'Assistance client',
+			'Moving your cargo '=>'Transportez vos marchandises ','further, faster'=>'plus loin, plus vite',' &amp; safer'=>' et en toute sécurité','&amp; safer'=>'et en toute sécurité','Air, sea &amp; road freight, '=>'Fret aérien, maritime et routier, ','Air, sea & road freight, '=>'Fret aérien, maritime et routier, ','handled end to end'=>'géré de bout en bout','Reliable delivery across '=>'Livraison fiable dans toute ','East Africa'=>"l’Afrique de l’Est",'Capacity to '=>'La capacité de ','Move East Africa'=>"faire avancer l’Afrique de l’Est",'Shipments Delivered'=>'Expéditions livrées','Years of Experience'=>"Années d'expérience",'On-Time Delivery'=>'Livraisons à l’heure','Customer Support'=>'Assistance client',
 			'Featured highlights'=>'À la une','Previous slide'=>'Diapositive précédente','Next slide'=>'Diapositive suivante','More About Us'=>'En savoir plus sur nous','Learn More'=>'En savoir plus',
 			'Connecting Uganda to the world'=>"Relier l’Ouganda au monde",'Local expertise'=>'Expertise locale','The Noki Logistics team'=>"L’équipe Noki Logistics",
 			'Help centre'=>"Centre d’aide",'Frequently asked questions'=>'Questions fréquentes','Got questions?'=>'Des questions ?','Everything you need to know'=>'Tout ce que vous devez savoir',
@@ -136,7 +139,7 @@ function noki_ui_translations() {
 			'Reliability'=>'Fiabilité','Innovation'=>'Innovation','Sustainability'=>'Durabilité','Customer-first'=>'Priorité au client','Follow on LinkedIn'=>'Suivre sur LinkedIn','View LinkedIn'=>'Voir LinkedIn','Logistics'=>'Logistique'
 		],
 		'de' => [
-			'Shipments Delivered'=>'Sendungen zugestellt','Years of Experience'=>'Jahre Erfahrung','On-Time Delivery'=>'Pünktliche Lieferung','Customer Support'=>'Kundensupport',
+			'Moving your cargo '=>'Wir bewegen Ihre Fracht ','further, faster'=>'weiter und schneller',' &amp; safer'=>' und sicherer','&amp; safer'=>'und sicherer','Air, sea &amp; road freight, '=>'Luft-, See- und Straßentransport, ','Air, sea & road freight, '=>'Luft-, See- und Straßentransport, ','handled end to end'=>'durchgängig abgewickelt','Reliable delivery across '=>'Zuverlässige Lieferung in ganz ','East Africa'=>'Ostafrika','Capacity to '=>'Kapazität, ','Move East Africa'=>'Ostafrika zu bewegen','Shipments Delivered'=>'Sendungen zugestellt','Years of Experience'=>'Jahre Erfahrung','On-Time Delivery'=>'Pünktliche Lieferung','Customer Support'=>'Kundensupport',
 			'Featured highlights'=>'Highlights','Previous slide'=>'Vorherige Folie','Next slide'=>'Nächste Folie','More About Us'=>'Mehr über uns','Learn More'=>'Mehr erfahren',
 			'Connecting Uganda to the world'=>'Uganda mit der Welt verbinden','Local expertise'=>'Lokale Expertise','The Noki Logistics team'=>'Das Noki-Logistics-Team',
 			'Help centre'=>'Hilfezentrum','Frequently asked questions'=>'Häufig gestellte Fragen','Got questions?'=>'Fragen?','Everything you need to know'=>'Alles, was Sie wissen müssen',
@@ -156,7 +159,7 @@ function noki_ui_translations() {
 			'Reliability'=>'Zuverlässigkeit','Innovation'=>'Innovation','Sustainability'=>'Nachhaltigkeit','Customer-first'=>'Kundenorientierung','Follow on LinkedIn'=>'Auf LinkedIn folgen','View LinkedIn'=>'LinkedIn ansehen','Logistics'=>'Logistik'
 		],
 		'es' => [
-			'Shipments Delivered'=>'Envíos entregados','Years of Experience'=>'Años de experiencia','On-Time Delivery'=>'Entrega puntual','Customer Support'=>'Atención al cliente',
+			'Moving your cargo '=>'Movemos su carga ','further, faster'=>'más lejos y más rápido',' &amp; safer'=>' y con mayor seguridad','&amp; safer'=>'y con mayor seguridad','Air, sea &amp; road freight, '=>'Carga aérea, marítima y terrestre, ','Air, sea & road freight, '=>'Carga aérea, marítima y terrestre, ','handled end to end'=>'gestionada de principio a fin','Reliable delivery across '=>'Entrega confiable en toda ','East Africa'=>'África Oriental','Capacity to '=>'Capacidad para ','Move East Africa'=>'mover África Oriental','Shipments Delivered'=>'Envíos entregados','Years of Experience'=>'Años de experiencia','On-Time Delivery'=>'Entrega puntual','Customer Support'=>'Atención al cliente',
 			'Featured highlights'=>'Destacados','Previous slide'=>'Diapositiva anterior','Next slide'=>'Siguiente diapositiva','More About Us'=>'Más sobre nosotros','Learn More'=>'Más información',
 			'Connecting Uganda to the world'=>'Conectando Uganda con el mundo','Local expertise'=>'Experiencia local','The Noki Logistics team'=>'El equipo de Noki Logistics',
 			'Help centre'=>'Centro de ayuda','Frequently asked questions'=>'Preguntas frecuentes','Got questions?'=>'¿Tiene preguntas?','Everything you need to know'=>'Todo lo que necesita saber',
@@ -176,7 +179,7 @@ function noki_ui_translations() {
 			'Reliability'=>'Fiabilidad','Innovation'=>'Innovación','Sustainability'=>'Sostenibilidad','Customer-first'=>'El cliente primero','Follow on LinkedIn'=>'Seguir en LinkedIn','View LinkedIn'=>'Ver LinkedIn','Logistics'=>'Logística'
 		],
 		'pl' => [
-			'Shipments Delivered'=>'Dostarczone przesyłki','Years of Experience'=>'Lata doświadczenia','On-Time Delivery'=>'Terminowe dostawy','Customer Support'=>'Obsługa klienta',
+			'Moving your cargo '=>'Przewozimy Twój ładunek ','further, faster'=>'dalej i szybciej',' &amp; safer'=>' oraz bezpieczniej','&amp; safer'=>'oraz bezpieczniej','Air, sea &amp; road freight, '=>'Fracht lotniczy, morski i drogowy, ','Air, sea & road freight, '=>'Fracht lotniczy, morski i drogowy, ','handled end to end'=>'obsługiwany od początku do końca','Reliable delivery across '=>'Niezawodne dostawy w całej ','East Africa'=>'Afryce Wschodniej','Capacity to '=>'Potencjał, by ','Move East Africa'=>'obsługiwać Afrykę Wschodnią','Shipments Delivered'=>'Dostarczone przesyłki','Years of Experience'=>'Lata doświadczenia','On-Time Delivery'=>'Terminowe dostawy','Customer Support'=>'Obsługa klienta',
 			'Featured highlights'=>'Najważniejsze informacje','Previous slide'=>'Poprzedni slajd','Next slide'=>'Następny slajd','More About Us'=>'Więcej o nas','Learn More'=>'Dowiedz się więcej',
 			'Connecting Uganda to the world'=>'Łączymy Ugandę ze światem','Local expertise'=>'Lokalne doświadczenie','The Noki Logistics team'=>'Zespół Noki Logistics',
 			'Help centre'=>'Centrum pomocy','Frequently asked questions'=>'Najczęściej zadawane pytania','Got questions?'=>'Masz pytania?','Everything you need to know'=>'Wszystko, co musisz wiedzieć',
