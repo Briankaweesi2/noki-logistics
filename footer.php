@@ -72,6 +72,7 @@ $socials = [
 					<li><i class="fas fa-location-dot"></i> <span><?php echo esc_html( $address ); ?></span></li>
 					<li><i class="fas fa-phone"></i> <a href="tel:<?php echo esc_attr( $tel ); ?>"><?php echo esc_html( $phone ); ?></a></li>
 					<li><i class="fas fa-envelope"></i> <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a></li>
+					<li><i class="fab fa-google"></i> <a href="https://search.google.com/local/writereview?placeid=ChIJYVmEkmW7fRcRcdJJS06LcGw" target="_blank" rel="noopener">Review us on Google</a></li>
 				</ul>
 				<p><?php esc_html_e( 'Subscribe for logistics tips & updates.', 'noki-logistics' ); ?></p>
 				<form id="newsletter-form" novalidate>
