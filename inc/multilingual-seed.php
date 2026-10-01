@@ -296,3 +296,90 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+function noki_collect_rendered_ui_strings() {
+	$urls = [
+		home_url( '/' ),
+		get_permalink( 9 ), get_permalink( 10 ), get_permalink( 20 ), get_permalink( 21 ),
+		get_permalink( 22 ), get_permalink( 23 ), get_permalink( 24 ), get_permalink( 25 ),
+		get_permalink( 26 ),
+		get_post_type_archive_link( 'noki_service' ),
+		get_permalink( 9001 ),
+		get_post_type_archive_link( 'noki_news' ),
+		get_permalink( 34 ),
+		get_permalink( 9050 ),
+	];
+	$strings = [];
+	foreach ( array_filter( array_unique( $urls ) ) as $url ) {
+		$res = wp_remote_get( $url, [ 'timeout' => 20, 'redirection' => 3, 'headers' => [ 'Accept-Language' => 'en-US,en;q=0.9' ] ] );
+		if ( is_wp_error( $res ) || 200 !== (int) wp_remote_retrieve_response_code( $res ) ) continue;
+		$html = wp_remote_retrieve_body( $res );
+		if ( ! $html ) continue;
+		$dom = new DOMDocument();
+		libxml_use_internal_errors( true );
+		$dom->loadHTML( '<?xml encoding="utf-8" ?>' . $html, LIBXML_NOERROR | LIBXML_NOWARNING );
+		libxml_clear_errors();
+		$xp = new DOMXPath( $dom );
+		foreach ( $xp->query( '//body//text()[normalize-space(.) != "" and not(ancestor::script) and not(ancestor::style) and not(ancestor::noscript) and not(ancestor::svg)]' ) as $node ) {
+			$text = preg_replace( '/\s+/u', ' ', trim( $node->nodeValue ) );
+			if ( ! $text || mb_strlen( $text ) < 2 || mb_strlen( $text ) > 600 ) continue;
+			if ( ! preg_match( '/[A-Za-z]/', $text ) ) continue;
+			if ( preg_match( '/^(?:https?:\/\/|www\.|\+?[0-9\s()\-]+$)/i', $text ) ) continue;
+			if ( in_array( $text, [ 'Noki Logistics', 'WhatsApp', 'LinkedIn', 'Facebook', 'Instagram', 'X', 'TikTok' ], true ) ) continue;
+			$strings[ $text ] = true;
+		}
+	}
+	$list = array_keys( $strings );
+	sort( $list, SORT_NATURAL | SORT_FLAG_CASE );
+	update_option( 'noki_ui_string_catalog', $list, false );
+	return $list;
+}
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/collect-ui-strings', [
+		'methods' => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function () {
+			$list = noki_collect_rendered_ui_strings();
+			return rest_ensure_response( [ 'count' => count( $list ), 'sample' => array_slice( $list, 0, 20 ) ] );
+		},
+	] );
+
+	register_rest_route( 'noki/v1', '/translate-ui-batch', [
+		'methods' => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function ( WP_REST_Request $request ) {
+			$lang = sanitize_key( (string) $request->get_param( 'lang' ) );
+			if ( ! in_array( $lang, [ 'zh', 'fr', 'de', 'es', 'pl' ], true ) ) return new WP_Error( 'bad_lang', 'Unsupported language.' );
+			$offset = max( 0, absint( $request->get_param( 'offset' ) ) );
+			$limit  = min( 80, max( 1, absint( $request->get_param( 'limit' ) ?: 60 ) ) );
+			$list = get_option( 'noki_ui_string_catalog', [] );
+			if ( ! is_array( $list ) || ! $list ) $list = noki_collect_rendered_ui_strings();
+			$slice = array_slice( $list, $offset, $limit );
+			if ( ! $slice ) return rest_ensure_response( [ 'done' => true, 'offset' => $offset, 'total' => count( $list ) ] );
+			if ( empty( $GLOBALS['skylang_plugin'] ) ) return new WP_Error( 'no_skylang', 'SkyLang unavailable.' );
+			$ref = new ReflectionMethod( $GLOBALS['skylang_plugin'], 'call_google_translate_api_batch' );
+			$ref->setAccessible( true );
+			$auto = get_option( 'noki_ui_auto_translations', [] );
+			if ( ! is_array( $auto ) ) $auto = [];
+			if ( empty( $auto[ $lang ] ) || ! is_array( $auto[ $lang ] ) ) $auto[ $lang ] = [];
+			foreach ( array_chunk( $slice, 20, true ) as $chunk ) {
+				$batch = [];
+				foreach ( $chunk as $idx => $text ) $batch[] = [ 'id' => (int) $idx, 'text' => $text ];
+				$result = $ref->invoke( $GLOBALS['skylang_plugin'], $batch, 'en', $lang );
+				if ( is_wp_error( $result ) ) return $result;
+				foreach ( (array) $result as $row ) {
+					$id = isset( $row['id'] ) ? (int) $row['id'] : -1;
+					if ( $id >= 0 && isset( $list[ $id ] ) && isset( $row['translatedText'] ) ) {
+						$translated = trim( html_entity_decode( (string) $row['translatedText'], ENT_QUOTES | ENT_HTML5, 'UTF-8' ) );
+						if ( $translated && $translated !== $list[ $id ] ) $auto[ $lang ][ $list[ $id ] ] = $translated;
+					}
+				}
+			}
+			update_option( 'noki_ui_auto_translations', $auto, false );
+			$next = $offset + count( $slice );
+			return rest_ensure_response( [ 'done' => $next >= count( $list ), 'offset' => $offset, 'next_offset' => $next, 'translated' => count( $slice ), 'total' => count( $list ), 'stored' => count( $auto[ $lang ] ) ] );
+		},
+	] );
+} );
