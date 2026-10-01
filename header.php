@@ -78,25 +78,25 @@ $mega_defaults = [
 				<?php else : ?>
 				<ul>
 										<li class="has-mega">
-						<a href="<?php echo esc_url( home_url( '/about' ) ); ?>"><?php esc_html_e( 'Who We Are', 'noki-logistics' ); ?></a>
+						<a href="<?php echo esc_url( noki_page_url( 9 ) ); ?>"><?php esc_html_e( 'Who We Are', 'noki-logistics' ); ?></a>
 						<div class="mega">
 							<div class="mega-feature">
 								<span class="kicker"><?php esc_html_e( 'About Noki', 'noki-logistics' ); ?></span>
 								<h4><?php esc_html_e( 'A logistics partner you can count on', 'noki-logistics' ); ?></h4>
 								<p><?php esc_html_e( '10+ years moving cargo across East Africa with reliability, transparency and care.', 'noki-logistics' ); ?></p>
-								<a href="<?php echo esc_url( home_url( '/about' ) ); ?>" class="link-arrow" style="color:#ff7a45"><?php esc_html_e( 'Our story', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
+								<a href="<?php echo esc_url( noki_page_url( 9 ) ); ?>" class="link-arrow" style="color:#ff7a45"><?php esc_html_e( 'Our story', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
 							</div>
 							<div class="mega-col">
 								<h5><?php esc_html_e( 'Company', 'noki-logistics' ); ?></h5>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/why-choose-us' ) ); ?>"><i class="fas fa-circle-check"></i><span><strong><?php esc_html_e( 'Why Choose Us', 'noki-logistics' ); ?></strong><?php esc_html_e( 'What sets us apart', 'noki-logistics' ); ?></span></a>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/our-team' ) ); ?>"><i class="fas fa-users"></i><span><strong><?php esc_html_e( 'Our Team', 'noki-logistics' ); ?></strong><?php esc_html_e( 'The people behind Noki', 'noki-logistics' ); ?></span></a>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/join-us' ) ); ?>"><i class="fas fa-briefcase"></i><span><strong><?php esc_html_e( 'Join Us', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Careers & openings', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 20 ) ); ?>"><i class="fas fa-circle-check"></i><span><strong><?php esc_html_e( 'Why Choose Us', 'noki-logistics' ); ?></strong><?php esc_html_e( 'What sets us apart', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 21 ) ); ?>"><i class="fas fa-users"></i><span><strong><?php esc_html_e( 'Our Team', 'noki-logistics' ); ?></strong><?php esc_html_e( 'The people behind Noki', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 22 ) ); ?>"><i class="fas fa-briefcase"></i><span><strong><?php esc_html_e( 'Join Us', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Careers & openings', 'noki-logistics' ); ?></span></a>
 							</div>
 							<div class="mega-col">
 								<h5><?php esc_html_e( 'Resources', 'noki-logistics' ); ?></h5>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/pricing' ) ); ?>"><i class="fas fa-tags"></i><span><strong><?php esc_html_e( 'Pricing', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Clear, fair rates', 'noki-logistics' ); ?></span></a>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/testimonials' ) ); ?>"><i class="fas fa-star"></i><span><strong><?php esc_html_e( 'Testimonials', 'noki-logistics' ); ?></strong><?php esc_html_e( 'What clients say', 'noki-logistics' ); ?></span></a>
-								<a class="mega-link" href="<?php echo esc_url( home_url( '/faq' ) ); ?>"><i class="fas fa-circle-question"></i><span><strong><?php esc_html_e( 'FAQ', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Common questions', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 23 ) ); ?>"><i class="fas fa-tags"></i><span><strong><?php esc_html_e( 'Pricing', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Clear, fair rates', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 24 ) ); ?>"><i class="fas fa-star"></i><span><strong><?php esc_html_e( 'Testimonials', 'noki-logistics' ); ?></strong><?php esc_html_e( 'What clients say', 'noki-logistics' ); ?></span></a>
+								<a class="mega-link" href="<?php echo esc_url( noki_page_url( 25 ) ); ?>"><i class="fas fa-circle-question"></i><span><strong><?php esc_html_e( 'FAQ', 'noki-logistics' ); ?></strong><?php esc_html_e( 'Common questions', 'noki-logistics' ); ?></span></a>
 							</div>
 						</div>
 					</li>
@@ -107,7 +107,7 @@ $mega_defaults = [
 								<span class="kicker">Noki Logistics</span>
 								<h4><?php esc_html_e( 'End-to-end supply chain, handled with precision', 'noki-logistics' ); ?></h4>
 								<p><?php esc_html_e( 'Air, sea and road freight plus customs and warehousing — one trusted partner across East Africa.', 'noki-logistics' ); ?></p>
-								<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="link-arrow" style="color:#ff7a45"><?php esc_html_e( 'Get a quote', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
+								<a href="<?php echo esc_url( noki_page_url( 10 ) ); ?>" class="link-arrow" style="color:#ff7a45"><?php esc_html_e( 'Get a quote', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
 							</div>
 							<div class="mega-col">
 								<h5><?php esc_html_e( 'Freight', 'noki-logistics' ); ?></h5>
@@ -149,7 +149,7 @@ $mega_defaults = [
 							</div>
 						</div>
 					</li>
-															<li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php esc_html_e( 'Contact', 'noki-logistics' ); ?></a></li>
+															<li><a href="<?php echo esc_url( noki_page_url( 10 ) ); ?>"><?php esc_html_e( 'Contact', 'noki-logistics' ); ?></a></li>
 				</ul>
 				<?php endif; ?>
 			</nav>
@@ -160,7 +160,7 @@ $mega_defaults = [
 					<i class="fas fa-phone"></i>
 					<span><small><?php esc_html_e( 'Call us anytime', 'noki-logistics' ); ?></small><?php echo esc_html( $phone ); ?></span>
 				</a>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary"><?php esc_html_e( 'Get a Quote', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 10 ) ); ?>" class="btn btn-primary"><?php esc_html_e( 'Get a Quote', 'noki-logistics' ); ?> <i class="fas fa-arrow-right"></i></a>
 				<button class="menu-toggle" id="menu-toggle" aria-label="<?php esc_attr_e( 'Toggle navigation', 'noki-logistics' ); ?>" aria-expanded="false">
 					<span></span><span></span><span></span>
 				</button>
