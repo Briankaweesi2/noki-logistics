@@ -3,7 +3,7 @@ Theme Name: Noki Logistics
 Theme URI: https://nokilogistics.com
 Author: Noki Logistics
 Description: A premium, custom WordPress theme for Noki Logistics — freight, customs and supply-chain solutions across East Africa. Built bespoke (no page builder) for easy team editing.
-Version: 2.7.5
+Version: 2.8.0
 License: GNU General Public License v2 or later
 Text Domain: noki-logistics
 GitHub Theme URI: https://github.com/Briankaweesi2/noki-logistics
@@ -889,3 +889,20 @@ html{overflow-x:hidden}
 .linkedin-empty>div{flex:1}.linkedin-empty h3{font-size:1.15rem;margin-bottom:.2rem}
 @media(max-width:1024px){.linkedin-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:768px){.linkedin-grid{grid-template-columns:1fr}.linkedin-empty{flex-direction:column;align-items:flex-start}.linkedin-empty .btn{width:100%;justify-content:center}}
+
+
+/* ============================================================
+   LANGUAGE SWITCHER
+============================================================ */
+.language-switcher{position:relative;z-index:50}
+.language-current{height:42px;padding:0 .75rem;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);display:flex;align-items:center;gap:.45rem;font:600 .82rem var(--font-body);cursor:pointer}
+.language-current .fa-globe{color:var(--primary)}
+.language-current .fa-chevron-down{font-size:.65rem;opacity:.6}
+.language-menu{position:absolute;right:0;top:calc(100% + 9px);min-width:180px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:.45rem;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-5px);transition:.2s ease}
+.language-switcher:hover .language-menu,.language-switcher:focus-within .language-menu{opacity:1;visibility:visible;transform:none}
+.language-option{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.62rem .72rem;border-radius:9px;color:var(--ink);text-decoration:none}
+.language-option:hover,.language-option.is-current{background:var(--soft)}
+.language-option span{font-weight:700;font-size:.86rem}.language-option small{font-size:.72rem;color:var(--muted)}
+html[lang^="zh"] body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif}
+@media(max-width:1100px){.header-actions .language-switcher{margin-left:auto}}
+@media(max-width:768px){.language-current{height:38px;padding:0 .6rem}.language-current span{max-width:72px;overflow:hidden;text-overflow:ellipsis}}
