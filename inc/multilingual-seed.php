@@ -6,7 +6,6 @@ defined( 'ABSPATH' ) || exit;
  * Safe to re-run: it updates existing linked translations and creates only
  * missing ones. English remains the canonical source.
  */
-add_action( 'init', 'noki_seed_multilingual_core', 35 );
 function noki_seed_multilingual_core() {
 	if ( ! function_exists( 'pll_set_post_language' ) || ! function_exists( 'pll_save_post_translations' ) ) return;
 
@@ -190,3 +189,19 @@ function noki_multilingual_news_data() {
 	foreach($base as $id=>$langs){ foreach($langs as $lang=>$v){ $out[$id][$lang]=['title'=>$v[0],'slug'=>$v[1],'excerpt'=>$v[2],'content'=>$v[3]]; } }
 	return $out;
 }
+
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/seed-translations', [
+		'methods'  => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function () {
+			noki_seed_multilingual_core();
+			return rest_ensure_response( [
+				'success' => true,
+				'message' => 'Core multilingual translations seeded.',
+				'version' => get_option( 'noki_multilingual_core_seed', '' ),
+			] );
+		},
+	] );
+} );
