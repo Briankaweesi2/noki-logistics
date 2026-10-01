@@ -48,6 +48,15 @@
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
   }
 
+  /* ─── Language chooser ─── */
+  document.querySelectorAll('.language-option').forEach((link) => {
+    link.addEventListener('click', () => {
+      // Remember an explicit visitor choice for one year so automatic
+      // language detection never overrides it on later visits.
+      document.cookie = 'noki_language_selected=1; path=/; max-age=31536000; SameSite=Lax';
+    });
+  });
+
   /* ─── Hero slider ─── */
   (function () {
     const slider = document.getElementById('hero-slider');
