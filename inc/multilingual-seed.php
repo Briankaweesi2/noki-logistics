@@ -261,3 +261,22 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/translation-coverage', [
+		'methods' => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function ( WP_REST_Request $request ) {
+			$ids = array_values( array_filter( array_map( 'absint', (array) $request->get_param( 'ids' ) ) ) );
+			$langs = [ 'en', 'zh', 'fr', 'de', 'es', 'pl' ];
+			$out = [];
+			foreach ( $ids as $post_id ) {
+				foreach ( $langs as $lang ) {
+					$out[ $post_id ][ $lang ] = function_exists( 'pll_get_post' ) ? (int) pll_get_post( $post_id, $lang ) : 0;
+				}
+			}
+			return rest_ensure_response( $out );
+		},
+	] );
+} );
