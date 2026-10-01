@@ -231,3 +231,33 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/translate-blog', [
+		'methods' => 'POST',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function ( WP_REST_Request $request ) {
+			$ids = array_values( array_filter( array_map( 'absint', (array) $request->get_param( 'ids' ) ) ) );
+			$force = (bool) $request->get_param( 'force' );
+			$out = [];
+			foreach ( $ids as $post_id ) {
+				if ( 'post' !== get_post_type( $post_id ) ) {
+					$out[ $post_id ] = [ 'success' => false, 'message' => 'Not a standard post.' ];
+					continue;
+				}
+				if ( ! function_exists( 'skylang_translate_post' ) ) {
+					$out[ $post_id ] = [ 'success' => false, 'message' => 'SkyLang helper unavailable.' ];
+					continue;
+				}
+				$result = skylang_translate_post( $post_id, $force );
+				if ( is_wp_error( $result ) ) {
+					$out[ $post_id ] = [ 'success' => false, 'message' => $result->get_error_message() ];
+				} else {
+					$out[ $post_id ] = [ 'success' => true, 'result' => $result ];
+				}
+			}
+			return rest_ensure_response( $out );
+		},
+	] );
+} );
