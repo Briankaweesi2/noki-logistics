@@ -205,3 +205,29 @@ add_action( 'rest_api_init', function () {
 		},
 	] );
 } );
+
+
+add_action( 'rest_api_init', function () {
+	register_rest_route( 'noki/v1', '/inspect-skylang', [
+		'methods' => 'GET',
+		'permission_callback' => function () { return current_user_can( 'manage_options' ); },
+		'callback' => function () {
+			$base = WP_PLUGIN_DIR . '/skylang-auto-translator';
+			$out = [];
+			if ( ! is_dir( $base ) ) return rest_ensure_response( [ 'error' => 'SkyLang directory not found' ] );
+			$it = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $base ) );
+			foreach ( $it as $file ) {
+				if ( ! $file->isFile() || 'php' !== strtolower( $file->getExtension() ) ) continue;
+				$lines = @file( $file->getPathname() );
+				if ( ! $lines ) continue;
+				foreach ( $lines as $n => $line ) {
+					if ( preg_match( '/wp_ajax_|translate_post|translate_content|bulk_translate|google_translate|class .*translate|function .*translate/i', $line ) ) {
+						$out[] = [ 'file' => str_replace( $base . '/', '', $file->getPathname() ), 'line' => $n + 1, 'text' => trim( $line ) ];
+						if ( count( $out ) >= 250 ) break 2;
+					}
+				}
+			}
+			return rest_ensure_response( $out );
+		},
+	] );
+} );
