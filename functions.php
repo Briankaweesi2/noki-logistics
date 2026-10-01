@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.6' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.9.7' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.6', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.9.7', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.9.6';
+	$version = '2.9.7';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1166,7 +1166,7 @@ add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
    Flush rewrite rules once after multilingual pages/languages change.
 =========================== */
 function noki_multilingual_rewrite_refresh() {
-	$version = '2.9.6';
+	$version = '2.9.7';
 	if ( get_option( 'noki_multilingual_rewrite_version' ) === $version ) {
 		return;
 	}
