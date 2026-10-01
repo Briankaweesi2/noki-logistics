@@ -94,6 +94,109 @@ function noki_ui_translations() {
 			'Page Not Found'=>'Nie znaleziono strony',"Sorry, the page you're looking for doesn't exist or has been moved."=>'Przepraszamy, szukana strona nie istnieje lub została przeniesiona.','Back to Home'=>'Wróć na stronę główną','Get in touch'=>'Skontaktuj się','Subscribe for logistics tips & updates.'=>'Zapisz się po porady logistyczne i aktualności.','Your email address'=>'Twój adres e-mail','All rights reserved.'=>'Wszelkie prawa zastrzeżone.','Privacy Policy'=>'Polityka prywatności','Terms of Service'=>'Warunki korzystania'
 		],
 	];
+	$extras = [
+		'zh' => [
+			'Shipments Delivered'=>'已交付货运','Years of Experience'=>'行业经验年数','On-Time Delivery'=>'准时交付率','Customer Support'=>'客户支持',
+			'Featured highlights'=>'精选亮点','Previous slide'=>'上一张','Next slide'=>'下一张','More About Us'=>'更多关于我们','Learn More'=>'了解更多',
+			'Connecting Uganda to the world'=>'连接乌干达与世界','Local expertise'=>'本地专业经验','The Noki Logistics team'=>'Noki Logistics 团队',
+			'Help centre'=>'帮助中心','Frequently asked questions'=>'常见问题','Got questions?'=>'有问题吗？','Everything you need to know'=>'您需要了解的一切',
+			"Can't find your answer below? Call or WhatsApp us — we're happy to help."=>'没有找到答案？请致电或通过 WhatsApp 联系我们，我们很乐意帮助您。',
+			'Still have questions?'=>'还有问题吗？','Our team is ready to help with anything about your shipment.'=>'我们的团队随时为您的货运需求提供帮助。','Call Us'=>'致电我们',
+			'Tell us about your shipment and our team will send an itemised quote within 2 hours during business hours.'=>'告诉我们您的货运需求，我们的团队将在工作时间内 2 小时内发送明细报价。',
+			'Full name *'=>'姓名 *','Email address *'=>'电子邮箱 *','Phone number *'=>'电话号码 *','Service needed'=>'所需服务','Select a service…'=>'选择服务…','Customs Clearance'=>'清关','Warehousing'=>'仓储','General Enquiry'=>'一般咨询',
+			'Origin (from)'=>'起运地','Destination (to)'=>'目的地','Cargo details'=>'货物详情','Message *'=>'留言 *','Get My Free Quote'=>'获取免费报价','Fastest way to reach us'=>'最快联系我们的方式',
+			'Prefer to chat? Message us on WhatsApp for the quickest response — usually within minutes.'=>'更喜欢聊天？请通过 WhatsApp 联系我们，通常几分钟内即可回复。',
+			'Your full name'=>'您的姓名','Weight / volume / type of goods'=>'重量 / 体积 / 货物类型','Describe your shipment or enquiry…'=>'描述您的货运或咨询内容…','Noki Logistics location map'=>'Noki Logistics 位置地图',
+			'Essentials'=>'基础方案','Domestic Delivery'=>'国内配送','From quote'=>'按报价','Most popular'=>'最受欢迎','Import / Export'=>'进出口','Custom'=>'定制','Business'=>'企业方案','Contract Logistics'=>'合同物流','Tailored'=>'定制方案','Talk to Sales'=>'联系销售',
+			'Same-day & next-day options'=>'当日及次日配送','Kampala & nationwide coverage'=>'覆盖坎帕拉及全国','Live tracking updates'=>'实时追踪更新','Proof of delivery'=>'交付证明','Licensed customs clearing'=>'持证清关','Cargo insurance options'=>'货物保险选项','Volume & retainer rates'=>'批量及长期合作价格','Warehousing & inventory'=>'仓储与库存','Regional cross-border trucking'=>'区域跨境公路运输','Account management & reporting'=>'客户管理与报告',
+			'Prices are quoted in UGX or USD depending on the route. Ask about volume discounts for regular shippers.'=>'价格根据线路以 UGX 或 USD 报价。长期发货客户可咨询批量优惠。',
+			'How quickly will I get a quote?'=>'多久可以收到报价？','What affects the price of freight?'=>'哪些因素会影响运费？','Do you offer discounts for regular shipments?'=>'长期发货有折扣吗？','Are customs duties included?'=>'是否包含关税？',
+			'Tell us what you\'re shipping and we\'ll send a clear, itemised price.'=>'告诉我们您要运输的货物，我们会发送清晰的明细报价。',
+			'Importers'=>'进口商','Manufacturers'=>'制造商','Retailers'=>'零售商','NGOs & Aid'=>'非政府组织与援助机构','E-commerce'=>'电商','Wholesalers'=>'批发商','What our clients say'=>'客户评价',
+			'Reliability'=>'可靠性','Innovation'=>'创新','Sustainability'=>'可持续发展','Customer-first'=>'客户至上','Follow on LinkedIn'=>'在 LinkedIn 关注','View LinkedIn'=>'查看 LinkedIn','Logistics'=>'物流'
+		],
+		'fr' => [
+			'Shipments Delivered'=>'Expéditions livrées','Years of Experience'=>"Années d'expérience",'On-Time Delivery'=>'Livraisons à l’heure','Customer Support'=>'Assistance client',
+			'Featured highlights'=>'À la une','Previous slide'=>'Diapositive précédente','Next slide'=>'Diapositive suivante','More About Us'=>'En savoir plus sur nous','Learn More'=>'En savoir plus',
+			'Connecting Uganda to the world'=>"Relier l’Ouganda au monde",'Local expertise'=>'Expertise locale','The Noki Logistics team'=>"L’équipe Noki Logistics",
+			'Help centre'=>"Centre d’aide",'Frequently asked questions'=>'Questions fréquentes','Got questions?'=>'Des questions ?','Everything you need to know'=>'Tout ce que vous devez savoir',
+			"Can't find your answer below? Call or WhatsApp us — we're happy to help."=>"Vous ne trouvez pas votre réponse ? Appelez-nous ou contactez-nous sur WhatsApp.",
+			'Still have questions?'=>'Encore des questions ?','Our team is ready to help with anything about your shipment.'=>'Notre équipe est prête à vous aider pour votre expédition.','Call Us'=>'Appelez-nous',
+			'Tell us about your shipment and our team will send an itemised quote within 2 hours during business hours.'=>"Parlez-nous de votre envoi et notre équipe vous enverra un devis détaillé sous 2 heures pendant les heures ouvrables.",
+			'Full name *'=>'Nom complet *','Email address *'=>'Adresse e-mail *','Phone number *'=>'Numéro de téléphone *','Service needed'=>'Service souhaité','Select a service…'=>'Sélectionnez un service…','Customs Clearance'=>'Dédouanement','Warehousing'=>'Entreposage','General Enquiry'=>'Demande générale',
+			'Origin (from)'=>'Origine','Destination (to)'=>'Destination','Cargo details'=>'Détails de la marchandise','Message *'=>'Message *','Get My Free Quote'=>'Obtenir mon devis gratuit','Fastest way to reach us'=>'Le moyen le plus rapide de nous joindre',
+			'Prefer to chat? Message us on WhatsApp for the quickest response — usually within minutes.'=>"Vous préférez discuter ? Écrivez-nous sur WhatsApp pour une réponse rapide, généralement en quelques minutes.",
+			'Your full name'=>'Votre nom complet','Weight / volume / type of goods'=>'Poids / volume / type de marchandises','Describe your shipment or enquiry…'=>'Décrivez votre envoi ou votre demande…','Noki Logistics location map'=>'Carte de localisation de Noki Logistics',
+			'Essentials'=>'Essentiel','Domestic Delivery'=>'Livraison nationale','From quote'=>'Sur devis','Most popular'=>'Le plus populaire','Import / Export'=>'Import / Export','Custom'=>'Sur mesure','Business'=>'Entreprise','Contract Logistics'=>'Logistique contractuelle','Tailored'=>'Personnalisé','Talk to Sales'=>'Parler aux ventes',
+			'Same-day & next-day options'=>'Livraison le jour même ou le lendemain','Kampala & nationwide coverage'=>'Kampala et couverture nationale','Live tracking updates'=>'Suivi en temps réel','Proof of delivery'=>'Preuve de livraison','Licensed customs clearing'=>'Dédouanement agréé','Cargo insurance options'=>"Options d’assurance cargo",'Volume & retainer rates'=>'Tarifs volume et contrat','Warehousing & inventory'=>'Entreposage et stocks','Regional cross-border trucking'=>'Transport routier transfrontalier régional','Account management & reporting'=>'Gestion de compte et rapports',
+			'Prices are quoted in UGX or USD depending on the route. Ask about volume discounts for regular shippers.'=>'Les prix sont indiqués en UGX ou USD selon l’itinéraire. Demandez nos remises de volume pour les expéditeurs réguliers.',
+			'How quickly will I get a quote?'=>'Sous quel délai recevrai-je un devis ?','What affects the price of freight?'=>'Qu’est-ce qui influence le prix du fret ?','Do you offer discounts for regular shipments?'=>'Proposez-vous des remises pour les expéditions régulières ?','Are customs duties included?'=>'Les droits de douane sont-ils inclus ?',
+			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Dites-nous ce que vous expédiez et nous vous enverrons un prix clair et détaillé.',
+			'Importers'=>'Importateurs','Manufacturers'=>'Fabricants','Retailers'=>'Détaillants','NGOs & Aid'=>'ONG & aide','E-commerce'=>'E-commerce','Wholesalers'=>'Grossistes','What our clients say'=>'Ce que disent nos clients',
+			'Reliability'=>'Fiabilité','Innovation'=>'Innovation','Sustainability'=>'Durabilité','Customer-first'=>'Priorité au client','Follow on LinkedIn'=>'Suivre sur LinkedIn','View LinkedIn'=>'Voir LinkedIn','Logistics'=>'Logistique'
+		],
+		'de' => [
+			'Shipments Delivered'=>'Sendungen zugestellt','Years of Experience'=>'Jahre Erfahrung','On-Time Delivery'=>'Pünktliche Lieferung','Customer Support'=>'Kundensupport',
+			'Featured highlights'=>'Highlights','Previous slide'=>'Vorherige Folie','Next slide'=>'Nächste Folie','More About Us'=>'Mehr über uns','Learn More'=>'Mehr erfahren',
+			'Connecting Uganda to the world'=>'Uganda mit der Welt verbinden','Local expertise'=>'Lokale Expertise','The Noki Logistics team'=>'Das Noki-Logistics-Team',
+			'Help centre'=>'Hilfezentrum','Frequently asked questions'=>'Häufig gestellte Fragen','Got questions?'=>'Fragen?','Everything you need to know'=>'Alles, was Sie wissen müssen',
+			"Can't find your answer below? Call or WhatsApp us — we're happy to help."=>'Keine passende Antwort gefunden? Rufen Sie uns an oder schreiben Sie uns auf WhatsApp.',
+			'Still have questions?'=>'Noch Fragen?','Our team is ready to help with anything about your shipment.'=>'Unser Team hilft Ihnen gerne bei allen Fragen zu Ihrer Sendung.','Call Us'=>'Anrufen',
+			'Tell us about your shipment and our team will send an itemised quote within 2 hours during business hours.'=>'Beschreiben Sie Ihre Sendung und unser Team sendet Ihnen während der Geschäftszeiten innerhalb von 2 Stunden ein detailliertes Angebot.',
+			'Full name *'=>'Vollständiger Name *','Email address *'=>'E-Mail-Adresse *','Phone number *'=>'Telefonnummer *','Service needed'=>'Benötigter Service','Select a service…'=>'Service auswählen…','Customs Clearance'=>'Zollabfertigung','Warehousing'=>'Lagerhaltung','General Enquiry'=>'Allgemeine Anfrage',
+			'Origin (from)'=>'Ursprung','Destination (to)'=>'Ziel','Cargo details'=>'Frachtdetails','Message *'=>'Nachricht *','Get My Free Quote'=>'Kostenloses Angebot erhalten','Fastest way to reach us'=>'Schnellster Kontakt',
+			'Prefer to chat? Message us on WhatsApp for the quickest response — usually within minutes.'=>'Sie möchten lieber chatten? Schreiben Sie uns auf WhatsApp – meist antworten wir innerhalb weniger Minuten.',
+			'Your full name'=>'Ihr vollständiger Name','Weight / volume / type of goods'=>'Gewicht / Volumen / Warenart','Describe your shipment or enquiry…'=>'Beschreiben Sie Ihre Sendung oder Anfrage…','Noki Logistics location map'=>'Standortkarte von Noki Logistics',
+			'Essentials'=>'Basis','Domestic Delivery'=>'Inlandszustellung','From quote'=>'Nach Angebot','Most popular'=>'Am beliebtesten','Import / Export'=>'Import / Export','Custom'=>'Individuell','Business'=>'Business','Contract Logistics'=>'Kontraktlogistik','Tailored'=>'Maßgeschneidert','Talk to Sales'=>'Vertrieb kontaktieren',
+			'Same-day & next-day options'=>'Same-Day- und Next-Day-Optionen','Kampala & nationwide coverage'=>'Kampala und landesweite Abdeckung','Live tracking updates'=>'Live-Tracking','Proof of delivery'=>'Zustellnachweis','Licensed customs clearing'=>'Lizenzierte Zollabfertigung','Cargo insurance options'=>'Transportversicherungsoptionen','Volume & retainer rates'=>'Volumen- und Vertragskonditionen','Warehousing & inventory'=>'Lager und Bestand','Regional cross-border trucking'=>'Regionale grenzüberschreitende Lkw-Transporte','Account management & reporting'=>'Account-Management und Reporting',
+			'Prices are quoted in UGX or USD depending on the route. Ask about volume discounts for regular shippers.'=>'Preise werden je nach Strecke in UGX oder USD angegeben. Fragen Sie nach Mengenrabatten für regelmäßige Sendungen.',
+			'How quickly will I get a quote?'=>'Wie schnell erhalte ich ein Angebot?','What affects the price of freight?'=>'Was beeinflusst den Frachtpreis?','Do you offer discounts for regular shipments?'=>'Gibt es Rabatte für regelmäßige Sendungen?','Are customs duties included?'=>'Sind Zölle enthalten?',
+			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Sagen Sie uns, was Sie versenden, und wir senden Ihnen einen klaren, detaillierten Preis.',
+			'Importers'=>'Importeure','Manufacturers'=>'Hersteller','Retailers'=>'Einzelhändler','NGOs & Aid'=>'NGOs & Hilfsorganisationen','E-commerce'=>'E-Commerce','Wholesalers'=>'Großhändler','What our clients say'=>'Was unsere Kunden sagen',
+			'Reliability'=>'Zuverlässigkeit','Innovation'=>'Innovation','Sustainability'=>'Nachhaltigkeit','Customer-first'=>'Kundenorientierung','Follow on LinkedIn'=>'Auf LinkedIn folgen','View LinkedIn'=>'LinkedIn ansehen','Logistics'=>'Logistik'
+		],
+		'es' => [
+			'Shipments Delivered'=>'Envíos entregados','Years of Experience'=>'Años de experiencia','On-Time Delivery'=>'Entrega puntual','Customer Support'=>'Atención al cliente',
+			'Featured highlights'=>'Destacados','Previous slide'=>'Diapositiva anterior','Next slide'=>'Siguiente diapositiva','More About Us'=>'Más sobre nosotros','Learn More'=>'Más información',
+			'Connecting Uganda to the world'=>'Conectando Uganda con el mundo','Local expertise'=>'Experiencia local','The Noki Logistics team'=>'El equipo de Noki Logistics',
+			'Help centre'=>'Centro de ayuda','Frequently asked questions'=>'Preguntas frecuentes','Got questions?'=>'¿Tiene preguntas?','Everything you need to know'=>'Todo lo que necesita saber',
+			"Can't find your answer below? Call or WhatsApp us — we're happy to help."=>'¿No encuentra su respuesta? Llámenos o escríbanos por WhatsApp.',
+			'Still have questions?'=>'¿Aún tiene preguntas?','Our team is ready to help with anything about your shipment.'=>'Nuestro equipo está listo para ayudarle con cualquier aspecto de su envío.','Call Us'=>'Llámenos',
+			'Tell us about your shipment and our team will send an itemised quote within 2 hours during business hours.'=>'Cuéntenos sobre su envío y nuestro equipo le enviará una cotización detallada en un plazo de 2 horas durante el horario laboral.',
+			'Full name *'=>'Nombre completo *','Email address *'=>'Correo electrónico *','Phone number *'=>'Número de teléfono *','Service needed'=>'Servicio requerido','Select a service…'=>'Seleccione un servicio…','Customs Clearance'=>'Despacho de aduanas','Warehousing'=>'Almacenamiento','General Enquiry'=>'Consulta general',
+			'Origin (from)'=>'Origen','Destination (to)'=>'Destino','Cargo details'=>'Detalles de la carga','Message *'=>'Mensaje *','Get My Free Quote'=>'Obtener mi cotización gratis','Fastest way to reach us'=>'La forma más rápida de contactarnos',
+			'Prefer to chat? Message us on WhatsApp for the quickest response — usually within minutes.'=>'¿Prefiere chatear? Escríbanos por WhatsApp para obtener la respuesta más rápida, normalmente en pocos minutos.',
+			'Your full name'=>'Su nombre completo','Weight / volume / type of goods'=>'Peso / volumen / tipo de mercancía','Describe your shipment or enquiry…'=>'Describa su envío o consulta…','Noki Logistics location map'=>'Mapa de ubicación de Noki Logistics',
+			'Essentials'=>'Esencial','Domestic Delivery'=>'Entrega nacional','From quote'=>'Según cotización','Most popular'=>'Más popular','Import / Export'=>'Importación / Exportación','Custom'=>'Personalizado','Business'=>'Empresas','Contract Logistics'=>'Logística contractual','Tailored'=>'A medida','Talk to Sales'=>'Hablar con ventas',
+			'Same-day & next-day options'=>'Opciones para el mismo día y día siguiente','Kampala & nationwide coverage'=>'Cobertura en Kampala y todo el país','Live tracking updates'=>'Seguimiento en tiempo real','Proof of delivery'=>'Comprobante de entrega','Licensed customs clearing'=>'Despacho aduanero autorizado','Cargo insurance options'=>'Opciones de seguro de carga','Volume & retainer rates'=>'Tarifas por volumen y contrato','Warehousing & inventory'=>'Almacén e inventario','Regional cross-border trucking'=>'Transporte terrestre transfronterizo regional','Account management & reporting'=>'Gestión de cuenta e informes',
+			'Prices are quoted in UGX or USD depending on the route. Ask about volume discounts for regular shippers.'=>'Los precios se cotizan en UGX o USD según la ruta. Pregunte por descuentos por volumen para envíos frecuentes.',
+			'How quickly will I get a quote?'=>'¿En cuánto tiempo recibiré una cotización?','What affects the price of freight?'=>'¿Qué afecta al precio del transporte?','Do you offer discounts for regular shipments?'=>'¿Ofrecen descuentos para envíos frecuentes?','Are customs duties included?'=>'¿Están incluidos los aranceles?',
+			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Díganos qué va a enviar y le enviaremos un precio claro y detallado.',
+			'Importers'=>'Importadores','Manufacturers'=>'Fabricantes','Retailers'=>'Minoristas','NGOs & Aid'=>'ONG y ayuda','E-commerce'=>'Comercio electrónico','Wholesalers'=>'Mayoristas','What our clients say'=>'Lo que dicen nuestros clientes',
+			'Reliability'=>'Fiabilidad','Innovation'=>'Innovación','Sustainability'=>'Sostenibilidad','Customer-first'=>'El cliente primero','Follow on LinkedIn'=>'Seguir en LinkedIn','View LinkedIn'=>'Ver LinkedIn','Logistics'=>'Logística'
+		],
+		'pl' => [
+			'Shipments Delivered'=>'Dostarczone przesyłki','Years of Experience'=>'Lata doświadczenia','On-Time Delivery'=>'Terminowe dostawy','Customer Support'=>'Obsługa klienta',
+			'Featured highlights'=>'Najważniejsze informacje','Previous slide'=>'Poprzedni slajd','Next slide'=>'Następny slajd','More About Us'=>'Więcej o nas','Learn More'=>'Dowiedz się więcej',
+			'Connecting Uganda to the world'=>'Łączymy Ugandę ze światem','Local expertise'=>'Lokalne doświadczenie','The Noki Logistics team'=>'Zespół Noki Logistics',
+			'Help centre'=>'Centrum pomocy','Frequently asked questions'=>'Najczęściej zadawane pytania','Got questions?'=>'Masz pytania?','Everything you need to know'=>'Wszystko, co musisz wiedzieć',
+			"Can't find your answer below? Call or WhatsApp us — we're happy to help."=>'Nie znalazłeś odpowiedzi? Zadzwoń lub napisz do nas na WhatsApp.',
+			'Still have questions?'=>'Masz jeszcze pytania?','Our team is ready to help with anything about your shipment.'=>'Nasz zespół pomoże w każdej sprawie dotyczącej Twojej przesyłki.','Call Us'=>'Zadzwoń',
+			'Tell us about your shipment and our team will send an itemised quote within 2 hours during business hours.'=>'Opowiedz nam o przesyłce, a nasz zespół wyśle szczegółową wycenę w ciągu 2 godzin w godzinach pracy.',
+			'Full name *'=>'Imię i nazwisko *','Email address *'=>'Adres e-mail *','Phone number *'=>'Numer telefonu *','Service needed'=>'Potrzebna usługa','Select a service…'=>'Wybierz usługę…','Customs Clearance'=>'Odprawa celna','Warehousing'=>'Magazynowanie','General Enquiry'=>'Zapytanie ogólne',
+			'Origin (from)'=>'Miejsce nadania','Destination (to)'=>'Miejsce docelowe','Cargo details'=>'Szczegóły ładunku','Message *'=>'Wiadomość *','Get My Free Quote'=>'Uzyskaj bezpłatną wycenę','Fastest way to reach us'=>'Najszybszy kontakt',
+			'Prefer to chat? Message us on WhatsApp for the quickest response — usually within minutes.'=>'Wolisz czat? Napisz do nas na WhatsApp — zwykle odpowiadamy w ciągu kilku minut.',
+			'Your full name'=>'Imię i nazwisko','Weight / volume / type of goods'=>'Waga / objętość / rodzaj towaru','Describe your shipment or enquiry…'=>'Opisz przesyłkę lub zapytanie…','Noki Logistics location map'=>'Mapa lokalizacji Noki Logistics',
+			'Essentials'=>'Podstawowy','Domestic Delivery'=>'Dostawa krajowa','From quote'=>'Według wyceny','Most popular'=>'Najpopularniejszy','Import / Export'=>'Import / Eksport','Custom'=>'Indywidualnie','Business'=>'Biznes','Contract Logistics'=>'Logistyka kontraktowa','Tailored'=>'Dopasowane','Talk to Sales'=>'Porozmawiaj ze sprzedażą',
+			'Same-day & next-day options'=>'Opcje na ten sam i następny dzień','Kampala & nationwide coverage'=>'Kampala i zasięg ogólnokrajowy','Live tracking updates'=>'Śledzenie na żywo','Proof of delivery'=>'Potwierdzenie dostawy','Licensed customs clearing'=>'Licencjonowana odprawa celna','Cargo insurance options'=>'Opcje ubezpieczenia ładunku','Volume & retainer rates'=>'Stawki wolumenowe i abonamentowe','Warehousing & inventory'=>'Magazynowanie i zapasy','Regional cross-border trucking'=>'Regionalny transport transgraniczny','Account management & reporting'=>'Obsługa konta i raportowanie',
+			'Prices are quoted in UGX or USD depending on the route. Ask about volume discounts for regular shippers.'=>'Ceny podajemy w UGX lub USD zależnie od trasy. Zapytaj o rabaty wolumenowe dla regularnych wysyłek.',
+			'How quickly will I get a quote?'=>'Jak szybko otrzymam wycenę?','What affects the price of freight?'=>'Co wpływa na cenę transportu?','Do you offer discounts for regular shipments?'=>'Czy oferujecie rabaty dla regularnych wysyłek?','Are customs duties included?'=>'Czy cło jest wliczone?',
+			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Powiedz nam, co wysyłasz, a prześlemy jasną, szczegółową wycenę.',
+			'Importers'=>'Importerzy','Manufacturers'=>'Producenci','Retailers'=>'Detaliści','NGOs & Aid'=>'NGO i pomoc','E-commerce'=>'E-commerce','Wholesalers'=>'Hurtownicy','What our clients say'=>'Co mówią nasi klienci',
+			'Reliability'=>'Niezawodność','Innovation'=>'Innowacja','Sustainability'=>'Zrównoważony rozwój','Customer-first'=>'Klient na pierwszym miejscu','Follow on LinkedIn'=>'Obserwuj na LinkedIn','View LinkedIn'=>'Zobacz LinkedIn','Logistics'=>'Logistyka'
+		],
+	];
+
 	$auto = get_option( 'noki_ui_auto_translations', [] );
 	if ( is_array( $auto ) ) {
 		foreach ( $auto as $lang => $map ) {
@@ -101,6 +204,9 @@ function noki_ui_translations() {
 				$manual[ $lang ] = array_merge( $map, $manual[ $lang ] ?? [] );
 			}
 		}
+	}
+	foreach ( $extras as $lang => $map ) {
+		$manual[ $lang ] = array_merge( $map, $manual[ $lang ] ?? [] );
 	}
 	return $manual;
 }
@@ -130,7 +236,23 @@ function noki_translate_fixed_html( $html ) {
 	if ( false === $parts ) return $html;
 
 	foreach ( $parts as $i => $part ) {
-		if ( '' === $part || '<' === $part[0] ) continue;
+		if ( '' === $part ) continue;
+
+		if ( '<' === $part[0] ) {
+			// Translate only human-facing attributes; never touch href/src/class/style/data-*.
+			if ( ! preg_match( '~^<(?:script|style|noscript)\\b~i', $part ) ) {
+				$parts[ $i ] = preg_replace_callback(
+					'~\\b(placeholder|aria-label|title|alt)\\s*=\\s*(["\\\'])(.*?)\\2~is',
+					function ( $m ) use ( $all, $lang ) {
+						$value = strtr( $m[3], $all[ $lang ] );
+						return $m[1] . '=' . $m[2] . $value . $m[2];
+					},
+					$part
+				);
+			}
+			continue;
+		}
+
 		$parts[ $i ] = strtr( $part, $all[ $lang ] );
 	}
 
