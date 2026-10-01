@@ -74,4 +74,38 @@
 	</div>
 </section>
 
+
+<?php if ( 'en' === noki_current_language_slug() ) : ?>
+<section class="section bg-soft">
+	<div class="container">
+		<div class="section-head center">
+			<span class="kicker center">Popular routes & services</span>
+			<h2>Popular shipping & logistics searches</h2>
+			<p>Explore focused information for common freight and logistics needs in Uganda.</p>
+		</div>
+		<div class="solutions-grid">
+			<?php
+			$seo_links = [
+				[ 'Logistics Company in Uganda', '/logistics-company-uganda/' ],
+				[ 'Freight Forwarding in Uganda', '/freight-forwarding-uganda/' ],
+				[ 'Air Freight in Uganda', '/air-freight-uganda/' ],
+				[ 'Sea Freight to Uganda', '/sea-freight-uganda/' ],
+				[ 'Customs Clearance in Uganda', '/customs-clearance-uganda/' ],
+				[ 'Warehousing in Kampala', '/warehousing-kampala/' ],
+				[ 'Shipping from China to Uganda', '/shipping-china-to-uganda/' ],
+				[ 'Mombasa to Kampala Freight', '/mombasa-to-kampala-freight/' ],
+			];
+			foreach ( $seo_links as $seo_link ) : ?>
+				<a class="solution-card" href="<?php echo esc_url( home_url( $seo_link[1] ) ); ?>">
+					<div class="solution-inner">
+						<h3><?php echo esc_html( $seo_link[0] ); ?></h3>
+						<span class="solution-more">Explore guide <i class="fas fa-arrow-right"></i></span>
+					</div>
+				</a>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
 <?php get_footer(); ?>
