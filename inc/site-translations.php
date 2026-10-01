@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
  * editorial content in Polylang translation posts.
  */
 function noki_ui_translations() {
-	return [
+	$manual = [
 		'zh' => [
 			'Who We Are'=>'关于我们','About Noki'=>'关于 Noki','A logistics partner you can count on'=>'值得信赖的物流合作伙伴',
 			'10+ years moving cargo across East Africa with reliability, transparency and care.'=>'十余年来，我们以可靠、透明和用心的服务运输东非货物。',
@@ -94,6 +94,15 @@ function noki_ui_translations() {
 			'Page Not Found'=>'Nie znaleziono strony',"Sorry, the page you're looking for doesn't exist or has been moved."=>'Przepraszamy, szukana strona nie istnieje lub została przeniesiona.','Back to Home'=>'Wróć na stronę główną','Get in touch'=>'Skontaktuj się','Subscribe for logistics tips & updates.'=>'Zapisz się po porady logistyczne i aktualności.','Your email address'=>'Twój adres e-mail','All rights reserved.'=>'Wszelkie prawa zastrzeżone.','Privacy Policy'=>'Polityka prywatności','Terms of Service'=>'Warunki korzystania'
 		],
 	];
+	$auto = get_option( 'noki_ui_auto_translations', [] );
+	if ( is_array( $auto ) ) {
+		foreach ( $auto as $lang => $map ) {
+			if ( is_array( $map ) ) {
+				$manual[ $lang ] = array_merge( $map, $manual[ $lang ] ?? [] );
+			}
+		}
+	}
+	return $manual;
 }
 
 function noki_translate_fixed_html( $html ) {
