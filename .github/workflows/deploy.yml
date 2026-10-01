@@ -9,6 +9,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Lint PHP
+        run: |
+          find . -name "*.php" -not -path "./.git/*" -print0 | xargs -0 -n1 php -l
+
       - name: Trigger Deployer for Git
         run: |
           # Give GitHub a moment to generate the fresh zip for this push.
