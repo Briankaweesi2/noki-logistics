@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.8.0' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.8.1' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.8.0', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.8.1', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.8.0';
+	$version = '2.8.1';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1226,3 +1226,85 @@ function noki_multilingual_admin_notice() {
 	echo '<div class="notice notice-info"><p><strong>Noki multilingual site:</strong> Theme support is ready for English, Chinese (Simplified), French, German, Spanish and Polish. Install/activate Polylang and create the languages using slugs <code>en</code>, <code>zh</code>, <code>fr</code>, <code>de</code>, <code>es</code>, <code>pl</code>.</p></div>';
 }
 add_action( 'admin_notices', 'noki_multilingual_admin_notice' );
+
+
+/* ===========================
+   SMART LANGUAGE DEFAULT
+   On a visitor's first homepage visit, choose the best supported language
+   from the browser's Accept-Language header. If Cloudflare country data is
+   available, use it only as a fallback when the browser gives no supported
+   preference. A visitor's manual language choice always takes priority.
+=========================== */
+function noki_detect_preferred_language() {
+	$supported = array_keys( noki_supported_languages() );
+
+	// 1) Browser / device language is the strongest signal.
+	$accept = isset( $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_ACCEPT_LANGUAGE'] ) ) ) : '';
+	if ( $accept ) {
+		foreach ( explode( ',', $accept ) as $part ) {
+			$code = strtolower( substr( trim( explode( ';', $part )[0] ), 0, 2 ) );
+			if ( in_array( $code, $supported, true ) ) {
+				return $code;
+			}
+		}
+	}
+
+	// 2) Optional country fallback when the host/CDN already supplies it.
+	// No external geolocation request is made.
+	$country = isset( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ? strtoupper( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ) ) : '';
+	$country_map = [
+		'CN' => 'zh',
+		'FR' => 'fr',
+		'DE' => 'de',
+		'AT' => 'de',
+		'ES' => 'es',
+		'MX' => 'es',
+		'AR' => 'es',
+		'CO' => 'es',
+		'CL' => 'es',
+		'PE' => 'es',
+		'PL' => 'pl',
+	];
+	if ( $country && isset( $country_map[ $country ] ) ) {
+		return $country_map[ $country ];
+	}
+
+	return 'en';
+}
+
+function noki_maybe_redirect_language() {
+	if (
+		is_admin() ||
+		wp_doing_ajax() ||
+		wp_doing_cron() ||
+		! function_exists( 'pll_current_language' ) ||
+		! function_exists( 'pll_home_url' ) ||
+		! is_front_page()
+	) {
+		return;
+	}
+
+	// Respect a language the visitor has already chosen.
+	if ( ! empty( $_COOKIE['pll_language'] ) || ! empty( $_COOKIE['noki_language_selected'] ) ) {
+		return;
+	}
+
+	// Avoid language redirects for common crawlers so canonical/hreflang
+	// discovery remains stable for search engines.
+	$ua = isset( $_SERVER['HTTP_USER_AGENT'] ) ? strtolower( sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) ) : '';
+	if ( $ua && preg_match( '/bot|crawler|spider|slurp|bingpreview|facebookexternalhit|linkedinbot/', $ua ) ) {
+		return;
+	}
+
+	$preferred = noki_detect_preferred_language();
+	$current   = noki_current_language_slug();
+
+	if ( $preferred && $preferred !== $current ) {
+		$target = pll_home_url( $preferred );
+		if ( $target ) {
+			wp_safe_redirect( $target, 302 );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'noki_maybe_redirect_language', 2 );
