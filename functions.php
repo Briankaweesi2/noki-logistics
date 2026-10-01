@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.7.5' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '2.8.0' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.7.5', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '2.8.0', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '2.7.5';
+	$version = '2.8.0';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1153,3 +1153,76 @@ function noki_run_linkedin_daily_refresh() {
 	noki_get_linkedin_posts( 3, true );
 }
 add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
+
+
+/* ===========================
+   MULTILINGUAL SUPPORT
+   Primary multilingual engine: Polylang (free or Pro).
+   Supported site languages: English, Simplified Chinese, French,
+   German, Spanish and Polish.
+=========================== */
+function noki_load_textdomain() {
+	load_theme_textdomain( 'noki-logistics', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'noki_load_textdomain', 5 );
+
+function noki_supported_languages() {
+	return [
+		'en' => [ 'name' => 'English',  'native' => 'English' ],
+		'zh' => [ 'name' => 'Chinese',  'native' => '中文' ],
+		'fr' => [ 'name' => 'French',   'native' => 'Français' ],
+		'de' => [ 'name' => 'German',   'native' => 'Deutsch' ],
+		'es' => [ 'name' => 'Spanish',  'native' => 'Español' ],
+		'pl' => [ 'name' => 'Polish',   'native' => 'Polski' ],
+	];
+}
+
+function noki_current_language_slug() {
+	if ( function_exists( 'pll_current_language' ) ) {
+		$slug = pll_current_language( 'slug' );
+		if ( $slug ) {
+			return strtolower( $slug );
+		}
+	}
+	$locale = strtolower( determine_locale() );
+	return substr( $locale, 0, 2 );
+}
+
+function noki_language_switcher() {
+	if ( ! function_exists( 'pll_the_languages' ) ) {
+		return;
+	}
+	$available = pll_the_languages( [
+		'raw'            => 1,
+		'hide_if_empty'  => 0,
+		'hide_current'   => 0,
+	] );
+	if ( ! is_array( $available ) || count( $available ) < 2 ) {
+		return;
+	}
+
+	$supported = noki_supported_languages();
+	$current   = noki_current_language_slug();
+	$current_label = $supported[ $current ]['native'] ?? strtoupper( $current );
+
+	echo '<div class="language-switcher">';
+	echo '<button class="language-current" type="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-globe"></i><span>' . esc_html( $current_label ) . '</span><i class="fas fa-chevron-down"></i></button>';
+	echo '<div class="language-menu" role="menu">';
+	foreach ( $available as $lang ) {
+		$slug = strtolower( $lang['slug'] ?? '' );
+		if ( ! isset( $supported[ $slug ] ) ) {
+			continue;
+		}
+		$class = ! empty( $lang['current_lang'] ) ? ' is-current' : '';
+		echo '<a class="language-option' . esc_attr( $class ) . '" role="menuitem" hreflang="' . esc_attr( $slug ) . '" href="' . esc_url( $lang['url'] ) . '"><span>' . esc_html( $supported[ $slug ]['native'] ) . '</span><small>' . esc_html( $supported[ $slug ]['name'] ) . '</small></a>';
+	}
+	echo '</div></div>';
+}
+
+function noki_multilingual_admin_notice() {
+	if ( function_exists( 'pll_the_languages' ) || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	echo '<div class="notice notice-info"><p><strong>Noki multilingual site:</strong> Theme support is ready for English, Chinese (Simplified), French, German, Spanish and Polish. Install/activate Polylang and create the languages using slugs <code>en</code>, <code>zh</code>, <code>fr</code>, <code>de</code>, <code>es</code>, <code>pl</code>.</p></div>';
+}
+add_action( 'admin_notices', 'noki_multilingual_admin_notice' );
