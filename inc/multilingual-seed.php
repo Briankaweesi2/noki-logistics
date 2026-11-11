@@ -10,30 +10,30 @@ function noki_seed_multilingual_core() {
 	if ( ! function_exists( 'pll_set_post_language' ) || ! function_exists( 'pll_save_post_translations' ) ) return;
 
 	$pages = [
-		27 => [ 'template'=>'', 't'=>[
-			'zh'=>['首页','shouye'],'fr'=>['Accueil','accueil'],'de'=>['Startseite','startseite'],'es'=>['Inicio','inicio'],'pl'=>['Strona główna','strona-glowna'] ] ],
-		26 => [ 'template'=>'page-blog.php', 't'=>[
-			'zh'=>['物流博客','wuliu-boke'],'fr'=>['Blog logistique','blog'],'de'=>['Logistik-Blog','blog'],'es'=>['Blog de logística','blog'],'pl'=>['Blog logistyczny','blog'] ] ],
-		25 => [ 'template'=>'page-faq.php', 't'=>[
-			'zh'=>['常见问题','changjian-wenti'],'fr'=>['FAQ','faq'],'de'=>['FAQ','faq'],'es'=>['Preguntas frecuentes','preguntas-frecuentes'],'pl'=>['FAQ','faq'] ] ],
-		24 => [ 'template'=>'page-testimonials.php', 't'=>[
-			'zh'=>['客户评价','kehu-pingjia'],'fr'=>['Témoignages','temoignages'],'de'=>['Kundenstimmen','kundenstimmen'],'es'=>['Testimonios','testimonios'],'pl'=>['Opinie klientów','opinie'] ] ],
-		23 => [ 'template'=>'page-pricing.php', 't'=>[
-			'zh'=>['价格','jiage'],'fr'=>['Tarifs','tarifs'],'de'=>['Preise','preise'],'es'=>['Precios','precios'],'pl'=>['Cennik','cennik'] ] ],
-		22 => [ 'template'=>'page-join-us.php', 't'=>[
-			'zh'=>['加入我们','jiaru-women'],'fr'=>['Rejoignez-nous','rejoignez-nous'],'de'=>['Karriere','karriere'],'es'=>['Únete a nosotros','unete'],'pl'=>['Kariera','kariera'] ] ],
-		21 => [ 'template'=>'page-our-team.php', 't'=>[
-			'zh'=>['我们的团队','women-de-tuandui'],'fr'=>['Notre équipe','notre-equipe'],'de'=>['Unser Team','unser-team'],'es'=>['Nuestro equipo','nuestro-equipo'],'pl'=>['Nasz zespół','nasz-zespol'] ] ],
-		20 => [ 'template'=>'page-why-choose-us.php', 't'=>[
-			'zh'=>['为何选择 Noki','weishenme-xuanze-noki'],'fr'=>['Pourquoi choisir Noki','pourquoi-choisir-noki'],'de'=>['Warum Noki','warum-noki'],'es'=>['Por qué elegir Noki','por-que-noki'],'pl'=>['Dlaczego Noki','dlaczego-noki'] ] ],
-		10 => [ 'template'=>'page-contact.php', 't'=>[
-			'zh'=>['联系我们','lianxi-women'],'fr'=>['Contact','contact'],'de'=>['Kontakt','kontakt'],'es'=>['Contacto','contacto'],'pl'=>['Kontakt','kontakt'] ] ],
-		9 => [ 'template'=>'page-about.php', 't'=>[
+		'about' => [ 'template'=>'page-about.php', 't'=>[
 			'zh'=>['关于我们','guanyu-women'],'fr'=>['À propos','a-propos'],'de'=>['Über uns','ueber-uns'],'es'=>['Sobre nosotros','sobre-nosotros'],'pl'=>['O nas','o-nas'] ] ],
-	];
+		'contact' => [ 'template'=>'page-contact.php', 't'=>[
+			'zh'=>['联系我们','lianxi-women'],'fr'=>['Contact','contact'],'de'=>['Kontakt','kontakt'],'es'=>['Contacto','contacto'],'pl'=>['Kontakt','kontakt'] ] ],
+		'faq' => [ 'template'=>'page-faq.php', 't'=>[
+			'zh'=>['常见问题','changjian-wenti'],'fr'=>['FAQ','faq'],'de'=>['FAQ','faq'],'es'=>['Preguntas frecuentes','preguntas-frecuentes'],'pl'=>['FAQ','faq'] ] ],
+		'join-us' => [ 'template'=>'page-join-us.php', 't'=>[
+			'zh'=>['加入我们','jiaru-women'],'fr'=>['Rejoignez-nous','rejoignez-nous'],'de'=>['Karriere','karriere'],'es'=>['Trabaja con nosotros','trabaja-con-nosotros'],'pl'=>['Kariera','kariera'] ] ],
+		'our-team' => [ 'template'=>'page-our-team.php', 't'=>[
+			'zh'=>['我们的团队','women-de-tuandui'],'fr'=>['Notre équipe','notre-equipe'],'de'=>['Unser Team','unser-team'],'es'=>['Nuestro equipo','nuestro-equipo'],'pl'=>['Nasz zespół','nasz-zespol'] ] ],
+		'pricing' => [ 'template'=>'page-pricing.php', 't'=>[
+			'zh'=>['价格','jiage'],'fr'=>['Tarifs','tarifs'],'de'=>['Preise','preise'],'es'=>['Precios','precios'],'pl'=>['Cennik','cennik'] ] ],
+		'why-choose-us' => [ 'template'=>'page-why-choose-us.php', 't'=>[
+			'zh'=>['为何选择 Noki','weishenme-xuanze-noki'],'fr'=>['Pourquoi choisir Noki','pourquoi-choisir-noki'],'de'=>['Warum Noki','warum-noki'],'es'=>['Por qué elegir Noki','por-que-elegir-noki'],'pl'=>['Dlaczego Noki','dlaczego-noki'] ] ],
+		'blog' => [ 'template'=>'page-blog.php', 't'=>[
+			'zh'=>['物流博客','wuliu-boke'],'fr'=>['Blog logistique','blog'],'de'=>['Logistik-Blog','blog'],'es'=>['Blog de logística','blog-de-logistica'],'pl'=>['Blog logistyczny','blog'] ] ],
+		'testimonials' => [ 'template'=>'page-testimonials.php', 't'=>[
+			'zh'=>['客户评价','kehu-pingjia'],'fr'=>['Témoignages','temoignages'],'de'=>['Kundenstimmen','kundenstimmen'],'es'=>['Testimonios','testimonios'],'pl'=>['Opinie klientów','opinie'] ] ],
+	];;
 
-	foreach ( $pages as $source_id => $cfg ) {
-		if ( ! get_post( $source_id ) ) continue;
+	foreach ( $pages as $source_path => $cfg ) {
+		$source_page = get_page_by_path( $source_path, OBJECT, 'page' );
+		if ( ! $source_page ) continue;
+		$source_id = (int) $source_page->ID;
 		pll_set_post_language( $source_id, 'en' );
 		$links = [ 'en' => $source_id ];
 		foreach ( $cfg['t'] as $lang => $d ) {
@@ -53,7 +53,7 @@ function noki_seed_multilingual_core() {
 
 	$services = noki_multilingual_service_data();
 	foreach ( $services as $source_id => $translations ) {
-		$src = get_post( $source_id ); if ( ! $src ) continue;
+		$src = get_post( $source_id ); if ( ! $src || 'noki_service' !== $src->post_type ) continue;
 		pll_set_post_language( $source_id, 'en' );
 		$links = [ 'en'=>$source_id ];
 		foreach ( $translations as $lang=>$d ) {
@@ -75,7 +75,7 @@ function noki_seed_multilingual_core() {
 
 	$news = noki_multilingual_news_data();
 	foreach ( $news as $source_id => $translations ) {
-		$src = get_post( $source_id ); if ( ! $src ) continue;
+		$src = get_post( $source_id ); if ( ! $src || 'noki_news' !== $src->post_type ) continue;
 		pll_set_post_language( $source_id, 'en' );
 		$links=[ 'en'=>$source_id ];
 		foreach ( $translations as $lang=>$d ) {
@@ -92,6 +92,30 @@ function noki_seed_multilingual_core() {
 	}
 	update_option( 'noki_multilingual_core_seed', '2026-10-v2', false );
 }
+
+
+// Provide an explicit, administrator-only way to create the current install's
+// linked page translations after the theme is deployed.
+add_action( 'admin_menu', function () {
+	add_management_page(
+		'Noki Translation Setup',
+		'Noki Translation Setup',
+		'manage_options',
+		'noki-translation-setup',
+		function () {
+			$url = wp_nonce_url( admin_url( 'admin-post.php?action=noki_seed_linked_translations' ), 'noki_seed_linked_translations' );
+			echo '<div class="wrap"><h1>Noki Translation Setup</h1><p>Create or refresh language-linked pages using the current English page slugs. Existing content is not deleted.</p><a class="button button-primary" href="' . esc_url( $url ) . '">Create core language pages</a></div>';
+		}
+	);
+} );
+
+add_action( 'admin_post_noki_seed_linked_translations', function () {
+	if ( ! current_user_can( 'manage_options' ) ) wp_die( 'You are not allowed to run this action.' );
+	check_admin_referer( 'noki_seed_linked_translations' );
+	noki_seed_multilingual_core();
+	wp_safe_redirect( add_query_arg( 'translations_seeded', '1', admin_url( 'tools.php?page=noki-translation-setup' ) ) );
+	exit;
+} );
 
 function noki_multilingual_service_data() {
 	return [
