@@ -117,6 +117,30 @@ function noki_ui_translations() {
 			'Tell us what you\'re shipping and we\'ll send a clear, itemised price.'=>'告诉我们您要运输的货物，我们会发送清晰的明细报价。',
 			'Importers'=>'进口商','Manufacturers'=>'制造商','Retailers'=>'零售商','NGOs & Aid'=>'非政府组织与援助机构','E-commerce'=>'电商','Wholesalers'=>'批发商','What our clients say'=>'客户评价',
 			'Reliability'=>'可靠性','Innovation'=>'创新','Sustainability'=>'可持续发展','Customer-first'=>'客户至上','Follow on LinkedIn'=>'在 LinkedIn 关注','View LinkedIn'=>'查看 LinkedIn','Logistics'=>'物流'
+			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "从坎帕拉通达全球——为您提供值得信赖的空运、海运、公路运输、清关和仓储服务。",
+			"We're more than a freight company — we're your dedicated partner in " => "我们不仅是一家货运公司，更是您在",
+			"supply-chain success" => "供应链成功",
+			" across Uganda and the region." => "在乌干达及周边地区。",
+			"Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling." => "时效敏感货物经由恩德培及全球主要枢纽空运，并提供全程追踪和清关服务。",
+			"Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda." => "通过蒙巴萨和达累斯萨拉姆运输通道，提供往返乌干达的高性价比整箱（FCL）和拼箱（LCL）海运服务。",
+			"Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan." => "面向东非共同体（EAC）区域提供可靠的跨境公路运输，覆盖肯尼亚、坦桑尼亚、卢旺达、刚果（金）和南苏丹。",
+			"Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays." => "提供持牌清关与货运代理服务，协助您的货物办理 URA 清关并通过边境口岸，避免高额延误费用。",
+			"Secure, organised storage and inventory management with distribution from our Kampala facilities." => "依托我们在坎帕拉的设施，提供安全、有序的仓储、库存管理和配送服务。",
+			"Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels." => "在坎帕拉市内及全国范围提供当日和次日快递服务，寄送紧急文件和包裹。",
+			"Every shipment is planned, tracked and insured. You get clear timelines and proactive updates from pickup to final delivery." => "每票货物都会经过规划、追踪并投保。您将获得明确的时间安排，并从取件到最终交付全程收到主动进度更新。",
+			"Real-time visibility on your cargo and transparent, flat-rate pricing — no hidden charges, no surprises at the border." => "实时掌握货物动态，享受透明的固定费率；无隐藏费用，边境环节也无意外支出。",
+			"A dedicated coordinator for your account who understands your business and is reachable on call or WhatsApp 24/7." => "为您的账户配备了解您业务的专属协调员，并可通过电话或 WhatsApp 全天候（24/7）联系。",
+			"Noki Logistics was built on a simple belief: logistics should make your life easier, not harder. We combine local knowledge of Ugandan and regional trade routes with global freight partnerships to move your cargo smoothly, affordably and on time." => "Noki Logistics 始终秉持一个简单的信念：物流应让您的生活更轻松，而不是更添负担。我们结合对乌干达及区域贸易路线的本地了解与全球货运合作伙伴关系，让您的货物运输顺畅、经济且准时。",
+			"Customs Brokerage" => "清关代理",
+			"Customs expertise" => "清关专业能力",
+			"Express Delivery" => "快递服务",
+			"East African Community" => "东非共同体（EAC）",
+			"Logistics Company in Uganda | Freight, Customs & Warehousing | Noki Logistics" => "乌干达物流公司 | 货运、清关与仓储 | Noki Logistics",
+			"Noki Logistics" => "Noki Logistics",
+			"Email address" => "电子邮箱地址",
+			"Subscribe" => "订阅",
+			"Careers" => "职业机会",
+
 		],
 		'fr' => [
 			'Moving your cargo '=>'Transportez vos marchandises ','further, faster'=>'plus loin, plus vite',' &amp; safer'=>' et en toute sécurité','&amp; safer'=>'et en toute sécurité','Air, sea &amp; road freight, '=>'Fret aérien, maritime et routier, ','Air, sea & road freight, '=>'Fret aérien, maritime et routier, ','handled end to end'=>'géré de bout en bout','Reliable delivery across '=>'Livraison fiable dans toute ','East Africa'=>"l’Afrique de l’Est",'Capacity to '=>'La capacité de ','Move East Africa'=>"faire avancer l’Afrique de l’Est",'Shipments Delivered'=>'Expéditions livrées','Years of Experience'=>"Années d'expérience",'On-Time Delivery'=>'Livraisons à l’heure','Customer Support'=>'Assistance client',
@@ -137,6 +161,30 @@ function noki_ui_translations() {
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Dites-nous ce que vous expédiez et nous vous enverrons un prix clair et détaillé.',
 			'Importers'=>'Importateurs','Manufacturers'=>'Fabricants','Retailers'=>'Détaillants','NGOs & Aid'=>'ONG & aide','E-commerce'=>'E-commerce','Wholesalers'=>'Grossistes','What our clients say'=>'Ce que disent nos clients',
 			'Reliability'=>'Fiabilité','Innovation'=>'Innovation','Sustainability'=>'Durabilité','Customer-first'=>'Priorité au client','Follow on LinkedIn'=>'Suivre sur LinkedIn','View LinkedIn'=>'Voir LinkedIn','Logistics'=>'Logistique'
+			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "De Kampala au monde entier : fret aérien, maritime et routier, dédouanement et entreposage sur lesquels vous pouvez compter.",
+			"We're more than a freight company — we're your dedicated partner in " => "Nous sommes bien plus qu’une entreprise de transport de marchandises : nous sommes votre partenaire engagé dans",
+			"supply-chain success" => "la réussite de votre chaîne d’approvisionnement",
+			" across Uganda and the region." => "en Ouganda et dans la région.",
+			"Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling." => "Les marchandises urgentes sont acheminées par avion via Entebbe et les principaux hubs aéroportuaires du monde, avec un suivi complet et la prise en charge des formalités douanières.",
+			"Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda." => "Transport maritime FCL et LCL à tarifs compétitifs via les corridors de Mombasa et de Dar es Salaam, au départ et à destination de l’Ouganda.",
+			"Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan." => "Transport routier transfrontalier fiable dans la Communauté d’Afrique de l’Est (EAC) : Kenya, Tanzanie, Rwanda, RDC et Soudan du Sud.",
+			"Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays." => "Services agréés de dédouanement et de transit pour faire passer vos marchandises par l’URA et les postes-frontières sans retards coûteux.",
+			"Secure, organised storage and inventory management with distribution from our Kampala facilities." => "Entreposage sécurisé et organisé, gestion des stocks et distribution depuis nos installations de Kampala.",
+			"Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels." => "Services de messagerie le jour même ou le lendemain à Kampala et dans tout le pays, pour vos documents et colis urgents.",
+			"Every shipment is planned, tracked and insured. You get clear timelines and proactive updates from pickup to final delivery." => "Chaque envoi est planifié, suivi et assuré. Vous bénéficiez de délais clairs et recevez des mises à jour proactives, de l’enlèvement à la livraison finale.",
+			"Real-time visibility on your cargo and transparent, flat-rate pricing — no hidden charges, no surprises at the border." => "Suivi en temps réel de votre cargaison et tarification forfaitaire transparente : aucun frais caché, aucune mauvaise surprise à la frontière.",
+			"A dedicated coordinator for your account who understands your business and is reachable on call or WhatsApp 24/7." => "Un coordinateur dédié à votre compte, qui connaît votre activité et reste joignable par téléphone ou sur WhatsApp, 24/7.",
+			"Noki Logistics was built on a simple belief: logistics should make your life easier, not harder. We combine local knowledge of Ugandan and regional trade routes with global freight partnerships to move your cargo smoothly, affordably and on time." => "Noki Logistics s’est construite sur une conviction simple : la logistique doit vous simplifier la vie, pas la compliquer. Nous combinons notre connaissance du terrain et des routes commerciales de l’Ouganda et de la région avec nos partenariats mondiaux dans le transport de marchandises pour acheminer votre cargaison avec fluidité, à un coût abordable et dans les délais.",
+			"Customs Brokerage" => "Dédouanement et transit",
+			"Customs expertise" => "Expertise en dédouanement",
+			"Express Delivery" => "Livraison express",
+			"East African Community" => "Communauté d’Afrique de l’Est (EAC)",
+			"Logistics Company in Uganda | Freight, Customs & Warehousing | Noki Logistics" => "Entreprise de logistique en Ouganda | Fret, dédouanement et entreposage | Noki Logistics",
+			"Noki Logistics" => "Noki Logistics",
+			"Email address" => "Adresse e-mail",
+			"Subscribe" => "S’abonner",
+			"Careers" => "Carrières",
+
 		],
 		'de' => [
 			'Moving your cargo '=>'Wir bewegen Ihre Fracht ','further, faster'=>'weiter und schneller',' &amp; safer'=>' und sicherer','&amp; safer'=>'und sicherer','Air, sea &amp; road freight, '=>'Luft-, See- und Straßentransport, ','Air, sea & road freight, '=>'Luft-, See- und Straßentransport, ','handled end to end'=>'durchgängig abgewickelt','Reliable delivery across '=>'Zuverlässige Lieferung in ganz ','East Africa'=>'Ostafrika','Capacity to '=>'Kapazität, ','Move East Africa'=>'Ostafrika zu bewegen','Shipments Delivered'=>'Sendungen zugestellt','Years of Experience'=>'Jahre Erfahrung','On-Time Delivery'=>'Pünktliche Lieferung','Customer Support'=>'Kundensupport',
@@ -157,6 +205,30 @@ function noki_ui_translations() {
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Sagen Sie uns, was Sie versenden, und wir senden Ihnen einen klaren, detaillierten Preis.',
 			'Importers'=>'Importeure','Manufacturers'=>'Hersteller','Retailers'=>'Einzelhändler','NGOs & Aid'=>'NGOs & Hilfsorganisationen','E-commerce'=>'E-Commerce','Wholesalers'=>'Großhändler','What our clients say'=>'Was unsere Kunden sagen',
 			'Reliability'=>'Zuverlässigkeit','Innovation'=>'Innovation','Sustainability'=>'Nachhaltigkeit','Customer-first'=>'Kundenorientierung','Follow on LinkedIn'=>'Auf LinkedIn folgen','View LinkedIn'=>'LinkedIn ansehen','Logistics'=>'Logistik'
+			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Von Kampala in die Welt – Luft-, See- und Straßentransporte, Zollabfertigung und Lagerhaltung, auf die Sie sich verlassen können.",
+			"We're more than a freight company — we're your dedicated partner in " => "Wir sind mehr als ein Frachtunternehmen – wir sind Ihr engagierter Partner für",
+			"supply-chain success" => "den Erfolg Ihrer Lieferkette",
+			" across Uganda and the region." => "in Uganda und der Region.",
+			"Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling." => "Wir befördern zeitkritische Fracht über Entebbe und große Drehkreuze weltweit – mit durchgängiger Sendungsverfolgung und Zollabwicklung.",
+			"Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda." => "Kosteneffiziente FCL- und LCL-Seefracht über die Korridore Mombasa und Dar es Salaam von und nach Uganda.",
+			"Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan." => "Zuverlässige grenzüberschreitende Lkw-Transporte innerhalb der Ostafrikanischen Gemeinschaft (EAC) – nach Kenia, Tansania und Ruanda sowie in die DR Kongo und den Südsudan.",
+			"Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays." => "Lizenzierte Zollabfertigung und Spedition bringen Ihre Waren ohne kostspielige Verzögerungen durch die URA-Abfertigung und über die Grenzübergänge.",
+			"Secure, organised storage and inventory management with distribution from our Kampala facilities." => "Sichere, strukturierte Lagerhaltung und Bestandsverwaltung mit Distribution von unseren Standorten in Kampala aus.",
+			"Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels." => "Kurierdienste mit Zustellung am selben oder am nächsten Tag – in Kampala und landesweit für dringende Dokumente und Pakete.",
+			"Every shipment is planned, tracked and insured. You get clear timelines and proactive updates from pickup to final delivery." => "Jede Sendung wird geplant, nachverfolgt und versichert. Sie erhalten klare Zeitangaben und proaktive Informationen von der Abholung bis zur endgültigen Zustellung.",
+			"Real-time visibility on your cargo and transparent, flat-rate pricing — no hidden charges, no surprises at the border." => "Sie können Ihre Fracht in Echtzeit verfolgen und profitieren von transparenten Pauschalpreisen – ohne versteckte Gebühren und Überraschungen an der Grenze.",
+			"A dedicated coordinator for your account who understands your business and is reachable on call or WhatsApp 24/7." => "Ein fester Ansprechpartner für Ihr Unternehmen, der Ihr Geschäft versteht und rund um die Uhr per Telefon oder WhatsApp erreichbar ist.",
+			"Noki Logistics was built on a simple belief: logistics should make your life easier, not harder. We combine local knowledge of Ugandan and regional trade routes with global freight partnerships to move your cargo smoothly, affordably and on time." => "Noki Logistics beruht auf einer einfachen Überzeugung: Logistik sollte Ihnen das Leben erleichtern, nicht erschweren. Wir verbinden unsere lokale Kenntnis der Handelsrouten in Uganda und der Region mit globalen Frachtpartnerschaften, damit Ihre Fracht reibungslos, kostengünstig und pünktlich transportiert wird.",
+			"Customs Brokerage" => "Zollabfertigung und Spedition",
+			"Customs expertise" => "Zollkompetenz",
+			"Express Delivery" => "Expresslieferung",
+			"East African Community" => "Ostafrikanische Gemeinschaft (EAC)",
+			"Logistics Company in Uganda | Freight, Customs & Warehousing | Noki Logistics" => "Logistikunternehmen in Uganda | Fracht, Zollabfertigung und Lagerhaltung | Noki Logistics",
+			"Noki Logistics" => "Noki Logistics",
+			"Email address" => "E-Mail-Adresse",
+			"Subscribe" => "Abonnieren",
+			"Careers" => "Karriere",
+
 		],
 		'es' => [
 			'Moving your cargo '=>'Movemos su carga ','further, faster'=>'más lejos y más rápido',' &amp; safer'=>' y con mayor seguridad','&amp; safer'=>'y con mayor seguridad','Air, sea &amp; road freight, '=>'Carga aérea, marítima y terrestre, ','Air, sea & road freight, '=>'Carga aérea, marítima y terrestre, ','handled end to end'=>'gestionada de principio a fin','Reliable delivery across '=>'Entrega confiable en toda ','East Africa'=>'África Oriental','Capacity to '=>'Capacidad para ','Move East Africa'=>'mover África Oriental','Shipments Delivered'=>'Envíos entregados','Years of Experience'=>'Años de experiencia','On-Time Delivery'=>'Entrega puntual','Customer Support'=>'Atención al cliente',
@@ -177,6 +249,30 @@ function noki_ui_translations() {
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Díganos qué va a enviar y le enviaremos un precio claro y detallado.',
 			'Importers'=>'Importadores','Manufacturers'=>'Fabricantes','Retailers'=>'Minoristas','NGOs & Aid'=>'ONG y ayuda','E-commerce'=>'Comercio electrónico','Wholesalers'=>'Mayoristas','What our clients say'=>'Lo que dicen nuestros clientes',
 			'Reliability'=>'Fiabilidad','Innovation'=>'Innovación','Sustainability'=>'Sostenibilidad','Customer-first'=>'El cliente primero','Follow on LinkedIn'=>'Seguir en LinkedIn','View LinkedIn'=>'Ver LinkedIn','Logistics'=>'Logística'
+			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Desde Kampala hasta el mundo, puede confiar en nuestros servicios de transporte de carga por aire, mar y carretera, despacho aduanero y almacenamiento.",
+			"We're more than a freight company — we're your dedicated partner in " => "Somos más que una empresa de transporte de carga: somos su socio comprometido con",
+			"supply-chain success" => "el éxito de su cadena de suministro",
+			" across Uganda and the region." => "en Uganda y la región.",
+			"Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling." => "Transportamos por vía aérea la carga urgente a través de Entebbe y de los principales centros de conexión del mundo, con seguimiento completo y gestión aduanera.",
+			"Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda." => "Envíos marítimos FCL y LCL a precios competitivos por los corredores de Mombasa y Dar es Salaam, desde y hacia Uganda.",
+			"Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan." => "Transporte transfronterizo confiable en la Comunidad de África Oriental (EAC): Kenia, Tanzania, Ruanda, RDC y Sudán del Sur.",
+			"Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays." => "Servicios autorizados de despacho aduanero y gestión de carga para que sus mercancías pasen por la URA y los puestos fronterizos sin demoras costosas.",
+			"Secure, organised storage and inventory management with distribution from our Kampala facilities." => "Almacenamiento seguro y organizado, gestión de inventario y distribución desde nuestras instalaciones en Kampala.",
+			"Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels." => "Servicios de mensajería con entrega el mismo día o al día siguiente en Kampala y en todo el país para documentos y paquetes urgentes.",
+			"Every shipment is planned, tracked and insured. You get clear timelines and proactive updates from pickup to final delivery." => "Cada envío se planifica, se rastrea y cuenta con seguro. Recibirá plazos claros y actualizaciones proactivas desde la recogida hasta la entrega final.",
+			"Real-time visibility on your cargo and transparent, flat-rate pricing — no hidden charges, no surprises at the border." => "Visibilidad de su carga en tiempo real y tarifas fijas y transparentes: sin cargos ocultos ni sorpresas en la frontera.",
+			"A dedicated coordinator for your account who understands your business and is reachable on call or WhatsApp 24/7." => "Un coordinador asignado a su cuenta, que conoce su negocio y está disponible por teléfono o WhatsApp 24/7.",
+			"Noki Logistics was built on a simple belief: logistics should make your life easier, not harder. We combine local knowledge of Ugandan and regional trade routes with global freight partnerships to move your cargo smoothly, affordably and on time." => "Noki Logistics se fundó sobre una idea sencilla: la logística debería facilitarle la vida, no complicársela. Combinamos nuestro conocimiento local de las rutas comerciales de Uganda y la región con alianzas globales de transporte de carga para transportar su carga sin contratiempos, a un costo asequible y a tiempo.",
+			"Customs Brokerage" => "Agencia de aduanas",
+			"Customs expertise" => "Experiencia en despacho aduanero",
+			"Express Delivery" => "Mensajería urgente",
+			"East African Community" => "Comunidad de África Oriental (EAC)",
+			"Logistics Company in Uganda | Freight, Customs & Warehousing | Noki Logistics" => "Empresa de logística en Uganda | Transporte de carga, despacho aduanero y almacenamiento | Noki Logistics",
+			"Noki Logistics" => "Noki Logistics",
+			"Email address" => "Correo electrónico",
+			"Subscribe" => "Suscribirse",
+			"Careers" => "Trabaja con nosotros",
+
 		],
 		'pl' => [
 			'Moving your cargo '=>'Przewozimy Twój ładunek ','further, faster'=>'dalej i szybciej',' &amp; safer'=>' oraz bezpieczniej','&amp; safer'=>'oraz bezpieczniej','Air, sea &amp; road freight, '=>'Fracht lotniczy, morski i drogowy, ','Air, sea & road freight, '=>'Fracht lotniczy, morski i drogowy, ','handled end to end'=>'obsługiwany od początku do końca','Reliable delivery across '=>'Niezawodne dostawy w całej ','East Africa'=>'Afryce Wschodniej','Capacity to '=>'Potencjał, by ','Move East Africa'=>'obsługiwać Afrykę Wschodnią','Shipments Delivered'=>'Dostarczone przesyłki','Years of Experience'=>'Lata doświadczenia','On-Time Delivery'=>'Terminowe dostawy','Customer Support'=>'Obsługa klienta',
@@ -197,6 +293,30 @@ function noki_ui_translations() {
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Powiedz nam, co wysyłasz, a prześlemy jasną, szczegółową wycenę.',
 			'Importers'=>'Importerzy','Manufacturers'=>'Producenci','Retailers'=>'Detaliści','NGOs & Aid'=>'NGO i pomoc','E-commerce'=>'E-commerce','Wholesalers'=>'Hurtownicy','What our clients say'=>'Co mówią nasi klienci',
 			'Reliability'=>'Niezawodność','Innovation'=>'Innowacja','Sustainability'=>'Zrównoważony rozwój','Customer-first'=>'Klient na pierwszym miejscu','Follow on LinkedIn'=>'Obserwuj na LinkedIn','View LinkedIn'=>'Zobacz LinkedIn','Logistics'=>'Logistyka'
+			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Z Kampali na cały świat — transport lotniczy, morski i drogowy, odprawa celna oraz magazynowanie, na których możesz polegać.",
+			"We're more than a freight company — we're your dedicated partner in " => "Jesteśmy czymś więcej niż firmą spedycyjną — jesteśmy Twoim zaangażowanym partnerem w",
+			"supply-chain success" => "osiąganiu sukcesów w łańcuchu dostaw",
+			" across Uganda and the region." => "w Ugandzie i całym regionie.",
+			"Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling." => "Pilne ładunki przewożone drogą lotniczą przez Entebbe i główne światowe węzły lotnicze, z pełnym śledzeniem przesyłek i obsługą celną.",
+			"Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda." => "Ekonomiczny fracht morski pełnokontenerowy (FCL) i drobnicowy (LCL) do i z Ugandy, przez korytarze transportowe Mombasy i Dar es Salaam.",
+			"Reliable cross-border trucking across the East African Community — Kenya, Tanzania, Rwanda, DRC and South Sudan." => "Niezawodny transgraniczny transport drogowy w ramach Wspólnoty Wschodnioafrykańskiej (EAC) — do Kenii, Tanzanii, Rwandy, DRK i Sudanu Południowego.",
+			"Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays." => "Licencjonowana obsługa celno-spedycyjna sprawnie przeprowadza towary przez procedury URA i przejścia graniczne, bez kosztownych opóźnień.",
+			"Secure, organised storage and inventory management with distribution from our Kampala facilities." => "Bezpieczne, dobrze zorganizowane magazynowanie i zarządzanie zapasami oraz dystrybucja z naszych obiektów w Kampali.",
+			"Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels." => "Usługi kurierskie z dostawą tego samego i następnego dnia w Kampali oraz na terenie całego kraju, dla pilnych dokumentów i paczek.",
+			"Every shipment is planned, tracked and insured. You get clear timelines and proactive updates from pickup to final delivery." => "Każda przesyłka jest planowana, monitorowana i ubezpieczona. Otrzymujesz jasny harmonogram, a my z wyprzedzeniem informujemy Cię o postępach — od odbioru po dostawę końcową.",
+			"Real-time visibility on your cargo and transparent, flat-rate pricing — no hidden charges, no surprises at the border." => "Pełny wgląd w ładunek w czasie rzeczywistym i przejrzyste stawki ryczałtowe — bez ukrytych opłat i niespodzianek na granicy.",
+			"A dedicated coordinator for your account who understands your business and is reachable on call or WhatsApp 24/7." => "Dedykowany koordynator Twojego konta, który rozumie specyfikę Twojej firmy i jest dostępny pod telefonem lub przez WhatsApp 24/7.",
+			"Noki Logistics was built on a simple belief: logistics should make your life easier, not harder. We combine local knowledge of Ugandan and regional trade routes with global freight partnerships to move your cargo smoothly, affordably and on time." => "Noki Logistics powstała z prostego przekonania: logistyka powinna ułatwiać Ci życie, a nie je utrudniać. Łączymy lokalną znajomość ugandyjskich i regionalnych szlaków handlowych z globalnymi partnerstwami w transporcie towarowym, aby przewozić Twój ładunek sprawnie, w przystępnej cenie i na czas.",
+			"Customs Brokerage" => "Odprawa celna i spedycja",
+			"Customs expertise" => "Doświadczenie w obsłudze celnej",
+			"Express Delivery" => "Dostawa ekspresowa",
+			"East African Community" => "Wspólnota Wschodnioafrykańska (EAC)",
+			"Logistics Company in Uganda | Freight, Customs & Warehousing | Noki Logistics" => "Firma logistyczna w Ugandzie | Transport towarowy, odprawa celna i magazynowanie | Noki Logistics",
+			"Noki Logistics" => "Noki Logistics",
+			"Email address" => "Adres e-mail",
+			"Subscribe" => "Zapisz się",
+			"Careers" => "Kariera",
+
 		],
 	];
 
@@ -212,6 +332,26 @@ function noki_ui_translations() {
 		$manual[ $lang ] = array_merge( $map, $manual[ $lang ] ?? [] );
 	}
 	return $manual;
+}
+
+function noki_translate_fragment( $text, $map ) {
+	if ( '' === $text || empty( $map ) ) return $text;
+	$keys = array_keys( $map );
+	usort( $keys, function ( $a, $b ) { return strlen( $b ) - strlen( $a ); } );
+	$patterns = [];
+	foreach ( $keys as $key ) {
+		if ( ! is_string( $key ) || '' === $key ) continue;
+		$pattern = preg_quote( $key, '~' );
+		if ( preg_match( '~^[\\p{L}\\p{N}_]~u', $key ) ) $pattern = '(?<![\\p{L}\\p{N}_])' . $pattern;
+		if ( preg_match( '~[\\p{L}\\p{N}_]$~u', $key ) ) $pattern .= '(?![\\p{L}\\p{N}_])';
+		$patterns[] = $pattern;
+	}
+	if ( empty( $patterns ) ) return $text;
+	return preg_replace_callback(
+		'~' . implode( '|', $patterns ) . '~u',
+		function ( $match ) use ( $map ) { return $map[ $match[0] ] ?? $match[0]; },
+		$text
+	);
 }
 
 function noki_translate_fixed_html( $html ) {
@@ -265,7 +405,7 @@ function noki_translate_fixed_html( $html ) {
 				$parts[ $i ] = preg_replace_callback(
 					'~\\b(placeholder|aria-label|title|alt)\\s*=\\s*(["\\\'])(.*?)\\2~is',
 					function ( $m ) use ( $map ) {
-						$value = strtr( $m[3], $map );
+						$value = noki_translate_fragment( $m[3], $map );
 						return $m[1] . '=' . $m[2] . $value . $m[2];
 					},
 					$part
@@ -274,7 +414,7 @@ function noki_translate_fixed_html( $html ) {
 			continue;
 		}
 
-		$parts[ $i ] = strtr( $part, $map );
+		$parts[ $i ] = noki_translate_fragment( $part, $map );
 	}
 
 	return implode( '', $parts );
