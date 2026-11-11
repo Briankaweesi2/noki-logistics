@@ -116,7 +116,7 @@ function noki_ui_translations() {
 			'How quickly will I get a quote?'=>'多久可以收到报价？','What affects the price of freight?'=>'哪些因素会影响运费？','Do you offer discounts for regular shipments?'=>'长期发货有折扣吗？','Are customs duties included?'=>'是否包含关税？',
 			'Tell us what you\'re shipping and we\'ll send a clear, itemised price.'=>'告诉我们您要运输的货物，我们会发送清晰的明细报价。',
 			'Importers'=>'进口商','Manufacturers'=>'制造商','Retailers'=>'零售商','NGOs & Aid'=>'非政府组织与援助机构','E-commerce'=>'电商','Wholesalers'=>'批发商','What our clients say'=>'客户评价',
-			'Reliability'=>'可靠性','Innovation'=>'创新','Sustainability'=>'可持续发展','Customer-first'=>'客户至上','Follow on LinkedIn'=>'在 LinkedIn 关注','View LinkedIn'=>'查看 LinkedIn','Logistics'=>'物流'
+			'Reliability'=>'可靠性','Innovation'=>'创新','Sustainability'=>'可持续发展','Customer-first'=>'客户至上','Follow on LinkedIn'=>'在 LinkedIn 关注','View LinkedIn'=>'查看 LinkedIn','Logistics'=>'物流',
 			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "从坎帕拉通达全球——为您提供值得信赖的空运、海运、公路运输、清关和仓储服务。",
 			"We're more than a freight company — we're your dedicated partner in " => "我们不仅是一家货运公司，更是您在",
 			"supply-chain success" => "供应链成功",
@@ -160,7 +160,7 @@ function noki_ui_translations() {
 			'How quickly will I get a quote?'=>'Sous quel délai recevrai-je un devis ?','What affects the price of freight?'=>'Qu’est-ce qui influence le prix du fret ?','Do you offer discounts for regular shipments?'=>'Proposez-vous des remises pour les expéditions régulières ?','Are customs duties included?'=>'Les droits de douane sont-ils inclus ?',
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Dites-nous ce que vous expédiez et nous vous enverrons un prix clair et détaillé.',
 			'Importers'=>'Importateurs','Manufacturers'=>'Fabricants','Retailers'=>'Détaillants','NGOs & Aid'=>'ONG & aide','E-commerce'=>'E-commerce','Wholesalers'=>'Grossistes','What our clients say'=>'Ce que disent nos clients',
-			'Reliability'=>'Fiabilité','Innovation'=>'Innovation','Sustainability'=>'Durabilité','Customer-first'=>'Priorité au client','Follow on LinkedIn'=>'Suivre sur LinkedIn','View LinkedIn'=>'Voir LinkedIn','Logistics'=>'Logistique'
+			'Reliability'=>'Fiabilité','Innovation'=>'Innovation','Sustainability'=>'Durabilité','Customer-first'=>'Priorité au client','Follow on LinkedIn'=>'Suivre sur LinkedIn','View LinkedIn'=>'Voir LinkedIn','Logistics'=>'Logistique',
 			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "De Kampala au monde entier : fret aérien, maritime et routier, dédouanement et entreposage sur lesquels vous pouvez compter.",
 			"We're more than a freight company — we're your dedicated partner in " => "Nous sommes bien plus qu’une entreprise de transport de marchandises : nous sommes votre partenaire engagé dans",
 			"supply-chain success" => "la réussite de votre chaîne d’approvisionnement",
@@ -204,7 +204,7 @@ function noki_ui_translations() {
 			'How quickly will I get a quote?'=>'Wie schnell erhalte ich ein Angebot?','What affects the price of freight?'=>'Was beeinflusst den Frachtpreis?','Do you offer discounts for regular shipments?'=>'Gibt es Rabatte für regelmäßige Sendungen?','Are customs duties included?'=>'Sind Zölle enthalten?',
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Sagen Sie uns, was Sie versenden, und wir senden Ihnen einen klaren, detaillierten Preis.',
 			'Importers'=>'Importeure','Manufacturers'=>'Hersteller','Retailers'=>'Einzelhändler','NGOs & Aid'=>'NGOs & Hilfsorganisationen','E-commerce'=>'E-Commerce','Wholesalers'=>'Großhändler','What our clients say'=>'Was unsere Kunden sagen',
-			'Reliability'=>'Zuverlässigkeit','Innovation'=>'Innovation','Sustainability'=>'Nachhaltigkeit','Customer-first'=>'Kundenorientierung','Follow on LinkedIn'=>'Auf LinkedIn folgen','View LinkedIn'=>'LinkedIn ansehen','Logistics'=>'Logistik'
+			'Reliability'=>'Zuverlässigkeit','Innovation'=>'Innovation','Sustainability'=>'Nachhaltigkeit','Customer-first'=>'Kundenorientierung','Follow on LinkedIn'=>'Auf LinkedIn folgen','View LinkedIn'=>'LinkedIn ansehen','Logistics'=>'Logistik',
 			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Von Kampala in die Welt – Luft-, See- und Straßentransporte, Zollabfertigung und Lagerhaltung, auf die Sie sich verlassen können.",
 			"We're more than a freight company — we're your dedicated partner in " => "Wir sind mehr als ein Frachtunternehmen – wir sind Ihr engagierter Partner für",
 			"supply-chain success" => "den Erfolg Ihrer Lieferkette",
@@ -248,7 +248,7 @@ function noki_ui_translations() {
 			'How quickly will I get a quote?'=>'¿En cuánto tiempo recibiré una cotización?','What affects the price of freight?'=>'¿Qué afecta al precio del transporte?','Do you offer discounts for regular shipments?'=>'¿Ofrecen descuentos para envíos frecuentes?','Are customs duties included?'=>'¿Están incluidos los aranceles?',
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Díganos qué va a enviar y le enviaremos un precio claro y detallado.',
 			'Importers'=>'Importadores','Manufacturers'=>'Fabricantes','Retailers'=>'Minoristas','NGOs & Aid'=>'ONG y ayuda','E-commerce'=>'Comercio electrónico','Wholesalers'=>'Mayoristas','What our clients say'=>'Lo que dicen nuestros clientes',
-			'Reliability'=>'Fiabilidad','Innovation'=>'Innovación','Sustainability'=>'Sostenibilidad','Customer-first'=>'El cliente primero','Follow on LinkedIn'=>'Seguir en LinkedIn','View LinkedIn'=>'Ver LinkedIn','Logistics'=>'Logística'
+			'Reliability'=>'Fiabilidad','Innovation'=>'Innovación','Sustainability'=>'Sostenibilidad','Customer-first'=>'El cliente primero','Follow on LinkedIn'=>'Seguir en LinkedIn','View LinkedIn'=>'Ver LinkedIn','Logistics'=>'Logística',
 			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Desde Kampala hasta el mundo, puede confiar en nuestros servicios de transporte de carga por aire, mar y carretera, despacho aduanero y almacenamiento.",
 			"We're more than a freight company — we're your dedicated partner in " => "Somos más que una empresa de transporte de carga: somos su socio comprometido con",
 			"supply-chain success" => "el éxito de su cadena de suministro",
@@ -292,7 +292,7 @@ function noki_ui_translations() {
 			'How quickly will I get a quote?'=>'Jak szybko otrzymam wycenę?','What affects the price of freight?'=>'Co wpływa na cenę transportu?','Do you offer discounts for regular shipments?'=>'Czy oferujecie rabaty dla regularnych wysyłek?','Are customs duties included?'=>'Czy cło jest wliczone?',
 			"Tell us what you're shipping and we'll send a clear, itemised price."=>'Powiedz nam, co wysyłasz, a prześlemy jasną, szczegółową wycenę.',
 			'Importers'=>'Importerzy','Manufacturers'=>'Producenci','Retailers'=>'Detaliści','NGOs & Aid'=>'NGO i pomoc','E-commerce'=>'E-commerce','Wholesalers'=>'Hurtownicy','What our clients say'=>'Co mówią nasi klienci',
-			'Reliability'=>'Niezawodność','Innovation'=>'Innowacja','Sustainability'=>'Zrównoważony rozwój','Customer-first'=>'Klient na pierwszym miejscu','Follow on LinkedIn'=>'Obserwuj na LinkedIn','View LinkedIn'=>'Zobacz LinkedIn','Logistics'=>'Logistyka'
+			'Reliability'=>'Niezawodność','Innovation'=>'Innowacja','Sustainability'=>'Zrównoważony rozwój','Customer-first'=>'Klient na pierwszym miejscu','Follow on LinkedIn'=>'Obserwuj na LinkedIn','View LinkedIn'=>'Zobacz LinkedIn','Logistics'=>'Logistyka',
 			"From Kampala to the world — air, sea and road freight, customs clearance and warehousing you can rely on." => "Z Kampali na cały świat — transport lotniczy, morski i drogowy, odprawa celna oraz magazynowanie, na których możesz polegać.",
 			"We're more than a freight company — we're your dedicated partner in " => "Jesteśmy czymś więcej niż firmą spedycyjną — jesteśmy Twoim zaangażowanym partnerem w",
 			"supply-chain success" => "osiąganiu sukcesów w łańcuchu dostaw",
