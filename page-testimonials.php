@@ -10,7 +10,7 @@ $testimonials = noki_get_testimonials( -1 );
 	<div class="container">
 		<span class="kicker">Client stories</span>
 		<h1>What our clients say</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; Testimonials</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; Testimonials</p>
 	</div>
 </div>
 
@@ -83,7 +83,7 @@ $testimonials = noki_get_testimonials( -1 );
 		<div class="cta-band" data-aos="zoom">
 			<h2>Join hundreds of happy shippers</h2>
 			<p>Experience logistics you can actually rely on. Get your free quote today.</p>
-			<div class="cta-actions"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a></div>
+			<div class="cta-actions"><a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a></div>
 		</div>
 	</div>
 </section>
