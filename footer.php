@@ -37,13 +37,13 @@ $socials = [
 			<div class="footer-col">
 				<h4><?php esc_html_e( 'Company', 'noki-logistics' ); ?></h4>
 				<ul>
-					<li><a href="<?php echo esc_url( home_url( '/about' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'About Us', 'noki-logistics' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/why-choose-us' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Why Choose Us', 'noki-logistics' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/pricing' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Pricing', 'noki-logistics' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/join-us' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Careers', 'noki-logistics' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/faq' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'FAQ', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'About Us', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'why-choose-us' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Why Choose Us', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'pricing' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Pricing', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'join-us' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Careers', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'faq' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'FAQ', 'noki-logistics' ); ?></a></li>
 					<li><a href="<?php echo esc_url( get_post_type_archive_link( 'noki_news' ) ?: home_url( '/news' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'News & Events', 'noki-logistics' ); ?></a></li>
-					<li><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Contact', 'noki-logistics' ); ?></a></li>
+					<li><a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>"><i class="fas fa-angle-right"></i> <?php esc_html_e( 'Contact', 'noki-logistics' ); ?></a></li>
 				</ul>
 			</div>
 
