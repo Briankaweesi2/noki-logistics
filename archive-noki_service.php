@@ -32,12 +32,12 @@
 		else :
 			$tpl   = get_template_directory_uri();
 			$cards = [
-				[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-air.jpg' ],
-				[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-sea.jpg' ],
-				[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community at fair, transparent rates.',                     'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-road.jpg' ],
-				[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-customs.jpg' ],
-				[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-warehouse.jpg' ],
-				[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => home_url( '/contact' ), 'img' => $tpl . '/images/service-express.jpg' ],
+				[ 'icon' => 'fa-plane',     'title' => 'Air Freight',       'desc' => 'Time-critical cargo flown through Entebbe and major hubs worldwide with full tracking and customs handling.',        'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-air.jpg' ],
+				[ 'icon' => 'fa-ship',      'title' => 'Sea Freight',       'desc' => 'Cost-effective FCL and LCL ocean shipping via Mombasa and Dar es Salaam corridors to and from Uganda.',           'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-sea.jpg' ],
+				[ 'icon' => 'fa-truck',     'title' => 'Road Transport',    'desc' => 'Reliable cross-border trucking across the East African Community at fair, transparent rates.',                     'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-road.jpg' ],
+				[ 'icon' => 'fa-box-open',  'title' => 'Customs Brokerage', 'desc' => 'Licensed clearing and forwarding that moves your goods through URA and border posts without costly delays.',         'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-customs.jpg' ],
+				[ 'icon' => 'fa-warehouse', 'title' => 'Warehousing',       'desc' => 'Secure, organised storage and inventory management with distribution from our Kampala facilities.',                'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-warehouse.jpg' ],
+				[ 'icon' => 'fa-bolt',      'title' => 'Express Delivery',  'desc' => 'Same-day and next-day courier services across Kampala and nationwide for urgent documents and parcels.',            'link' => noki_page_url( 'contact' ), 'img' => $tpl . '/images/service-express.jpg' ],
 			];
 		endif;
 		?>
@@ -68,7 +68,7 @@
 			<h2>Not sure which service you need?</h2>
 			<p>Talk to our logistics experts — we'll recommend the best solution for your cargo and budget.</p>
 			<div class="cta-actions">
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-white btn-lg"><i class="fas fa-headset"></i> Speak to an Expert</a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-white btn-lg"><i class="fas fa-headset"></i> Speak to an Expert</a>
 			</div>
 		</div>
 	</div>

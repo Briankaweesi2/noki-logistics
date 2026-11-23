@@ -10,7 +10,7 @@ $tel      = preg_replace( '/\s+/', '', $phone );
 		<h1><?php the_title(); ?></h1>
 		<p class="breadcrumb">
 			<a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo;
-			<a href="<?php echo esc_url( home_url( '/services' ) ); ?>">Services</a> &rsaquo;
+			<a href="<?php echo esc_url( noki_lang_path_url( 'services' ) ); ?>">Services</a> &rsaquo;
 			<?php the_title(); ?>
 		</p>
 	</div>
@@ -43,7 +43,7 @@ $tel      = preg_replace( '/\s+/', '', $phone );
 					<h2 style="font-size:1.8rem;">Need this service?</h2>
 					<p>Get a free, detailed quote within 2 hours.</p>
 					<div class="cta-actions">
-						<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-white">Request a Quote <i class="fas fa-arrow-right"></i></a>
+						<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-white">Request a Quote <i class="fas fa-arrow-right"></i></a>
 					</div>
 				</div>
 			</main>
@@ -61,7 +61,7 @@ $tel      = preg_replace( '/\s+/', '', $phone );
 				<div class="sidebar-widget sidebar-cta">
 					<h4>Get a free quote</h4>
 					<p>Tell us about your shipment and we'll send a detailed quote within 2 hours.</p>
-					<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-white btn-sm" style="width:100%;margin-top:.5rem;">Request Quote</a>
+					<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-white btn-sm" style="width:100%;margin-top:.5rem;">Request Quote</a>
 				</div>
 				<div class="sidebar-widget">
 					<h4>Talk to us</h4>

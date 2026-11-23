@@ -10,7 +10,7 @@ $email = get_theme_mod( 'noki_email', 'info@nokilogistics.com' );
 	<div class="container">
 		<span class="kicker">Careers</span>
 		<h1>Build your future with Noki</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; Join Us</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; Join Us</p>
 	</div>
 </div>
 
@@ -79,7 +79,7 @@ $email = get_theme_mod( 'noki_email', 'info@nokilogistics.com' );
 			<p>Send your CV and a short note about why you'd like to work with Noki Logistics.</p>
 			<div class="cta-actions">
 				<a href="mailto:<?php echo esc_attr( $email ); ?>?subject=Career%20Application" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> Send Your CV</a>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)">Contact Us</a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)">Contact Us</a>
 			</div>
 		</div>
 	</div>

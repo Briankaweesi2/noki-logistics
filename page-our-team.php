@@ -9,7 +9,7 @@ get_header();
 	<div class="container">
 		<span class="kicker">The people</span>
 		<h1>Meet the Noki team</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; Our Team</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; Our Team</p>
 	</div>
 </div>
 
@@ -65,7 +65,7 @@ get_header();
 			</div>
 			<div data-aos="fade-left">
 				<p style="color:#a89f94">Whatever your cargo, you deal with real people who pick up the phone, answer your questions and treat your shipment as if it were their own. That accountability is the heart of how we work.</p>
-				<a href="<?php echo esc_url( home_url( '/join-us' ) ); ?>" class="btn btn-primary" style="margin-top:1.2rem">Join Our Team <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 'join-us' ) ); ?>" class="btn btn-primary" style="margin-top:1.2rem">Join Our Team <i class="fas fa-arrow-right"></i></a>
 			</div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@ get_header();
 		<div class="cta-band" data-aos="zoom">
 			<h2>Work with a team that delivers</h2>
 			<p>Get in touch and meet the people who'll move your cargo.</p>
-			<div class="cta-actions"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-lg">Contact Us <i class="fas fa-arrow-right"></i></a></div>
+			<div class="cta-actions"><a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Contact Us <i class="fas fa-arrow-right"></i></a></div>
 		</div>
 	</div>
 </section>

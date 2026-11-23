@@ -28,9 +28,9 @@ add_action( 'after_setup_theme', 'noki_setup' );
 =========================== */
 function noki_enqueue() {
 	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap', [], null );
-	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '3.0.1' );
+	wp_enqueue_style( 'noki-style', get_stylesheet_uri(), [ 'google-fonts' ], '3.0.2' );
 	wp_enqueue_style( 'noki-icons', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', [], '6.5.0' );
-	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '3.0.1', true );
+	wp_enqueue_script( 'noki-main', get_template_directory_uri() . '/js/main.js', [], '3.0.2', true );
 	wp_localize_script( 'noki-main', 'nokiData', [
 		'ajaxurl'  => admin_url( 'admin-ajax.php' ),
 		'nonce'    => wp_create_nonce( 'noki_nonce' ),
@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', 'noki_enqueue' );
    do not keep serving an older homepage after the theme has updated.
 =========================== */
 function noki_deployment_cache_bust() {
-	$version = '3.0.1';
+	$version = '3.0.2';
 	if ( get_option( 'noki_deployed_theme_version' ) === $version ) {
 		return;
 	}
@@ -1167,7 +1167,7 @@ add_action( 'noki_linkedin_daily_refresh', 'noki_run_linkedin_daily_refresh' );
    Flush rewrite rules once after multilingual pages/languages change.
 =========================== */
 function noki_multilingual_rewrite_refresh() {
-	$version = '3.0.1';
+	$version = '3.0.2';
 	if ( get_option( 'noki_multilingual_rewrite_version' ) === $version ) {
 		return;
 	}
@@ -1177,20 +1177,71 @@ function noki_multilingual_rewrite_refresh() {
 add_action( 'init', 'noki_multilingual_rewrite_refresh', 100 );
 
 /**
- * Return the translated permalink for a known English page.
- * Falls back to the English permalink when Polylang has no translation.
+ * Return a stable permalink for a core page, resolving by its canonical
+ * English slug rather than assuming that a WordPress page ID never changes.
+ *
+ * Numeric arguments remain supported for existing template calls. String
+ * arguments may be used for new calls, e.g. noki_page_url( 'about' ).
+ * If Polylang is active, use the translated page when one exists; otherwise
+ * retain the canonical English page URL.
+ *
+ * If the canonical page is missing, return its canonical path rather than
+ * silently sending visitors to the homepage. That makes missing content
+ * visible for administrators to repair instead of hiding broken navigation.
+ *
+ * @param int|string $page Page ID (legacy) or canonical English page slug.
+ * @return string
  */
-function noki_page_url( $english_page_id ) {
-	$page_id = (int) $english_page_id;
-	if ( function_exists( 'pll_get_post' ) ) {
+function noki_page_url( $page ) {
+	$core_pages = [
+		9  => 'about',
+		10 => 'contact',
+		20 => 'why-choose-us',
+		21 => 'our-team',
+		22 => 'join-us',
+		23 => 'pricing',
+		24 => 'testimonials',
+		25 => 'faq',
+		26 => 'blog',
+	];
+
+	$slug = is_numeric( $page )
+		? ( $core_pages[ (int) $page ] ?? '' )
+		: sanitize_title( (string) $page );
+
+	$page_id = 0;
+	if ( $slug ) {
+		$source_page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( $source_page && 'publish' === $source_page->post_status ) {
+			$page_id = (int) $source_page->ID;
+		}
+	}
+
+	// Preserve compatibility for any legacy page ID not in the core map,
+	// but never resolve a trashed, draft, or non-page post as a menu target.
+	if ( ! $page_id && is_numeric( $page ) && ! isset( $core_pages[ (int) $page ] ) ) {
+		$legacy_page = get_post( (int) $page );
+		if ( $legacy_page && 'page' === $legacy_page->post_type && 'publish' === $legacy_page->post_status ) {
+			$page_id = (int) $legacy_page->ID;
+		}
+	}
+
+	if ( $page_id && function_exists( 'pll_get_post' ) ) {
 		$lang = noki_current_language_slug();
 		$translated = pll_get_post( $page_id, $lang );
 		if ( $translated ) {
 			$page_id = (int) $translated;
 		}
 	}
-	$url = get_permalink( $page_id );
-	return $url ?: home_url( '/' );
+
+	if ( $page_id ) {
+		$url = get_permalink( $page_id );
+		if ( $url ) {
+			return $url;
+		}
+	}
+
+	return $slug ? home_url( '/' . $slug . '/' ) : home_url( '/' );
 }
 
 

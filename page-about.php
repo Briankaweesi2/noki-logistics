@@ -39,7 +39,7 @@ $tpl = get_template_directory_uri();
 					<li><i class="fas fa-check"></i><div><strong>Regional network</strong><span>Trusted partners across Kenya, Tanzania, Rwanda, DRC &amp; South Sudan.</span></div></li>
 					<li><i class="fas fa-check"></i><div><strong>End-to-end handling</strong><span>Pickup, documentation, clearance, tracking and delivery.</span></div></li>
 				</ul>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary">Work With Us <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary">Work With Us <i class="fas fa-arrow-right"></i></a>
 			</div>
 		</div>
 	</div>
@@ -110,7 +110,7 @@ $tpl = get_template_directory_uri();
 			<h2>Let's move your business forward</h2>
 			<p>Get in touch today for a free logistics consultation and quote.</p>
 			<div class="cta-actions">
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-white btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-white btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
 				<a href="<?php echo esc_url( home_url( '/services' ) ); ?>" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)">View Services</a>
 			</div>
 		</div>
