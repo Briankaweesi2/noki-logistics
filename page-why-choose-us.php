@@ -10,7 +10,7 @@ $tpl = get_template_directory_uri();
 	<div class="container">
 		<span class="kicker">Why Noki</span>
 		<h1>Why businesses choose Noki</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; Why Choose Us</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; Why Choose Us</p>
 	</div>
 </div>
 
@@ -59,7 +59,7 @@ $tpl = get_template_directory_uri();
 					<li><i class="fas fa-check"></i><div><strong>3. We handle the logistics</strong><span>Pickup, documentation, customs and transport — all managed.</span></div></li>
 					<li><i class="fas fa-check"></i><div><strong>4. Track to the doorstep</strong><span>Live updates until your goods are safely delivered.</span></div></li>
 				</ul>
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary">Start a Shipment <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary">Start a Shipment <i class="fas fa-arrow-right"></i></a>
 			</div>
 			<div class="split-img" data-aos="fade-left">
 				<?php if ( file_exists( get_template_directory() . '/images/why-choose.jpg' ) ) : ?>
@@ -78,7 +78,7 @@ $tpl = get_template_directory_uri();
 			<span class="kicker center">Ready when you are</span>
 			<h2>See the difference for yourself</h2>
 			<p>Get a free quote and experience logistics done right.</p>
-			<div class="cta-actions"><a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a></div>
+			<div class="cta-actions"><a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Get a Free Quote <i class="fas fa-arrow-right"></i></a></div>
 		</div>
 	</div>
 </section>
