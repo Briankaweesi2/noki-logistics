@@ -11,7 +11,7 @@ $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+2567
 	<div class="container">
 		<span class="kicker">Help centre</span>
 		<h1>Frequently asked questions</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; FAQ</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; FAQ</p>
 	</div>
 </div>
 
