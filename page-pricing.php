@@ -10,7 +10,7 @@ $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+2567
 	<div class="container">
 		<span class="kicker">Pricing</span>
 		<h1>Clear, fair pricing</h1>
-		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( home_url( '/about' ) ); ?>">About</a> &rsaquo; Pricing</p>
+		<p class="breadcrumb"><a href="<?php echo esc_url( home_url() ); ?>">Home</a> &rsaquo; <a href="<?php echo esc_url( noki_page_url( 'about' ) ); ?>">About</a> &rsaquo; Pricing</p>
 	</div>
 </div>
 
@@ -56,7 +56,7 @@ $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+2567
 							<li><i class="fas fa-check"></i> <?php echo esc_html( $f ); ?></li>
 						<?php endforeach; ?>
 					</ul>
-					<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn <?php echo esc_attr( $btn_class ); ?>" style="width:100%"><?php echo esc_html( $t['button'] ); ?></a>
+					<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn <?php echo esc_attr( $btn_class ); ?>" style="width:100%"><?php echo esc_html( $t['button'] ); ?></a>
 				</div>
 			<?php endforeach; ?>
 		</div>
@@ -101,7 +101,7 @@ $whatsapp = preg_replace( '/[^0-9]/', '', get_theme_mod( 'noki_whatsapp', '+2567
 			<h2>Get your custom quote</h2>
 			<p>Tell us what you're shipping and we'll send a clear, itemised price.</p>
 			<div class="cta-actions">
-				<a href="<?php echo esc_url( home_url( '/contact' ) ); ?>" class="btn btn-primary btn-lg">Request a Quote <i class="fas fa-arrow-right"></i></a>
+				<a href="<?php echo esc_url( noki_page_url( 'contact' ) ); ?>" class="btn btn-primary btn-lg">Request a Quote <i class="fas fa-arrow-right"></i></a>
 				<a href="https://wa.me/<?php echo esc_attr( $whatsapp ); ?>" target="_blank" rel="noopener" class="btn btn-ghost btn-lg" style="color:#fff;border-color:rgba(255,255,255,.4)"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
 			</div>
 		</div>
